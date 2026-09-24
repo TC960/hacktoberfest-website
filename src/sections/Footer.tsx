@@ -24,6 +24,7 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
       ["Register", EVENT.registerUrl],
       ["Become a sponsor", CONTACT_MAILTO],
       ["Hacktoberfest.com", EVENT.hacktoberfestUrl],
+      ["DS3 website", EVENT.hostUrl],
     ],
   },
   {
@@ -76,8 +77,8 @@ export default function Footer() {
             <div className="pop-foot-col pop-foot-col--org">
               <h3>Brought to you by</h3>
               <p>
-                {HOST_CAP}, in partnership with {EVENT.partner} and Major League Hacking, as an
-                official Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
+                {HOST_CAP} ({EVENT.hostOrg}), in partnership with Major League Hacking, as
+                an official Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
                 with DigitalOcean.
               </p>
               {EVENT.contactEmails.map((e) => (
@@ -100,8 +101,8 @@ export default function Footer() {
             <a style={fineLink} href={INCIDENT_TEL}>{EVENT.incidentPhone}</a>. Anonymous reports are accepted.
           </p>
           <p>
-            Schedule, tracks and partner prizes are provisional and subject to change. Hacktoberfest is open to ages 13+; under 18?
-            You'll need a parent or guardian's permission, including for prizes and photos. We take
+            Schedule and tracks are provisional and subject to change. This Fest is open to
+            UC San Diego students aged 18 and older. We take
             photos on the day and share them with MLH; tell an organiser if you'd rather not be in
             them.
           </p>

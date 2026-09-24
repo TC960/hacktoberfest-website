@@ -1,7 +1,8 @@
-# Hacktoberfest 2026 × SpaceXAI
+# Hacktoberfest 2026 × DS3
 
-Event site for an official **Hacktoberfest 2026 Fest** (Hack Day format), presented by SpaceXAI and
-Major League Hacking.
+Event site for an official **Hacktoberfest 2026 Fest** (Hack Day format), brought to you by the
+Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
+Open to UC San Diego students, 18+.
 
 - **When:** Monday, October 19, 2026 · time TBD
 - **Where:** Price Center West Ballroom, UC San Diego
@@ -43,7 +44,6 @@ Before launch:
 - [ ] `time`: set the start/end time (it shows "TBD" everywhere until then)
 - [ ] `contactEmail`: add the organizers' inbox (the sponsor link stays hidden until it's set)
 - [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
-- [ ] SpaceXAI challenge and prize copy in `src/sections/Tracks.tsx` / `src/sections/Prizes.tsx`
 - [ ] Supporter names in `src/sections/Sponsors.tsx`
 
 ## Mascot

@@ -7,22 +7,26 @@ export const EVENT = {
   /** Who puts the event on. */
   host: "DS3 Hackathons",
   hostLong: "the Hackathons team at DS3",
-  /** Partner brought in for this Fest (plus MLH, via Hacktoberfest). */
-  partner: "SpaceXAI",
+  /** Organisation name exactly as approved on OrganizerHQ. */
+  hostOrg: "Data Science Students Society @ UCSD",
+  hostUrl: "https://ds3atucsd.com",
   format: "Hack Day",
 
   dateLong: "Monday, October 19, 2026",
   dateShort: "Oct 19",
-  /** Replace with e.g. "10:00 AM – 4:00 PM" once confirmed. */
+  /** Placeholder until the real time is set. Replace with e.g. "1:00 PM – 7:00 PM PT". */
   time: "TBD",
+  /** UC San Diego students only; minors (13–17) not admitted (OrganizerHQ). */
+  eligibility: "UC San Diego students, 18+",
 
   venue: "Price Center West Ballroom",
   campus: "UC San Diego",
+  venueInfoUrl: "https://uctech.ucsd.edu/campus/venue.html",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Price+Center+West+Ballroom+UC+San+Diego",
 
   /**
    * Registration and check-in happen on MLH's OrganizerHQ, which Hacktoberfest requires.
-   * TODO: swap in this event's OrganizerHQ page once MLH approves the Fest.
+   * TODO: swap in this event's OrganizerHQ page once the event is published.
    */
   registerUrl: "https://hacktoberfest.com/events/",
 

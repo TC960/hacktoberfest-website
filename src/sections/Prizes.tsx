@@ -1,31 +1,8 @@
-import { C } from "../art/iso";
-import { Person, Trophy } from "../art/Props";
-import { EVENT } from "../event";
+import { Trophy } from "../art/Props";
+import { TRACKS } from "./Tracks";
 import { Rise } from "../motion";
 
-const STEPS = [
-  {
-    title: "Partner category",
-    detail: "If MLH assigns one to this Fest",
-    mod: "pop-step--3",
-    shirt: C.pink,
-    tag: "TBA",
-  },
-  {
-    title: `${EVENT.partner} challenge`,
-    detail: `Local, not MLH-run · prize from ${EVENT.partner}`,
-    mod: "pop-step--2",
-    shirt: C.teal,
-    tag: "TBA",
-  },
-  {
-    title: "Best Open-Source AI Project",
-    detail: "A DEV Badge for every teammate",
-    mod: "pop-step--1",
-    shirt: C.cream,
-    tag: "Confirmed",
-  },
-];
+const COLOURS = ["pop-step--cream", "pop-step--teal", "pop-step--pink", "pop-step--orange"];
 
 const EXTRAS = ["Stickers", "Postcards"];
 
@@ -44,28 +21,22 @@ export default function Prizes() {
           </div>
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
-              One team takes Best Open-Source AI Project, and every member gets a DEV Badge.
-              {" "}{EVENT.partner}'s local challenge prize is TBA. Winners are judged on what you
-              build, not pull-request counts.
+              Four tracks, four winning teams. Every member of each winning team gets a DEV Badge
+              on their DEV profile. Winners are judged on what you build, not pull-request counts.
             </p>
           </Rise>
         </div>
 
         <Rise i={3}>
-          <div className="pop-ladder">
-            {STEPS.map((s) => (
-              <div className={"pop-step " + s.mod} key={s.title}>
+          <div className="pop-ladder pop-ladder--four">
+            {TRACKS.map((t, i) => (
+              <div className={"pop-step pop-step--even " + COLOURS[i]} key={t.title}>
                 <span className="pop-step-fig">
-                  {s.mod === "pop-step--1" ? (
-                    <Trophy className="pop-step-trophy" />
-                  ) : (
-                    <Person shirt={s.shirt} variant={s.mod === "pop-step--2" ? 1 : 2} />
-                  )}
+                  <Trophy className="pop-step-trophy" />
                 </span>
                 <div className="pop-step-body">
-                  <span className="pop-step-place pop-step-place--sm">{s.title}</span>
-                  <span className="pop-step-amt">{s.detail}</span>
-                  <span className="pop-step-tbd">{s.tag}</span>
+                  <span className="pop-step-place pop-step-place--sm">{t.title}</span>
+                  <span className="pop-step-amt">DEV Badge for every teammate</span>
                 </div>
               </div>
             ))}

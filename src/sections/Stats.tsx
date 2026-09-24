@@ -6,7 +6,7 @@ const STATS: Array<{ n: string; label: string }> = [
   { n: "300+", label: "events worldwide" },
   { n: "1", label: "day, in person" },
   { n: "$0", label: "to attend" },
-  { n: "13+", label: "ages welcome" },
+  { n: "18+", label: "UCSD students only" },
 ];
 
 const CROWD: Array<{ left: string; shirt: Shade; variant: 0 | 1 | 2 }> = [

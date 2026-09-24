@@ -7,6 +7,7 @@ const META: Array<[string, string]> = [
   ["Date", EVENT.dateLong],
   ["Time", EVENT.time],
   ["Venue", `${EVENT.venue}, ${EVENT.campus}`],
+  ["Who", EVENT.eligibility],
   ["Cost", "Free"],
   ["Level", "All of them, including none"],
 ];
@@ -35,8 +36,8 @@ export default function About() {
           </Rise>
           <Rise i={3}>
             <p className="pop-body">
-              This Fest is a Hack Day brought to you by {EVENT.hostLong}, in partnership with{" "}
-              {EVENT.partner} and MLH: show up, form a team, ship an open-source AI project, and demo it before
+              This Fest is a Hack Day brought to you by {EVENT.hostLong}, in partnership with
+              MLH: show up, form a team, ship an open-source AI project, and demo it before
               the day is out. Come solo or bring friends.
             </p>
           </Rise>

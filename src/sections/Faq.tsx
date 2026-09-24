@@ -17,9 +17,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Who can come?",
     <>
-      Anyone aged 13 or older, at any skill level. First hackathon? You're exactly who this is
-      for. Under 18? Check the registration page first: you'll need a parent or
-      guardian's permission, including to win prizes and to be photographed.
+      UC San Diego students aged 18 or older, at any skill level. Bring your student ID to
+      check in. First hackathon? You're exactly who this is for.
     </>,
   ],
   [
@@ -44,8 +43,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Who runs the day?",
     <>
-      {HOST_CAP} (Data Science Student Society at UC San Diego), in partnership with{" "}
-      {EVENT.partner} and Major League Hacking. On the day, find a DS3 organiser at check-in.
+      {HOST_CAP} (<ExtLink href={EVENT.hostUrl}>{EVENT.hostOrg}</ExtLink>), in partnership
+      with Major League Hacking. On the day, find a DS3 organiser at check-in.
     </>,
   ],
   [
@@ -84,8 +83,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Is the venue accessible? Need an accommodation?",
     <>
-      Accessibility details for the {EVENT.venue} will be posted here and on the OrganizerHQ
-      page. To request an accommodation, email{" "}
+      UC San Diego's <ExtLink href={EVENT.venueInfoUrl}>venue instructions</ExtLink> cover
+      getting to and around the {EVENT.venue}. To request an accommodation, email{" "}
       <ContactEmails /> before the event, or tell an
       organiser at check-in.
     </>,
