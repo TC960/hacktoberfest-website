@@ -1,0 +1,33 @@
+name: Pages custom domain
+
+# Run by hand: checks DNS for the custom domain and points GitHub Pages at it.
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: Custom domain for the site
+        default: hacktoberfest.ds3atucsd.com
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  domain:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      DOMAIN: ${{ inputs.domain }}
+    steps:
+      - name: DNS check
+        run: |
+          apex="${DOMAIN#*.}"
+          echo "== $DOMAIN CNAME"; dig +short CNAME "$DOMAIN" || true
+          echo "== $DOMAIN A";     dig +short A "$DOMAIN" || true
+          echo "== $apex NS";      dig +short NS "$apex" || true
+      - name: Current Pages config
+        run: gh api "repos/${{ github.repository }}/pages" || true
+      - name: Set custom domain
+        run: |
+          gh api -X PUT "repos/${{ github.repository }}/pages" -f cname="$DOMAIN"
+          gh api "repos/${{ github.repository }}/pages" --jq '{cname, status, html_url, https_enforced}'
