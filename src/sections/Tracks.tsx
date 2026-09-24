@@ -3,34 +3,35 @@ import { EVENT } from "../event";
 import { Rise } from "../motion";
 import ExtLink from "./ExtLink";
 
-const TRACKS = [
+// The four DEV Badge tracks approved on OrganizerHQ.
+export const TRACKS = [
   {
-    title: "Agent skills",
+    title: "Best Agent Skill",
     big: "skill",
     tile: "pop-tile--marigold",
     Icon: IconBot,
     note: "Package reusable instructions and files an agent can pick up, following the Agent Skills open standard.",
   },
   {
-    title: "Open-weight models",
-    big: "LLM/SLM",
+    title: "Best Use of an Open-Weight LLM",
+    big: "LLM",
     tile: "pop-tile--teal",
     Icon: IconNet,
-    note: "Build on a model whose weights you can download and run. Small is 10B parameters or fewer; large is anything above.",
+    note: "Build on a large open-weight language model, over 10B parameters, whose weights you can download and run.",
   },
   {
-    title: "Model harnesses",
+    title: "Best Use of an Open-Weight SLM",
+    big: "SLM",
+    tile: "pop-tile--pink",
+    Icon: IconRocket,
+    note: "Go small: build on an open-weight model with 10B parameters or fewer.",
+  },
+  {
+    title: "Best Use of an Open-Source Model Harness",
     big: "harness",
     tile: "pop-tile--orange",
     Icon: IconStack,
     note: "Write the software around a model (prompts, tools, memory, actions) from scratch, or meaningfully improve an open-source one.",
-  },
-  {
-    title: `${EVENT.partner} challenge`,
-    big: "TBD",
-    tile: "pop-tile--pink",
-    Icon: IconRocket,
-    note: "A separate local challenge from our presenting partner, not run by MLH. Prompt, prize and judging criteria announced closer to the day.",
   },
 ];
 
@@ -43,16 +44,14 @@ export default function Tracks() {
             <p className="pop-eyebrow">The challenge</p>
           </Rise>
           <Rise i={1}>
-            <h2 className="pop-h2">open-source AI, three ways in. plus one from {EVENT.partner.toLowerCase()}.</h2>
+            <h2 className="pop-h2">four tracks. build with open-source AI.</h2>
           </Rise>
           <Rise i={2}>
             <p className="pop-note pop-tracks-note">
-              Every project can enter Hacktoberfest's Best Open-Source AI Project challenge: tick it
-              when you submit. The first three cards are ways in to that one challenge, not separate
-              prizes; mix them however you like. Open-source or open-weight AI has to do real work
-              in your project, and the code goes in a public GitHub repo under an{" "}
-              <ExtLink href={EVENT.osiLicensesUrl}>open-source licence</ExtLink>. The{" "}
-              {EVENT.partner} challenge is a separate local challenge.
+              Each track has its own winner, and every member of each winning team gets a DEV
+              Badge. Enter every track your project fits when you submit. Open-source or
+              open-weight AI has to do real work in your project, and the code goes in a public
+              GitHub repo under an <ExtLink href={EVENT.osiLicensesUrl}>open-source licence</ExtLink>.
             </p>
           </Rise>
         </div>

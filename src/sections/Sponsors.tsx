@@ -12,8 +12,8 @@ const TIERS: Array<{ tier: string; note: string; names: string[]; mod: string }>
   },
   {
     tier: "In partnership with",
-    note: "Partners",
-    names: [EVENT.partner, "Major League Hacking"],
+    note: "Partner",
+    names: ["Major League Hacking"],
     mod: "pop-slot--lg",
   },
   {
@@ -45,7 +45,7 @@ export default function Sponsors() {
             <Rise i={2}>
               <p className="pop-body pop-spon-lead">
                 {HOST_CAP} brings Hacktoberfest to the Price Center West Ballroom, in
-                partnership with {EVENT.partner} and Major League Hacking. The supporter frames
+                partnership with Major League Hacking. The supporter frames
                 below are still open.
               </p>
             </Rise>

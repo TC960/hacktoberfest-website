@@ -7,7 +7,7 @@ type Row = { time: string; title: string; note?: string };
 // Offsets from kickoff (T+0:00). Swap for clock times once the start time is set.
 const DAY: Row[] = [
   { time: "T−0:30", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
-  { time: "T+0:00", title: "Opening ceremony", note: "Code of conduct, challenges, how submissions work" },
+  { time: "T+0:00", title: "Opening ceremony", note: "Code of conduct, tracks, how submissions work" },
   { time: "T+0:20", title: "Team formation", note: "Come solo, leave with a team" },
   { time: "T+0:30", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
   { time: "T+2:30", title: "Break + workshops", note: "Food details and lineup TBA" },
@@ -19,7 +19,7 @@ const DAY: Row[] = [
 const PREP: Row[] = [
   { time: "01", title: "Register on OrganizerHQ", note: "You need it to check in and to submit" },
   { time: "02", title: "Set up GitHub and DEV", note: "Projects go in a public repo; badges go to your dev.to account" },
-  { time: "03", title: "Skim the challenge", note: "Agent skills, open-weight models, harnesses" },
+  { time: "03", title: "Skim the tracks", note: "Agent skill, open-weight LLM or SLM, model harness" },
   { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
 ];
 
