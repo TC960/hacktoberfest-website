@@ -37,14 +37,11 @@ dependencies), because `npm ci` refuses to install from a stale lockfile.
 
 ### Custom domain
 
-The site lives at **https://hacktoberfest.ds3atucsd.com/**:
-
-- DNS (on ds3atucsd.com): `CNAME` record `hacktoberfest` → `tc960.github.io`
-- Repo **Settings → Pages → Custom domain**: `hacktoberfest.ds3atucsd.com`, with **Enforce HTTPS** on
-
-With Actions-based deploys the domain is set in Settings, not by a `CNAME` file. `index.html`
-uses this domain for `og:url`, `canonical` and the share image, so change it there too if the
-domain ever moves.
+The site is served at **https://mohakprakash.com/hacktoberfest-website/** (the repo owner's
+GitHub Pages domain). To move it to a subdomain such as `hacktoberfest.ds3atucsd.com`, the
+domain's DNS owner must first add a `CNAME` record `hacktoberfest` → `tc960.github.io`; only then
+set it in **Settings → Pages → Custom domain**, and update `og:url`, `canonical` and the share-image
+URLs in `index.html`. Setting the custom domain before the DNS record exists takes the site down.
 
 ## Editing event details
 
