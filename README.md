@@ -46,6 +46,12 @@ Before launch:
 - [ ] SpaceXAI challenge and prize copy in `src/sections/Tracks.tsx` / `src/sections/Prizes.tsx`
 - [ ] Supporter names in `src/sections/Sponsors.tsx`
 
+## Mascot
+
+The bobbing dino in the hero is `public/mascot.png` (DS3's mascot, transparent PNG, about
+486×576). To swap in new art, replace that file with another transparent PNG of a similar
+shape; size and animation are set in `src/pop.css` under `.pop-mascot`.
+
 ## Sections
 
 Top bar · Hero · Marquee · About · Stats · Challenge tracks · Prizes · Schedule ·

@@ -250,6 +250,24 @@
    ========================================================================== */
 .pop-root .pop-hero {
   padding-block: clamp(3rem, 6vw, 5.5rem) clamp(3.5rem, 7vw, 6.5rem);
+  overflow: hidden;
+}
+
+/* DS3 mascot — floats in the hero's empty top-right corner and bobs */
+.pop-root .pop-mascot {
+  position: absolute;
+  z-index: 2;
+  top: clamp(5.5rem, 8vw, 6.5rem);
+  right: max(var(--gutter), calc((100% - var(--maxw)) / 2 + var(--gutter)));
+  width: clamp(130px, 14vw, 215px);
+  height: auto;
+  transform-origin: 50% 90%;
+  animation: pop-bob 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes pop-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
 }
 .pop-root .pop-hero-type {
   font-family: "Archivo", "Archivo Black", sans-serif;
@@ -1244,6 +1262,13 @@
 }
 
 @media (max-width: 860px) {
+  /* phones/tablets: the wordmark fills the top, so perch beside the rocket instead */
+  .pop-root .pop-mascot {
+    top: auto;
+    bottom: clamp(15rem, 62vw, 26rem);
+    right: var(--gutter);
+    width: clamp(88px, 24vw, 150px);
+  }
   .pop-root .pop-bar-nav {
     display: none;
   }
@@ -1382,6 +1407,9 @@
    REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  .pop-root .pop-mascot {
+    animation: none;
+  }
   .pop-root .pop-marquee-track {
     animation: none;
     transform: none;

@@ -53,6 +53,15 @@ export default function Hero() {
           </Drift>
         </div>
       </div>
+
+      {/* DS3's dino. Swap public/mascot.png for new art; keep it a transparent PNG. */}
+      <img
+        className="pop-mascot"
+        src="./mascot.png"
+        width={486}
+        height={576}
+        alt="DS3's orange dinosaur mascot in a witch hat, hugging a DS3 pumpkin"
+      />
     </section>
   );
 }
