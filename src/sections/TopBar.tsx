@@ -1,0 +1,34 @@
+import React from "react";
+import { EVENT } from "../event";
+
+const LINKS = [
+  ["about", "#about"],
+  ["tracks", "#tracks"],
+  ["prizes", "#prizes"],
+  ["schedule", "#schedule"],
+  ["venue", "#register"],
+  ["sponsors", "#sponsors"],
+  ["faq", "#faq"],
+];
+
+export default function TopBar() {
+  return (
+    <header className="pop-bar">
+      <div className="pop-bar-in">
+        <a className="pop-bar-mark" href="#top">
+          HACKTOBERFEST <span>× {EVENT.presenter.toUpperCase()}</span>
+        </a>
+        <nav className="pop-bar-nav" aria-label="Sections">
+          {LINKS.map(([label, href]) => (
+            <a key={label} href={href}>
+              {label}
+            </a>
+          ))}
+        </nav>
+        <a className="pop-bar-cta" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
+          Register
+        </a>
+      </div>
+    </header>
+  );
+}
