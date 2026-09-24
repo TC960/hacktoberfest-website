@@ -26,7 +26,7 @@ const TRACKS = [
     note: "Write the software around a model (prompts, tools, memory, actions) from scratch, or meaningfully improve an open-source one.",
   },
   {
-    title: `${EVENT.presenter} challenge`,
+    title: `${EVENT.partner} challenge`,
     big: "TBD",
     tile: "pop-tile--pink",
     Icon: IconRocket,
@@ -43,7 +43,7 @@ export default function Tracks() {
             <p className="pop-eyebrow">The challenge</p>
           </Rise>
           <Rise i={1}>
-            <h2 className="pop-h2">open-source AI, three ways in. plus one from {EVENT.presenter.toLowerCase()}.</h2>
+            <h2 className="pop-h2">open-source AI, three ways in. plus one from {EVENT.partner.toLowerCase()}.</h2>
           </Rise>
           <Rise i={2}>
             <p className="pop-note pop-tracks-note">
@@ -52,7 +52,7 @@ export default function Tracks() {
               prizes; mix them however you like. Open-source or open-weight AI has to do real work
               in your project, and the code goes in a public GitHub repo under an{" "}
               <ExtLink href={EVENT.osiLicensesUrl}>open-source licence</ExtLink>. The{" "}
-              {EVENT.presenter} challenge is a separate local challenge.
+              {EVENT.partner} challenge is a separate local challenge.
             </p>
           </Rise>
         </div>

@@ -4,7 +4,11 @@
  */
 
 export const EVENT = {
-  presenter: "SpaceXAI",
+  /** Who puts the event on. */
+  host: "DS3 Hackathons",
+  hostLong: "the Hackathons team at DS3",
+  /** Partner brought in for this Fest (plus MLH, via Hacktoberfest). */
+  partner: "SpaceXAI",
   format: "Hack Day",
 
   dateLong: "Monday, October 19, 2026",
@@ -22,18 +26,10 @@ export const EVENT = {
    */
   registerUrl: "https://hacktoberfest.com/events/",
 
-  /**
-   * TODO: the local organizing team's inbox. While empty, the sponsor link is hidden
-   * and general questions point at MLH's Hacktoberfest inbox instead.
-   */
-  contactEmail: "",
+  /** Organiser inboxes; the backup is DS3's shared inbox. */
+  contactEmails: ["mprakash@ucsd.edu", "tchhabra@ucsd.edu"],
+  backupEmail: "info@ds3.club",
   hacktoberfestEmail: "hacktoberfest@mlh.io",
-
-  /**
-   * TODO: the local organising team's name (e.g. a UCSD club). Fests are run on site by
-   * local hosts, not MLH staff; while empty the site says "the local organising team".
-   */
-  organiser: "",
 
   /** MLH Code of Conduct incident line for North America (pol/code-of-conduct.md). */
   incidentEmail: "incidents@mlh.io",
@@ -46,6 +42,9 @@ export const EVENT = {
   osiLicensesUrl: "https://opensource.org/licenses",
 };
 
-export const QUESTIONS_EMAIL = EVENT.contactEmail || EVENT.hacktoberfestEmail;
-export const ORGANISER = EVENT.organiser || "the local organising team";
+/** hostLong at the start of a sentence. */
+export const HOST_CAP = EVENT.hostLong[0].toUpperCase() + EVENT.hostLong.slice(1);
+
+/** One mailto that reaches both organisers and CCs the DS3 inbox. */
+export const CONTACT_MAILTO = `mailto:${EVENT.contactEmails.join(",")}?cc=${EVENT.backupEmail}`;
 export const INCIDENT_TEL = `tel:${EVENT.incidentPhone.replace(/[^+\d]/g, "")}`;

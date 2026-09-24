@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IconToggle } from "../art/Icons";
-import { EVENT, INCIDENT_TEL, ORGANISER, QUESTIONS_EMAIL } from "../event";
+import { EVENT, HOST_CAP, INCIDENT_TEL } from "../event";
+import ContactEmails from "./Contact";
 import { Rise } from "../motion";
 import ExtLink, { NewTab } from "./ExtLink";
 
@@ -43,8 +44,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Who runs the day?",
     <>
-      {EVENT.presenter} and Major League Hacking present it; {ORGANISER} runs it on site. MLH
-      staff may not be on site, so for anything on the day, find an organiser at check-in.
+      {HOST_CAP} (Data Science Student Society at UC San Diego), in partnership with{" "}
+      {EVENT.partner} and Major League Hacking. On the day, find a DS3 organiser at check-in.
     </>,
   ],
   [
@@ -77,7 +78,7 @@ const QA: Array<[string, React.ReactNode]> = [
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
       registered with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
       water bottle too. Food details are TBA; dietary needs? Email{" "}
-      <a href={`mailto:${QUESTIONS_EMAIL}`}>{QUESTIONS_EMAIL}</a>.
+      <ContactEmails />.
     </>,
   ],
   [
@@ -85,7 +86,7 @@ const QA: Array<[string, React.ReactNode]> = [
     <>
       Accessibility details for the {EVENT.venue} will be posted here and on the OrganizerHQ
       page. To request an accommodation, email{" "}
-      <a href={`mailto:${QUESTIONS_EMAIL}`}>{QUESTIONS_EMAIL}</a> before the event, or tell an
+      <ContactEmails /> before the event, or tell an
       organiser at check-in.
     </>,
   ],
@@ -131,7 +132,7 @@ export default function Faq() {
           <Rise i={2}>
             <p className="pop-note">
               Anything still unanswered goes to{" "}
-              <a href={`mailto:${QUESTIONS_EMAIL}`}>{QUESTIONS_EMAIL}</a>.
+              <ContactEmails />.
             </p>
           </Rise>
           <Rise i={3}>

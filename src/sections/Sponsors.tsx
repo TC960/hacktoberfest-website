@@ -1,18 +1,21 @@
 import { IconDiamond } from "../art/Icons";
 import { CubeStack } from "../art/Props";
-import { EVENT, ORGANISER } from "../event";
+import { CONTACT_MAILTO, EVENT, HOST_CAP } from "../event";
 import { Drift, Rise } from "../motion";
 
 const TIERS: Array<{ tier: string; note: string; names: string[]; mod: string }> = [
   {
-    tier: "Presented by",
-    note: "Presenting partners",
-    names: [EVENT.presenter, "Major League Hacking"],
+    tier: "Brought to you by",
+    note: "Runs the day",
+    names: [EVENT.host],
     mod: "pop-slot--xl",
   },
-  ...(EVENT.organiser
-    ? [{ tier: "On site", note: "Runs the day", names: [EVENT.organiser], mod: "pop-slot--lg" }]
-    : []),
+  {
+    tier: "In partnership with",
+    note: "Partners",
+    names: [EVENT.partner, "Major League Hacking"],
+    mod: "pop-slot--lg",
+  },
   {
     tier: "Hacktoberfest",
     note: "Runs the programme",
@@ -41,19 +44,16 @@ export default function Sponsors() {
             </Rise>
             <Rise i={2}>
               <p className="pop-body pop-spon-lead">
-                {EVENT.presenter} and Major League Hacking bring Hacktoberfest to the Price Center
-                West Ballroom; {ORGANISER} runs the day on site. The supporter frames below are
-                still open.
+                {HOST_CAP} brings Hacktoberfest to the Price Center West Ballroom, in
+                partnership with {EVENT.partner} and Major League Hacking. The supporter frames
+                below are still open.
               </p>
             </Rise>
-            {EVENT.contactEmail && (
-              <Rise i={3}>
-                <p className="pop-spon-mail">
-                  Sponsor inquiries →{" "}
-                  <a href={`mailto:${EVENT.contactEmail}`}>{EVENT.contactEmail}</a>
-                </p>
-              </Rise>
-            )}
+            <Rise i={3}>
+              <p className="pop-spon-mail">
+                Sponsor inquiries → <a href={CONTACT_MAILTO}>email the DS3 Hackathons team</a>
+              </p>
+            </Rise>
           </div>
           <Drift className="pop-spon-art" amount={30}>
             <CubeStack />

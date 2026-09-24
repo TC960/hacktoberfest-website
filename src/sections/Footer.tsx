@@ -1,5 +1,5 @@
 import { IconStar } from "../art/Icons";
-import { EVENT, INCIDENT_TEL, ORGANISER, QUESTIONS_EMAIL } from "../event";
+import { CONTACT_MAILTO, EVENT, HOST_CAP, INCIDENT_TEL } from "../event";
 import { Rise } from "../motion";
 import { NewTab } from "./ExtLink";
 
@@ -22,9 +22,7 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
     head: "Get involved",
     links: [
       ["Register", EVENT.registerUrl],
-      ...(EVENT.contactEmail
-        ? ([["Become a sponsor", `mailto:${EVENT.contactEmail}`]] as Array<[string, string]>)
-        : []),
+      ["Become a sponsor", CONTACT_MAILTO],
       ["Hacktoberfest.com", EVENT.hacktoberfestUrl],
     ],
   },
@@ -76,13 +74,19 @@ export default function Footer() {
           ))}
           <Rise i={3}>
             <div className="pop-foot-col pop-foot-col--org">
-              <h3>Presented by</h3>
+              <h3>Brought to you by</h3>
               <p>
-                {EVENT.presenter} and Major League Hacking, as an official Hacktoberfest 2026 Fest,
-                run on site by {ORGANISER}. Hacktoberfest is run by MLH and DEV in partnership with DigitalOcean.
+                {HOST_CAP}, in partnership with {EVENT.partner} and Major League Hacking, as an
+                official Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
+                with DigitalOcean.
               </p>
-              <a className="pop-foot-mail" href={`mailto:${QUESTIONS_EMAIL}`}>
-                {QUESTIONS_EMAIL}
+              {EVENT.contactEmails.map((e) => (
+                <a className="pop-foot-mail" href={`mailto:${e}`} key={e}>
+                  {e}
+                </a>
+              ))}
+              <a className="pop-foot-mail" href={`mailto:${EVENT.backupEmail}`}>
+                {EVENT.backupEmail}
               </a>
             </div>
           </Rise>

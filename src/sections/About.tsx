@@ -1,5 +1,5 @@
 import Machine from "../art/Machine";
-import { EVENT, ORGANISER } from "../event";
+import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
 
 const META: Array<[string, string]> = [
@@ -35,8 +35,8 @@ export default function About() {
           </Rise>
           <Rise i={3}>
             <p className="pop-body">
-              This Fest is a Hack Day presented by {EVENT.presenter} and MLH, and run on site by{" "}
-              {ORGANISER}: show up, form a team, ship an open-source AI project, and demo it before
+              This Fest is a Hack Day brought to you by {EVENT.hostLong}, in partnership with{" "}
+              {EVENT.partner} and MLH: show up, form a team, ship an open-source AI project, and demo it before
               the day is out. Come solo or bring friends.
             </p>
           </Rise>

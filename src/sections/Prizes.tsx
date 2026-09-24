@@ -12,8 +12,8 @@ const STEPS = [
     tag: "TBA",
   },
   {
-    title: `${EVENT.presenter} challenge`,
-    detail: `Local, not MLH-run · prize from ${EVENT.presenter}`,
+    title: `${EVENT.partner} challenge`,
+    detail: `Local, not MLH-run · prize from ${EVENT.partner}`,
     mod: "pop-step--2",
     shirt: C.teal,
     tag: "TBA",
@@ -45,7 +45,7 @@ export default function Prizes() {
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
               One team takes Best Open-Source AI Project, and every member gets a DEV Badge.
-              {" "}{EVENT.presenter}'s local challenge prize is TBA. Winners are judged on what you
+              {" "}{EVENT.partner}'s local challenge prize is TBA. Winners are judged on what you
               build, not pull-request counts.
             </p>
           </Rise>

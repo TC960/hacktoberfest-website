@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="pop-wrap">
         <Rise>
           <p className="pop-eyebrow">
-            {EVENT.presenter} × Major League Hacking — an official Hacktoberfest 2026 Fest
+            {EVENT.host} presents — with {EVENT.partner} × MLH, an official Hacktoberfest 2026 Fest
           </p>
         </Rise>
 
