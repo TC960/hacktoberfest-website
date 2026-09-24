@@ -22,6 +22,18 @@ npm run preview  # serve dist/
 `vite.config.ts` uses a relative `base`, so `dist/` can be hosted from any path (GitHub Pages,
 Vercel, Netlify…).
 
+## Deploy
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds the site with Node 22
+(`npm ci && npm run build`) and publishes `dist/` to GitHub Pages on every push to `main`. You can
+also run it by hand from the Actions tab (**Run workflow**). Pull requests run the build only, so a
+broken build shows up before merge, but they never deploy.
+
+One-time setup: in the repo go to **Settings → Pages → Build and deployment** and set
+**Source** to **GitHub Actions**. Until that's done the deploy job fails. Keep
+`package-lock.json` committed and in sync with `package.json` (run `npm install` after changing
+dependencies), because `npm ci` refuses to install from a stale lockfile.
+
 ## Editing event details
 
 Every fact the page shows (date, time, venue, links, emails) is in [`src/event.ts`](src/event.ts).

@@ -1,4 +1,3 @@
-import React from "react";
 import { Coffee, Laptop, Server } from "../art/Props";
 import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
@@ -11,7 +10,7 @@ const DAY: Row[] = [
   { time: "T+0:00", title: "Opening ceremony", note: "Code of conduct, challenges, how submissions work" },
   { time: "T+0:20", title: "Team formation", note: "Come solo, leave with a team" },
   { time: "T+0:30", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
-  { time: "T+2:30", title: "Food + workshops", note: "Lineup TBA" },
+  { time: "T+2:30", title: "Break + workshops", note: "Food details and lineup TBA" },
   { time: "T+5:00", title: "Submissions close", note: "Hard stop. Really." },
   { time: "T+5:15", title: "Demos", note: "Every team gets the same shot" },
   { time: "T+6:00", title: "Winners + closing" },
@@ -19,9 +18,9 @@ const DAY: Row[] = [
 
 const PREP: Row[] = [
   { time: "01", title: "Register on OrganizerHQ", note: "You need it to check in and to submit" },
-  { time: "02", title: "Make a GitHub account", note: "Projects go in a public repo" },
+  { time: "02", title: "Set up GitHub and DEV", note: "Projects go in a public repo; badges go to your dev.to account" },
   { time: "03", title: "Skim the challenge", note: "Agent skills, open-weight models, harnesses" },
-  { time: "04", title: "Charge everything", note: "Laptop, charger, phone, ID" },
+  { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
 ];
 
 function Column({

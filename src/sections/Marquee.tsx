@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconStar } from "../art/Icons";
 
 const ITEMS = [
@@ -25,16 +25,54 @@ function Sequence() {
 }
 
 export default function Marquee() {
+  const [paused, setPaused] = useState(false);
+  const [hover, setHover] = useState(false);
+
   return (
-    <section className="pop-marquee" aria-label="Event highlights">
+    <section
+      className="pop-marquee"
+      aria-label="Event highlights"
+      style={{ position: "relative" }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <p className="pop-sr">
         Hacktoberfest 2026 — Monday October 19 — Price Center West Ballroom — AI belongs to
         everyone — build with open-source AI — free to attend — register on OrganizerHQ.
       </p>
-      <div className="pop-marquee-track" aria-hidden="true">
+      <div
+        className="pop-marquee-track"
+        aria-hidden="true"
+        style={paused || hover ? { animationPlayState: "paused" } : undefined}
+      >
         <Sequence />
         <Sequence />
       </div>
+      <button
+        type="button"
+        className="pop-marquee-toggle"
+        aria-pressed={paused}
+        onClick={() => setPaused((p) => !p)}
+        style={{
+          position: "absolute",
+          right: "0.5rem",
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "#000",
+          color: "var(--cream)",
+          border: "2px solid var(--cream)",
+          borderRadius: "3px",
+          padding: "0.3rem 0.55rem",
+          fontSize: "0.6875rem",
+          fontWeight: 700,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          outlineColor: "var(--marigold)",
+        }}
+      >
+        {paused ? "Play" : "Pause"}
+        <span className="pop-sr"> scrolling text</span>
+      </button>
     </section>
   );
 }

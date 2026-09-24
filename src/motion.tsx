@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+// `m` is the slim motion component; features are loaded once by <LazyMotion> in main.tsx.
+import { m as motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 /**
  * Motion for the POP theme — exactly two moves:
  *  1. staggered float-up on section entry
  *  2. parallax drift on the isometric objects
  * Both are disabled under prefers-reduced-motion.
+ *
+ * Rise blocks carry `data-rise`; index.html forces them visible in print so a
+ * section that never scrolled into view is not printed blank.
  */
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -29,6 +33,7 @@ export function Rise({
   return (
     <Tag
       className={className}
+      data-rise=""
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}

@@ -3,8 +3,8 @@ import { Box, C, Cyl, Ground, Human } from "./iso";
 
 /**
  * The Hackathon Machine — an isometric contraption for the About band.
- * Raw data drops into the hopper, the machine chews for 36 hours, finished
- * projects come out on the belt. Two tiny operators, for scale.
+ * Open-source parts drop into the hopper, the machine builds for a day,
+ * finished projects come out on the belt. Two tiny operators, for scale.
  *
  * Everything is drawn back-to-front (painter's order): far objects first.
  */
@@ -14,7 +14,7 @@ export default function Machine({ className }: { className?: string }) {
       className={className}
       viewBox="-80 -72 174 164"
       role="img"
-      aria-label="An isometric machine that turns data cubes into finished projects, with two tiny people working beside it"
+      aria-label="An isometric machine that turns building blocks into finished projects, with two tiny people working beside it"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
     >
@@ -54,7 +54,7 @@ export default function Machine({ className }: { className?: string }) {
       <Cyl x={32} y={35} z={50} r={9} h={11} c={C.marigold} />
       <Cyl x={32} y={35} z={61} r={13} h={4} c={C.marigold} />
 
-      {/* raw data falling in */}
+      {/* building blocks falling in */}
       <Box x={27} y={30} z={68} w={10} d={10} h={10} c={C.teal} />
       <Box x={47} y={17} z={74} w={7} d={7} h={7} c={C.orange} />
       <Box x={14} y={44} z={80} w={6} d={6} h={6} c={C.pink} />

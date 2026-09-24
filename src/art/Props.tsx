@@ -97,26 +97,6 @@ export function Trophy({ className }: { className?: string }) {
   );
 }
 
-/** A single floating data cube — used as a small punctuation mark. */
-export function Cube({
-  className,
-  shade = C.teal,
-}: {
-  className?: string;
-  shade?: Shade;
-}) {
-  return (
-    <svg
-      className={className}
-      viewBox="-14 -20 28 30"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <Box x={0} y={0} z={0} w={14} d={14} h={14} c={shade} />
-    </svg>
-  );
-}
-
 /** Stack of cubes with a person beside it — used in the sponsors band. */
 export function CubeStack({ className }: { className?: string }) {
   return (

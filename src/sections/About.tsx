@@ -1,6 +1,5 @@
-import React from "react";
 import Machine from "../art/Machine";
-import { EVENT } from "../event";
+import { EVENT, ORGANISER } from "../event";
 import { Drift, Rise } from "../motion";
 
 const META: Array<[string, string]> = [
@@ -30,15 +29,15 @@ export default function About() {
           <Rise i={2}>
             <p className="pop-body">
               Hacktoberfest is the month-long celebration of open source, run by Major League
-              Hacking and DEV in partnership with DigitalOcean. In 2026 it trades pull-request
-              counts for hands-on building with open-source and open-weight AI.
+              Hacking and DEV in partnership with DigitalOcean. This year's Fests are about hands-on building with open-source and
+              open-weight AI, and prizes are judged on what you build, not pull-request counts.
             </p>
           </Rise>
           <Rise i={3}>
             <p className="pop-body">
-              This Fest is a Hack Day presented by {EVENT.presenter} and MLH: show up, form a
-              team, ship an open-source AI project, and demo it before the day is out. Come solo
-              or bring friends.
+              This Fest is a Hack Day presented by {EVENT.presenter} and MLH, and run on site by{" "}
+              {ORGANISER}: show up, form a team, ship an open-source AI project, and demo it before
+              the day is out. Come solo or bring friends.
             </p>
           </Rise>
           <Rise i={4}>

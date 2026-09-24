@@ -11,20 +11,6 @@ const base = {
   xmlns: "http://www.w3.org/2000/svg",
 };
 
-/** scatter + trend line */
-export function IconScatter({ className }: { className?: string }) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M4 3v18h17" />
-      <path d="M7 17l4-5 3 3 5-8" />
-      <circle cx="7" cy="17" r="1.4" fill="#000" stroke="none" />
-      <circle cx="11" cy="12" r="1.4" fill="#000" stroke="none" />
-      <circle cx="14" cy="15" r="1.4" fill="#000" stroke="none" />
-      <circle cx="19" cy="7" r="1.4" fill="#000" stroke="none" />
-    </svg>
-  );
-}
-
 /** small neural net */
 export function IconNet({ className }: { className?: string }) {
   return (
@@ -35,17 +21,6 @@ export function IconNet({ className }: { className?: string }) {
       <circle cx="19" cy="6" r="2" />
       <circle cx="19" cy="18" r="2" />
       <path d="M6.7 7.1 10.4 10.7M6.7 16.9 10.4 13.3M13.6 10.7 17.3 7.1M13.6 13.3 17.3 16.9" />
-    </svg>
-  );
-}
-
-/** globe / grid */
-export function IconGlobe({ className }: { className?: string }) {
-  return (
-    <svg {...base} className={className}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18" />
-      <path d="M12 3c3 3.2 3 14.8 0 18-3-3.2-3-14.8 0-18Z" />
     </svg>
   );
 }

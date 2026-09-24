@@ -1,5 +1,5 @@
-import React from "react";
 import { EVENT } from "../event";
+import { NewTab } from "./ExtLink";
 
 const LINKS = [
   ["about", "#about"],
@@ -14,6 +14,10 @@ const LINKS = [
 export default function TopBar() {
   return (
     <header className="pop-bar">
+      {/* .pop-sr keeps it hidden until pop.css gives .pop-skip:focus a visible style */}
+      <a className="pop-skip pop-sr" href="#main">
+        Skip to content
+      </a>
       <div className="pop-bar-in">
         <a className="pop-bar-mark" href="#top">
           HACKTOBERFEST <span>× {EVENT.presenter.toUpperCase()}</span>
@@ -27,6 +31,7 @@ export default function TopBar() {
         </nav>
         <a className="pop-bar-cta" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
           Register
+          <NewTab />
         </a>
       </div>
     </header>

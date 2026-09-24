@@ -1,16 +1,18 @@
-import React from "react";
 import { IconDiamond } from "../art/Icons";
 import { CubeStack } from "../art/Props";
-import { EVENT } from "../event";
+import { EVENT, ORGANISER } from "../event";
 import { Drift, Rise } from "../motion";
 
 const TIERS: Array<{ tier: string; note: string; names: string[]; mod: string }> = [
   {
     tier: "Presented by",
-    note: "Hosts of this Fest",
+    note: "Presenting partners",
     names: [EVENT.presenter, "Major League Hacking"],
     mod: "pop-slot--xl",
   },
+  ...(EVENT.organiser
+    ? [{ tier: "On site", note: "Runs the day", names: [EVENT.organiser], mod: "pop-slot--lg" }]
+    : []),
   {
     tier: "Hacktoberfest",
     note: "Runs the programme",
@@ -40,7 +42,8 @@ export default function Sponsors() {
             <Rise i={2}>
               <p className="pop-body pop-spon-lead">
                 {EVENT.presenter} and Major League Hacking bring Hacktoberfest to the Price Center
-                West Ballroom. The supporter frames below are still open.
+                West Ballroom; {ORGANISER} runs the day on site. The supporter frames below are
+                still open.
               </p>
             </Rise>
             {EVENT.contactEmail && (

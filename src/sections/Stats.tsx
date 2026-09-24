@@ -1,10 +1,9 @@
-import React from "react";
 import { C, Shade } from "../art/iso";
 import { Person } from "../art/Props";
 import { Rise } from "../motion";
 
 const STATS: Array<{ n: string; label: string }> = [
-  { n: "300+", label: "Fests worldwide" },
+  { n: "300+", label: "events worldwide" },
   { n: "1", label: "day, in person" },
   { n: "$0", label: "to attend" },
   { n: "13+", label: "ages welcome" },
@@ -28,8 +27,7 @@ export default function Stats() {
           </Rise>
           <Rise i={1}>
             <p className="pop-note">
-              One of hundreds of in-person and online Hacktoberfest events happening around the
-              world this October.
+              One of 300+ in-person and online Hacktoberfest events happening around the world this October.
             </p>
           </Rise>
         </div>

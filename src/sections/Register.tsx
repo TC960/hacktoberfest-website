@@ -1,7 +1,7 @@
-import React from "react";
 import { IconExternal } from "../art/Icons";
 import { EVENT } from "../event";
 import { Rise } from "../motion";
+import ExtLink, { NewTab } from "./ExtLink";
 
 const STEPS = [
   {
@@ -17,7 +17,7 @@ const STEPS = [
   {
     n: "03",
     title: "Build, then submit",
-    body: "One teammate submits the project on OrganizerHQ Challenges before the deadline: public GitHub repo, open-source licence, every challenge you're entering ticked.",
+    body: "One teammate submits the project on OrganizerHQ Challenges before the deadline: public GitHub repo, open-source licence, the model you used and its licence named in the README, any AI coding tools listed under technologies, and every challenge you're entering ticked.",
   },
 ];
 
@@ -56,9 +56,11 @@ export default function Register() {
             <div className="pop-venue-cta">
               <a className="pop-btn pop-btn--ink" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
                 Register now <IconExternal className="pop-btn-ico" />
+                <NewTab />
               </a>
               <a className="pop-btn pop-btn--ghost" href={EVENT.mapUrl} target="_blank" rel="noreferrer">
                 Open in Maps
+                <NewTab />
               </a>
             </div>
           </div>
@@ -67,7 +69,7 @@ export default function Register() {
         <Rise i={4}>
           <p className="pop-note pop-reg-online">
             Can't make it on the 19th? Hacktoberfest also runs online challenges all October at{" "}
-            <a href={EVENT.hacktoberfestUrl} target="_blank" rel="noreferrer">hacktoberfest.com</a>.
+            <ExtLink href={EVENT.hacktoberfestUrl}>hacktoberfest.com</ExtLink>.
           </p>
         </Rise>
       </div>

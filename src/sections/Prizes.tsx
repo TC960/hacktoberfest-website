@@ -1,4 +1,3 @@
-import React from "react";
 import { C } from "../art/iso";
 import { Person, Trophy } from "../art/Props";
 import { EVENT } from "../event";
@@ -14,7 +13,7 @@ const STEPS = [
   },
   {
     title: `${EVENT.presenter} challenge`,
-    detail: "Prize announced with the prompt",
+    detail: `Local, not MLH-run · prize from ${EVENT.presenter}`,
     mod: "pop-step--2",
     shirt: C.teal,
     tag: "TBA",
@@ -28,7 +27,7 @@ const STEPS = [
   },
 ];
 
-const EXTRAS = ["Participation badge", "Stickers", "Postcards", "T-shirts (limited)"];
+const EXTRAS = ["Stickers", "Postcards"];
 
 export default function Prizes() {
   return (
@@ -40,14 +39,14 @@ export default function Prizes() {
               <p className="pop-eyebrow">Prizes</p>
             </Rise>
             <Rise i={1}>
-              <p className="pop-pool">ship it, win it</p>
+              <h2 className="pop-pool">ship it, win it</h2>
             </Rise>
           </div>
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
               One team takes Best Open-Source AI Project, and every member gets a DEV Badge.
-              {" "}{EVENT.presenter} prizes are on the way. Winners are chosen from live demos, not
-              pull-request counts.
+              {" "}{EVENT.presenter}'s local challenge prize is TBA. Winners are judged on what you
+              build, not pull-request counts.
             </p>
           </Rise>
         </div>
@@ -75,7 +74,7 @@ export default function Prizes() {
 
         <Rise i={4}>
           <div className="pop-track-prizes">
-            <span className="pop-eyebrow">For everyone in the room</span>
+            <h3 className="pop-eyebrow">Hacktoberfest swag, while it lasts</h3>
             <ul>
               {EXTRAS.map((t) => (
                 <li className="pop-chip" key={t}>
@@ -83,7 +82,10 @@ export default function Prizes() {
                 </li>
               ))}
             </ul>
-            <p className="pop-note pop-extras-note">Swag is subject to availability; T-shirt numbers are limited.</p>
+            <p className="pop-note pop-extras-note">
+              Plus a limited number of T-shirts, handed out by the organisers. Not everyone will get
+              one. All swag depends on the Hacktoberfest event pack arriving in time.
+            </p>
           </div>
         </Rise>
       </div>

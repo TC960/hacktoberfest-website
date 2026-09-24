@@ -1,4 +1,3 @@
-import React from "react";
 import "./pop.css";
 
 import TopBar from "./sections/TopBar";
@@ -18,7 +17,7 @@ export default function App() {
   return (
     <div className="pop-root">
       <TopBar />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
         <Marquee />
         <About />

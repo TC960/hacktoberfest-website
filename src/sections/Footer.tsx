@@ -1,9 +1,11 @@
-import React from "react";
 import { IconStar } from "../art/Icons";
-import { EVENT, QUESTIONS_EMAIL } from "../event";
+import { EVENT, INCIDENT_TEL, ORGANISER, QUESTIONS_EMAIL } from "../event";
 import { Rise } from "../motion";
+import { NewTab } from "./ExtLink";
 
 const ext = { target: "_blank", rel: "noreferrer" };
+// Fine-print links need a visible cue; .pop-root a strips decoration.
+const fineLink = { color: "#fff", textDecoration: "underline", textUnderlineOffset: "2px" };
 
 const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
   {
@@ -64,6 +66,7 @@ export default function Footer() {
                     <li key={label}>
                       <a href={href} {...(href.startsWith("http") ? ext : {})}>
                         {label}
+                        {href.startsWith("http") && <NewTab />}
                       </a>
                     </li>
                   ))}
@@ -75,8 +78,8 @@ export default function Footer() {
             <div className="pop-foot-col pop-foot-col--org">
               <h3>Presented by</h3>
               <p>
-                {EVENT.presenter} and Major League Hacking, as an official Hacktoberfest 2026 Fest.
-                Hacktoberfest is run by MLH and DEV in partnership with DigitalOcean.
+                {EVENT.presenter} and Major League Hacking, as an official Hacktoberfest 2026 Fest,
+                run on site by {ORGANISER}. Hacktoberfest is run by MLH and DEV in partnership with DigitalOcean.
               </p>
               <a className="pop-foot-mail" href={`mailto:${QUESTIONS_EMAIL}`}>
                 {QUESTIONS_EMAIL}
@@ -88,11 +91,15 @@ export default function Footer() {
         <div className="pop-foot-fine">
           <p>
             All attendees, sponsors, mentors and volunteers follow the MLH Code of Conduct. Report
-            anything to an organiser on site, or by email.
+            anything to an organiser on site, or to MLH's incident team at{" "}
+            <a style={fineLink} href={`mailto:${EVENT.incidentEmail}`}>{EVENT.incidentEmail}</a> /{" "}
+            <a style={fineLink} href={INCIDENT_TEL}>{EVENT.incidentPhone}</a>. Anonymous reports are accepted.
           </p>
           <p>
-            Schedule, tracks and partner prizes are provisional and subject to change. Hacktoberfest
-            is open to participants aged 13 and older.
+            Schedule, tracks and partner prizes are provisional and subject to change. Hacktoberfest is open to ages 13+; under 18?
+            You'll need a parent or guardian's permission, including for prizes and photos. We take
+            photos on the day and share them with MLH; tell an organiser if you'd rather not be in
+            them.
           </p>
         </div>
       </div>

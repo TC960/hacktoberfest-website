@@ -41,7 +41,6 @@ export interface Shade {
 
 export const C = {
   orange: { l: "#FF8B4D", m: "#F26522", d: "#B94510" },
-  rust: { l: "#F0763A", m: "#D9541A", d: "#9A3A0C" },
   marigold: { l: "#F9D879", m: "#F0BE3D", d: "#BC8C18" },
   teal: { l: "#74CFC1", m: "#4FB3A5", d: "#2E7D72" },
   grey: { l: "#D9D3C9", m: "#B9B3A9", d: "#857F75" },
@@ -49,7 +48,6 @@ export const C = {
   pink: { l: "#F8C6EE", m: "#EFA0DE", d: "#B96FAA" },
   ink: { l: "#3C3A38", m: "#232120", d: "#000000" },
   skin: { l: "#F4C79C", m: "#DCA877", d: "#A87A4F" },
-  white: { l: "#FFFFFF", m: "#F0EDE7", d: "#CFC9BF" },
 } satisfies Record<string, Shade>;
 
 interface Common {
@@ -108,11 +106,6 @@ export function Box({ x, y, z, w, d, h, c, top, front, side, o = 0 }: BoxProps) 
   );
 }
 
-/** A flat slab lying on the ground / on top of something — top face only, plus thin sides. */
-export function Plate(props: BoxProps) {
-  return <Box {...props} />;
-}
-
 export interface CylProps extends Common {
   x: number; // centre
   y: number; // centre
@@ -150,44 +143,6 @@ export function Cyl({ x, y, z, r, h, c, o = 0 }: CylProps) {
       <path d={body} fill={c.d} />
       <path d={leftHalf} fill={c.m} />
       <ellipse cx={cx} cy={cyTop} rx={rx} ry={ry} fill={c.l} />
-    </g>
-  );
-}
-
-export interface PrismProps extends Common {
-  x: number;
-  y: number;
-  z: number;
-  t: number; // thickness along x
-  d: number; // depth along y (base width of the triangle)
-  h: number; // height to the ridge
-  c: Shade;
-}
-
-/** Triangular plate — thin along x, triangular in the y/z plane. Used for the datasaur's back plates. */
-export function Prism({ x, y, z, t, d, h, c, o = 0 }: PrismProps) {
-  const stroke = o ? "#000" : "none";
-  return (
-    <g stroke={stroke} strokeWidth={o} strokeLinejoin="round">
-      {/* +y slant — catches light */}
-      <polygon
-        fill={c.l}
-        points={poly([
-          [x, y + d / 2, z + h],
-          [x + t, y + d / 2, z + h],
-          [x + t, y + d, z],
-          [x, y + d, z],
-        ])}
-      />
-      {/* x+t triangle face */}
-      <polygon
-        fill={c.m}
-        points={poly([
-          [x + t, y, z],
-          [x + t, y + d, z],
-          [x + t, y + d / 2, z + h],
-        ])}
-      />
     </g>
   );
 }

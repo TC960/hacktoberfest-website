@@ -1,7 +1,7 @@
-import React from "react";
 import Rocket from "../art/Rocket";
 import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
+import { NewTab } from "./ExtLink";
 
 export default function Hero() {
   return (
@@ -39,6 +39,7 @@ export default function Hero() {
               <div className="pop-hero-cta">
                 <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
                   Register on OrganizerHQ
+                  <NewTab />
                 </a>
                 <a className="pop-btn pop-btn--ghost" href="#register">
                   How it works
@@ -48,7 +49,7 @@ export default function Hero() {
           </div>
 
           <Drift className="pop-hero-art" amount={30}>
-            <Rocket className="pop-saur" />
+            <Rocket className="pop-rocket" />
           </Drift>
         </div>
       </div>

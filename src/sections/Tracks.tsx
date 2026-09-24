@@ -1,7 +1,7 @@
-import React from "react";
 import { IconBot, IconNet, IconRocket, IconStack, IconStar } from "../art/Icons";
 import { EVENT } from "../event";
 import { Rise } from "../motion";
+import ExtLink from "./ExtLink";
 
 const TRACKS = [
   {
@@ -30,7 +30,7 @@ const TRACKS = [
     big: "TBD",
     tile: "pop-tile--pink",
     Icon: IconRocket,
-    note: "A challenge from our presenting partner. Prompt and judging criteria announced closer to the day.",
+    note: "A separate local challenge from our presenting partner, not run by MLH. Prompt, prize and judging criteria announced closer to the day.",
   },
 ];
 
@@ -40,17 +40,19 @@ export default function Tracks() {
       <div className="pop-wrap">
         <div className="pop-tracks-head">
           <Rise>
-            <p className="pop-eyebrow">Challenge tracks</p>
+            <p className="pop-eyebrow">The challenge</p>
           </Rise>
           <Rise i={1}>
             <h2 className="pop-h2">open-source AI, three ways in. plus one from {EVENT.presenter.toLowerCase()}.</h2>
           </Rise>
           <Rise i={2}>
             <p className="pop-note pop-tracks-note">
-              Every project enters Hacktoberfest's Best Open-Source AI Project challenge. Open-source
-              or open-weight AI has to do real work in it, and the code goes in a public GitHub repo
-              under an <a href={EVENT.osiLicensesUrl} target="_blank" rel="noreferrer">open-source licence</a>.
-              Mix the tracks however you like.
+              Every project can enter Hacktoberfest's Best Open-Source AI Project challenge: tick it
+              when you submit. The first three cards are ways in to that one challenge, not separate
+              prizes; mix them however you like. Open-source or open-weight AI has to do real work
+              in your project, and the code goes in a public GitHub repo under an{" "}
+              <ExtLink href={EVENT.osiLicensesUrl}>open-source licence</ExtLink>. The{" "}
+              {EVENT.presenter} challenge is a separate local challenge.
             </p>
           </Rise>
         </div>

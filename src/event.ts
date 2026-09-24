@@ -4,14 +4,11 @@
  */
 
 export const EVENT = {
-  name: "Hacktoberfest",
-  edition: "SD",
   presenter: "SpaceXAI",
   format: "Hack Day",
 
   dateLong: "Monday, October 19, 2026",
   dateShort: "Oct 19",
-  dateIso: "2026-10-19",
   /** Replace with e.g. "10:00 AM – 4:00 PM" once confirmed. */
   time: "TBD",
 
@@ -32,6 +29,16 @@ export const EVENT = {
   contactEmail: "",
   hacktoberfestEmail: "hacktoberfest@mlh.io",
 
+  /**
+   * TODO: the local organising team's name (e.g. a UCSD club). Fests are run on site by
+   * local hosts, not MLH staff; while empty the site says "the local organising team".
+   */
+  organiser: "",
+
+  /** MLH Code of Conduct incident line for North America (pol/code-of-conduct.md). */
+  incidentEmail: "incidents@mlh.io",
+  incidentPhone: "+1 409 202 6060",
+
   hacktoberfestUrl: "https://hacktoberfest.com/",
   codeOfConductUrl: "https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md",
   hackathonRulesUrl: "https://github.com/MLH/mlh-policies/blob/main/standard-hackathon-rules.md",
@@ -40,3 +47,5 @@ export const EVENT = {
 };
 
 export const QUESTIONS_EMAIL = EVENT.contactEmail || EVENT.hacktoberfestEmail;
+export const ORGANISER = EVENT.organiser || "the local organising team";
+export const INCIDENT_TEL = `tel:${EVENT.incidentPhone.replace(/[^+\d]/g, "")}`;
