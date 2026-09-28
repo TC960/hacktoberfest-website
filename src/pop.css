@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SPOOKY POP — Halloween theme for Hacktoberfest × Space × AI Hack Day
+   SPOOKY POP — Halloween theme for Hacktoberfest × SpaceXAI HackDay
    Night-purple and pumpkin-orange bands, wax drips between them, rounded
    hand-drawn "sticker" shapes with thick ink outlines to match DS3's dino.
    Every selector is scoped under .pop-root.
@@ -22,7 +22,7 @@
   --ink: #1f1030;
 
   /* type */
-  --display: "Creepster", "Fredoka", cursive;
+  --display: "Lilita One", "Fredoka", sans-serif;
   --round: "Fredoka", "Nunito", ui-rounded, sans-serif;
 
   /* per-band colours; light defaults, dark bands override */

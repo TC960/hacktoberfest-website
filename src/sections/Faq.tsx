@@ -18,8 +18,7 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     `What's the ${EVENT.name}?`,
     <>
-      Our Hacktoberfest Fest: a one-day Hack Day run by DS3 at {EVENT.campus}, with a space and
-      Halloween twist. The challenge tracks are all about open-source AI.
+      Our Hacktoberfest Fest: a one-day Hack Day run by DS3 at {EVENT.campus}. The challenge tracks are all about open-source AI.
     </>,
   ],
   [

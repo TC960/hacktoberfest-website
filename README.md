@@ -1,6 +1,6 @@
-# Hacktoberfest × Space × AI Hack Day · DS3 at UC San Diego
+# Hacktoberfest × SpaceXAI HackDay @ UC San Diego
 
-Event site for **Hacktoberfest × Space × AI Hack Day**, an official **Hacktoberfest 2026 Fest**
+Event site for **Hacktoberfest × SpaceXAI HackDay**, an official **Hacktoberfest 2026 Fest**
 (Hack Day format), brought to you by the
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.
@@ -11,7 +11,7 @@ Open to UC San Diego students, 18+.
 
 The design is a cute-spooky Halloween theme built to match DS3's dino sticker: night-purple and
 pumpkin-orange bands joined by wax drips, rounded "sticker" cards with thick ink outlines,
-Creepster / Fredoka / Nunito type, and hand-drawn SVG art (moon, bats, ghosts, pumpkins, a
+Lilita One / Fredoka / Nunito type, and hand-drawn SVG art (moon, bats, ghosts, pumpkins, a
 cauldron) in [`src/art/Spooky.tsx`](src/art/Spooky.tsx). Styles live in `src/pop.css`.
 
 The SVGs are placeholders. [`docs/design-prompts.md`](docs/design-prompts.md) has a whole-site

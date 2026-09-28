@@ -45,7 +45,7 @@ export default function Footer() {
             <p className="pop-foot-mark">
               Hacktoberfest
               <span className="pop-foot-sub">
-                × Space × AI Hack Day · {EVENT.nameHost}
+                × SpaceXAI HackDay {EVENT.nameHost}
               </span>
             </p>
           </Rise>

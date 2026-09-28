@@ -3,7 +3,7 @@ import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
 
 const META: Array<[string, string]> = [
-  ["Event", `${EVENT.name}, ${EVENT.nameHost}`],
+  ["Event", `${EVENT.name} ${EVENT.nameHost}`],
   ["Format", `${EVENT.format}, in person`],
   ["Date", EVENT.dateLong],
   ["Time", EVENT.time],

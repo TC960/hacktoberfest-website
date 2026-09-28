@@ -10,7 +10,7 @@ Paste this into a website/UI generator (v0, Lovable, Claude, etc.), and attach
 `public/mascot.png` if the tool takes images.
 
 ```text
-Design a one-page event website for "Hacktoberfest × Space × AI Hack Day — DS3 at UC San Diego".
+Design a one-page event website for "Hacktoberfest × SpaceXAI HackDay @ UC San Diego".
 Always write the event name out in full like that.
 
 EVENT FACTS
@@ -43,16 +43,16 @@ LOOK AND FEEL
   #3cc7d6 as a small accent (it matches the dino's circuit lines).
 - Alternate dark (night/plum/grape) and light (lavender/orange) full-width bands. Join
   bands with dripping candle-wax edges instead of straight lines.
-- Type: a drippy display face (e.g. Creepster) for only the "Hacktoberfest" wordmark and one
-  or two big headlines; a rounded bold sans (e.g. Fredoka) for headings; a friendly rounded
+- Type: a chunky rounded display face (e.g. Lilita One) for the "Hacktoberfest" wordmark and
+  one or two big headlines; a rounded bold sans (e.g. Fredoka) for headings; a friendly rounded
   body font (e.g. Nunito).
 - Cards and buttons are rounded "stickers": 3px outline, a large radius, and a hard offset
   shadow with no blur. Buttons are pill-shaped.
 - Spooky details, used sparingly: a big glowing moon behind the mascot, twinkling
   sparkles, a few bats flapping across the hero, a graveyard hill silhouette at the bottom
   of the hero, a spider dangling on a thread, cobwebs in card corners, floating ghosts,
-  candy corn as bullet or separator icons, and a jack-o'-lantern planet with a ring (the
-  "Space" part).
+  candy corn as bullet or separator icons, and a jack-o'-lantern planet with a ring (a nod to
+  SpaceXAI).
 - Track icons as magic objects: spellbook (agent skill), crystal ball (LLM), potion bottle
   (SLM), cauldron (model harness). Prizes shown as jack-o'-lantern candy buckets.
 - NO isometric or blocky 3D art, no hard rectangles, no realistic horror imagery.
