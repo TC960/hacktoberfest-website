@@ -46,21 +46,23 @@ export default function BrewScene({
   progress: MotionValue<number>;
   className?: string;
 }) {
-  const fire = useTransform(p, [0, 0.1], [0.15, 1]);
-  const heat = useTransform(p, [0, 0.12, 0.35], [0, 0.6, 1]);
-  const potion = useTransform(p, [0.06, 0.16, 0.4, 0.62], ["#7d6b93", P.teal, "#5fe0c8", "#b58cff"]);
-  const glow = useTransform(p, [0.1, 0.4, 0.7, 0.92], [0, 0.35, 0.65, 1]);
+  // Each step's animation starts just after its card lands and runs for most
+  // of its quarter, so the text never gets ahead of the picture.
+  const fire = useTransform(p, [0.01, 0.08], [0.15, 1]);
+  const heat = useTransform(p, [0.02, 0.12, 0.4], [0, 0.6, 1]);
+  const potion = useTransform(p, [0.15, 0.22, 0.44, 0.67], ["#7d6b93", P.teal, "#5fe0c8", "#b58cff"]);
+  const glow = useTransform(p, [0.14, 0.44, 0.7, 0.95], [0, 0.35, 0.65, 1]);
 
-  const ball = useDrop(p, 0.02, 0.14);
-  const book = useDrop(p, 0.27, 0.39);
-  const bottle = useDrop(p, 0.51, 0.61);
+  const ball = useDrop(p, 0.04, 0.19);
+  const book = useDrop(p, 0.29, 0.44);
+  const bottle = useDrop(p, 0.53, 0.66);
 
-  const spoonOpacity = useTransform(p, [0.55, 0.6, 0.76, 0.8], [0, 1, 1, 0]);
-  const spoonRotate = useTransform(p, [0.6, 0.65, 0.7, 0.75], [-18, 16, -14, 10]);
+  const spoonOpacity = useTransform(p, [0.6, 0.64, 0.8, 0.84], [0, 1, 1, 0]);
+  const spoonRotate = useTransform(p, [0.64, 0.68, 0.72, 0.76, 0.8], [-18, 16, -14, 14, -6]);
 
-  const ghostY = useTransform(p, [0.77, 0.9], [150, 0]);
-  const reveal = useTransform(p, [0.86, 0.95], [0, 1]);
-  const revealScale = useTransform(p, [0.86, 0.95], [0.4, 1]);
+  const ghostY = useTransform(p, [0.79, 0.94], [150, 0]);
+  const reveal = useTransform(p, [0.9, 0.98], [0, 1]);
+  const revealScale = useTransform(p, [0.9, 0.98], [0.4, 1]);
 
   return (
     <svg
@@ -171,9 +173,9 @@ export default function BrewScene({
         <circle className="pop-bubble pop-bubble--4" cx="226" cy="138" r="5" />
       </motion.g>
 
-      <Splash p={p} at={0.14} x={140} />
-      <Splash p={p} at={0.39} x={176} />
-      <Splash p={p} at={0.61} x={196} />
+      <Splash p={p} at={0.19} x={140} />
+      <Splash p={p} at={0.44} x={176} />
+      <Splash p={p} at={0.66} x={196} />
 
       {/* finished: code and sparkles */}
       <motion.g style={{ opacity: reveal, scale: revealScale, ...fillBox }}>

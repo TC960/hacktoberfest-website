@@ -584,44 +584,55 @@
    4 · ABOUT — lavender band, scrollytelling recipe: the cauldron pins in
    place while the steps scroll past and drive it (BrewScene.tsx)
    ========================================================================== */
-.pop-root .pop-brew {
+/* intro: headline left, copy right */
+.pop-root .pop-brew-intro {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas:
-    "stage intro"
-    "stage steps"
-    "stage meta";
-  column-gap: clamp(1.5rem, 4vw, 4rem);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
 }
-.pop-root .pop-brew-intro {
-  grid-area: intro;
+.pop-root .pop-brew-intro .pop-h2 {
+  margin-top: 0.55rem;
 }
-.pop-root .pop-about-copy .pop-h2 {
-  margin: 0.55rem 0 1.15rem;
+.pop-root .pop-about-copy .pop-body + .pop-body {
+  margin-top: 0.9rem;
 }
-.pop-root .pop-about-copy .pop-body {
-  margin-bottom: 0.9rem;
-}
-.pop-root .pop-brew-stage {
-  grid-area: stage;
+
+/* the pin: a tall track whose sticky frame holds the cauldron and the card
+   stack in place while the page scrolls through it */
+.pop-root .pop-brew-pin {
   position: relative;
+  z-index: 1;
+  height: 560vh;
+  margin-top: clamp(1rem, 3vw, 2rem);
 }
-.pop-root .pop-brew-sticky {
+.pop-root .pop-brew-frame {
   position: sticky;
-  top: 4vh;
-  height: 92vh;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+}
+.pop-root .pop-brew-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+.pop-root .pop-brew-scene {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 0.75rem;
 }
 .pop-root .pop-machine {
   width: 100%;
-  max-width: 520px;
-  max-height: 78vh;
+  max-width: 500px;
+  max-height: 76vh;
+  max-height: 76svh;
   height: auto;
 }
 .pop-root .pop-brew-caption {
@@ -648,33 +659,58 @@
 .pop-root .pop-brew-dots i.is-on {
   background: var(--orange);
 }
-.pop-root .pop-brew-steps {
-  grid-area: steps;
-  list-style: none;
-  margin: 18vh 0 0;
-  padding: 0;
+
+.pop-root .pop-brew-stackwrap {
+  position: relative;
+  min-height: 19rem;
 }
-.pop-root .pop-brew-step {
-  margin-bottom: 42vh;
+.pop-root .pop-brew-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  color: var(--grape);
+}
+.pop-root .pop-brew-arrow {
+  font-size: 1.6em;
+  line-height: 1;
+  color: var(--orange-dark);
+  animation: pop-nudge 1.4s ease-in-out infinite;
+}
+@keyframes pop-nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.pop-root .pop-brew-stack {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* room for older cards peeking out above the newest one */
+  padding-top: 3rem;
+  min-height: 19rem;
+}
+.pop-root .pop-brew-card {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  right: 0;
   background: #fff;
   border: 3px solid var(--ink);
   border-radius: var(--radius);
   box-shadow: 6px 6px 0 var(--grape);
   padding: clamp(1.25rem, 2.4vw, 1.9rem);
-  opacity: 0.4;
-  transform: scale(0.97);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.pop-root .pop-brew-step:last-child {
-  margin-bottom: 12vh;
-}
-.pop-root .pop-brew-step.is-active {
-  opacity: 1;
-  transform: none;
+  transform-origin: 50% 0;
 }
 .pop-root .pop-brew-n {
   font-family: var(--display);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--orange-dark);
 }
 .pop-root .pop-brew-title {
@@ -685,11 +721,39 @@
   letter-spacing: -0.02em;
   margin: 0.25rem 0 0.7rem;
 }
+
+/* reduced motion: no pin, the finished brew beside the steps as a list */
+.pop-root .pop-brew-pin.is-static {
+  height: auto;
+  margin-block: clamp(2rem, 5vw, 3.5rem);
+}
+.pop-root .is-static .pop-brew-frame {
+  position: static;
+  height: auto;
+}
+.pop-root .is-static .pop-brew-stack {
+  padding-top: 0;
+  min-height: 0;
+  display: grid;
+  gap: 1rem;
+}
+.pop-root .is-static .pop-brew-card {
+  position: static;
+}
+
 .pop-root .pop-brew-meta {
-  grid-area: meta;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+}
+.pop-root .pop-brew-meta .pop-note {
+  margin-top: 0.6rem;
 }
 .pop-root .pop-brew-meta .pop-meta {
-  margin-top: 0.8rem;
+  margin-top: 0;
 }
 
 /* scene animations (all paused under reduced motion) */
@@ -1721,38 +1785,43 @@
 }
 
 @media (max-width: 860px) {
-  /* one column: the cauldron pins to the top of the screen and the steps
-     scroll up underneath it */
-  .pop-root .pop-brew {
+  /* one column: the cauldron sits on top of the card stack inside the pin */
+  .pop-root .pop-brew-intro,
+  .pop-root .pop-brew-meta,
+  .pop-root .pop-brew-grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "intro" "steps" "meta";
   }
-  .pop-root .pop-brew-stage {
-    grid-area: steps;
-    z-index: 2;
-    pointer-events: none;
-  }
-  .pop-root .pop-brew-sticky {
-    top: 0;
-    height: 46vh;
-    gap: 0.3rem;
-    padding-top: 0.5rem;
-    margin-inline: calc(-1 * var(--gutter));
-    padding-inline: var(--gutter);
-    background: linear-gradient(var(--bg) 88%, rgba(239, 228, 255, 0));
+  .pop-root .pop-brew-grid {
+    gap: 0.25rem;
+    width: 100%;
   }
   .pop-root .pop-machine {
-    max-height: 38vh;
+    max-height: 40svh;
   }
-  .pop-root .pop-brew-steps {
-    margin-top: 0;
-    padding-top: 52vh;
+  .pop-root .pop-brew-scene {
+    gap: 0.25rem;
   }
-  .pop-root .pop-brew-step {
-    margin-bottom: 34vh;
+  .pop-root .pop-brew-stackwrap,
+  .pop-root .pop-brew-stack {
+    min-height: 15.5rem;
   }
-  .pop-root .pop-brew-step:last-child {
-    margin-bottom: 0;
+  .pop-root .pop-brew-stack {
+    padding-top: 2.2rem;
+  }
+  .pop-root .pop-brew-card {
+    top: 2.2rem;
+    padding: 1rem 1.1rem;
+  }
+  .pop-root .pop-brew-title {
+    font-size: 1.45rem;
+  }
+  .pop-root .pop-brew-card .pop-body {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .pop-root .pop-brew-hint {
+    align-items: center;
+    font-size: 1.25rem;
   }
   /* one column: the dino sits below the copy, never on the title */
   .pop-root .pop-hero-grid {
@@ -1904,12 +1973,8 @@
   .pop-root .pop-fog span {
     animation: none;
   }
-  .pop-root .pop-brew-step {
-    transition: none;
-    margin-bottom: 1.5rem;
-  }
-  .pop-root .pop-brew-steps {
-    margin-top: 2rem;
+  .pop-root .pop-brew-arrow {
+    animation: none;
   }
   .pop-root .pop-bat {
     display: none;
