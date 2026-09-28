@@ -618,7 +618,7 @@
 }
 .pop-root .pop-brew-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: center;
 }
@@ -630,7 +630,7 @@
 }
 .pop-root .pop-machine {
   width: 100%;
-  max-width: 500px;
+  max-width: 720px;
   max-height: 76vh;
   max-height: 76svh;
   height: auto;
@@ -707,6 +707,13 @@
   box-shadow: 6px 6px 0 var(--grape);
   padding: clamp(1.25rem, 2.4vw, 1.9rem);
   transform-origin: 50% 0;
+}
+/* older cards in the stack show only their edges */
+.pop-root .pop-brew-card > * {
+  transition: opacity 0.25s ease;
+}
+.pop-root .pop-brew-card:not(.is-active) > * {
+  opacity: 0;
 }
 .pop-root .pop-brew-n {
   font-family: var(--display);
@@ -798,6 +805,84 @@
 @keyframes pop-blink {
   0%, 92%, 100% { transform: scaleY(1); }
   95% { transform: scaleY(0.1); }
+}
+
+/* the dino: idle bob, and a stomp loop while it stirs (BrewScene sets
+   .is-stomping) — leg up, smash down, pot rattles, brew sloshes */
+.pop-root .pop-dino {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: pop-idle 2.6s ease-in-out infinite;
+}
+.pop-root .is-stomping .pop-dino {
+  animation: none;
+}
+@keyframes pop-idle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+}
+.pop-root .pop-dino-windup,
+.pop-root .pop-dino-stomp {
+  opacity: 0;
+}
+.pop-root .is-stomping .pop-dino-windup {
+  animation: pop-pose-up 0.8s infinite;
+}
+.pop-root .is-stomping .pop-dino-stomp {
+  animation: pop-pose-down 0.8s infinite;
+}
+@keyframes pop-pose-up {
+  0%, 44.9% { opacity: 1; }
+  45%, 100% { opacity: 0; }
+}
+@keyframes pop-pose-down {
+  0%, 44.9% { opacity: 0; }
+  45%, 100% { opacity: 1; }
+}
+.pop-root .pop-pot-shake {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.pop-root .is-stomping .pop-pot-shake {
+  animation: pop-rattle 0.8s infinite;
+}
+@keyframes pop-rattle {
+  0%, 44% { transform: none; }
+  48% { transform: translateY(-8px) rotate(-3deg); }
+  54% { transform: translateY(-3px) rotate(3deg); }
+  60% { transform: rotate(-1.5deg); }
+  66%, 100% { transform: none; }
+}
+.pop-root .pop-churn {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.pop-root .is-stomping .pop-churn {
+  animation: pop-churn 0.8s infinite;
+}
+@keyframes pop-churn {
+  0%, 44% { transform: none; }
+  50% { transform: scale(1.04, 1.7) skewX(-10deg); }
+  60% { transform: scale(0.97, 0.75) skewX(7deg); }
+  72%, 100% { transform: none; }
+}
+.pop-root .pop-slosh-drop {
+  opacity: 0;
+  transform-box: fill-box;
+  --h: 42px;
+  --dx: -8px;
+}
+.pop-root .pop-slosh-drop--2 { --h: 58px; --dx: 4px; }
+.pop-root .pop-slosh-drop--3 { --h: 34px; --dx: 12px; }
+.pop-root .pop-slosh-drop--4 { --h: 50px; --dx: -14px; }
+.pop-root .is-stomping .pop-slosh-drop {
+  animation: pop-slosh 0.8s ease-out infinite;
+}
+@keyframes pop-slosh {
+  0%, 46% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  58% { opacity: 1; transform: translate(var(--dx), calc(var(--h) * -1)) scale(1); }
+  78% { opacity: 1; transform: translate(calc(var(--dx) * 2), calc(var(--h) * -0.4)) scale(0.9); }
+  90%, 100% { opacity: 0; transform: translate(calc(var(--dx) * 2.4), 6px) scale(0.6); }
 }
 
 /* spooky dressing for the band: a corner cobweb and drifting fog */
@@ -1966,6 +2051,7 @@
   .pop-root .pop-crowd-fig--float,
   .pop-root .pop-spider-in,
   .pop-root .pop-patch-ghost,
+  .pop-root .pop-dino,
   .pop-root .pop-steam,
   .pop-root .pop-bubble,
   .pop-root .pop-flicker,
