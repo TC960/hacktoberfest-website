@@ -1,7 +1,8 @@
 # Design prompts
 
 Prompts for generating Halloween art and layouts with other models: a whole-site prompt,
-then one image prompt per placeholder SVG in `src/art/Spooky.tsx`. They all describe the same
+then one image prompt per placeholder SVG in `src/art/Spooky.tsx`, then layered prompts for the
+scrollytelling cauldron in `src/art/BrewScene.tsx`. They all describe the same
 style, so the art should match DS3's dino sticker (`public/mascot.png`).
 
 ## Whole-site prompt
@@ -79,7 +80,6 @@ Shared style line (put it at the start of every prompt):
 | `Moon` | Hero, behind the dino | A big, soft, glowing full moon in candlelight yellow with a few pale craters, no face. |
 | `Ghost` | Hero, stats, schedule, sponsors | A small friendly bedsheet ghost with oval black eyes, a little "oo" mouth and pink blush, wavy bottom edge. |
 | `Bat` | Hero sky, marquee, badge | A tiny chubby bat, wings spread, dark purple with orange dot eyes. |
-| `Cauldron` | About band | A bubbling witch's cauldron over a small fire, cyan potion, a "</>" code symbol and sparkles rising in the steam, a friendly ghost floating out. |
 | `CandyBucket` | Prizes (one per track) | A jack-o'-lantern trick-or-treat bucket with a handle, overflowing with candy corn and wrapped sweets. |
 | `WitchRocket` | How to join | A cartoon rocket wearing a purple witch hat, with a round cyan porthole and orange fins, taking off with a small flame. |
 | `Spider` | Tracks band | A round, cute black spider with big white eyes, hanging from a single thread. |
@@ -89,3 +89,39 @@ Shared style line (put it at the start of every prompt):
 To swap one in: export a transparent PNG or WebP into `public/art/`, then replace that
 component's `<svg>` with an `<img>` that has the same `className` so the CSS keeps its size and
 position.
+
+## Scrollytelling cauldron (`BrewScene.tsx`)
+
+The About band pins a cauldron in place and scrolling animates it: the fire lights, a
+crystal ball, a spellbook and a potion drop in one at a time, a spoon stirs, and a ghost
+rises out holding a DEV badge. To replace the drawn pieces with generated art, each
+piece has to be a **separate transparent PNG** so it can still move on its own. Ask for
+them one at a time, using the shared style line above, plus:
+
+> Isolated single object, centred, no background, no shadow, no text unless asked,
+> front-on three-quarter view, consistent with the other pieces in the set.
+
+| Layer | Prompt |
+| --- | --- |
+| Pot (back) | An empty round witch's cauldron seen slightly from above, dark purple iron with a violet shine, three short legs, the rim drawn as a thick oval with the inside visible and empty. |
+| Brew surface | Just the flat oval surface of a glowing liquid, cyan, seen from slightly above, to sit inside a cauldron rim. |
+| Fire | Three cartoon flames in a row, pumpkin orange with a candlelight-yellow core, for under a cauldron. |
+| Crystal ball | A lilac crystal ball on a small grape-purple stand. |
+| Spellbook | A closed grape-purple spellbook with a cream page edge and a small yellow star on the cover. |
+| Potion | A small round potion bottle with a cork, filled with glowing violet liquid. |
+| Spoon | A long wooden witch's stirring spoon, diagonal. |
+| Ghost | The friendly bedsheet ghost from the set, smiling, one arm holding out a round yellow medal on a purple ribbon that says "DEV". |
+| Steam | Three soft wavy wisps of cream-coloured steam, separate from each other. |
+
+For a one-shot mood image instead (for example a poster or a social post), use this
+with GPT's image model:
+
+```text
+Cute Halloween sticker-style illustration, thick rounded dark-purple outlines, flat colours,
+hand-drawn wobble. A bubbling witch's cauldron on a small fire under a full yellow moon.
+An orange cartoon dinosaur in a purple witch hat (DS3's mascot, reference attached) stirs
+it with a wooden spoon. A crystal ball, a spellbook and a potion bottle float down into the
+glowing cyan brew, and a friendly ghost rises out holding a "DEV" medal and a "</>" symbol.
+Bats, sparkles, a ringed jack-o'-lantern planet in the night-purple sky. Palette: #1b0f2e,
+#5b2a86, #9b6bd6, #ff8a2b, #ffd166, #fff4e6, #3cc7d6. No realistic horror.
+```

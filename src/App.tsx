@@ -1,5 +1,6 @@
 import "./pop.css";
 
+import ScrollBat from "./sections/ScrollBat";
 import TopBar from "./sections/TopBar";
 import Hero from "./sections/Hero";
 import Marquee from "./sections/Marquee";
@@ -16,6 +17,7 @@ import Footer from "./sections/Footer";
 export default function App() {
   return (
     <div className="pop-root">
+      <ScrollBat />
       <TopBar />
       <main id="main" tabIndex={-1}>
         <Hero />

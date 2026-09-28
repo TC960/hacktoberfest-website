@@ -1,3 +1,5 @@
+import { useRef, type RefObject } from "react";
+import { m as motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Candle, Drip, Ghost, Pumpkin } from "../art/Spooky";
 import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
@@ -23,34 +25,55 @@ const PREP: Row[] = [
   { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
 ];
 
+/** A wick down the side of the day's timeline that burns as you scroll through it. */
+function Rail({ target }: { target: RefObject<HTMLUListElement> }) {
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target, offset: ["start 0.65", "end 0.65"] });
+  const top = useTransform(scrollYProgress, (v) => `${v * 100}%`);
+  return (
+    <div className="pop-rail" aria-hidden="true">
+      <motion.div className="pop-rail-fill" style={{ scaleY: reduce ? 1 : scrollYProgress }} />
+      <motion.span className="pop-rail-mark" style={{ top: reduce ? "100%" : top }}>
+        <Pumpkin />
+      </motion.span>
+    </div>
+  );
+}
+
 function Column({
   label,
   date,
   rows,
   foot,
+  rail = false,
 }: {
   label: string;
   date: string;
   rows: Row[];
   foot: string;
+  rail?: boolean;
 }) {
+  const listRef = useRef<HTMLUListElement>(null);
   return (
     <div className="pop-day">
       <div className="pop-day-head">
         <span className="pop-day-label">{label}</span>
         <span className="pop-day-date">{date}</span>
       </div>
-      <ul className="pop-day-rows">
-        {rows.map((r, i) => (
-          <Rise as="li" i={Math.min(i, 4)} y={16} key={r.title} className="pop-row">
-            <span className="pop-row-time">{r.time}</span>
-            <span className="pop-row-body">
-              <span className="pop-row-title">{r.title}</span>
-              {r.note && <span className="pop-row-note">{r.note}</span>}
-            </span>
-          </Rise>
-        ))}
-      </ul>
+      <div className={"pop-day-track" + (rail ? " pop-day-track--rail" : "")}>
+        {rail && <Rail target={listRef} />}
+        <ul className="pop-day-rows" ref={listRef}>
+          {rows.map((r, i) => (
+            <Rise as="li" i={Math.min(i, 4)} y={16} key={r.title} className="pop-row">
+              <span className="pop-row-time">{r.time}</span>
+              <span className="pop-row-body">
+                <span className="pop-row-title">{r.title}</span>
+                {r.note && <span className="pop-row-note">{r.note}</span>}
+              </span>
+            </Rise>
+          ))}
+        </ul>
+      </div>
       <p className="pop-day-foot">{foot}</p>
     </div>
   );
@@ -74,6 +97,7 @@ export default function Schedule() {
             label="Monday"
             date={`${EVENT.dateShort} · ${EVENT.time === "TBD" ? "Start time TBD" : EVENT.time}`}
             rows={DAY}
+            rail
             foot="Times count from kickoff and are indicative. Clock times land once the start time is confirmed."
           />
           <Column
