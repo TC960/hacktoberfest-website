@@ -39,7 +39,7 @@ export const TRACKS = [
 // The space challenge, judged separately from the four DEV Badge tracks.
 export const LEGENDARY = {
   title: "Make it Legendary",
-  prize: "Prize TBA",
+  prize: "3 months of Cursor Pro Plus",
   pitch:
     "Space gives you more to work with than almost any other field: enormous public datasets, decades of missions, and a literature no human can read all of. Real space data goes in and a legendary project comes out.",
   rules: [

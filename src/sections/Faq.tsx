@@ -76,8 +76,8 @@ const QA: Array<[string, React.ReactNode]> = [
       A space challenge judged separately from the four DEV Badge tracks: bring real space
       data and build something legendary with it. To be eligible, build your project with
       Cursor (the more you use it, the better your chances) and use the Grok Imagine or Grok
-      Voice API. Using Grok Bot for planning and team collaboration earns bonus points. The
-      prize is still to be announced.
+      Voice API. Using Grok Bot for planning and team collaboration earns bonus points. Winners
+      get 3 months of Cursor Pro Plus.
     </>,
   ],
   [

@@ -1262,7 +1262,7 @@
   font-size: 0.9375rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  white-space: nowrap;
+  text-wrap: balance;
 }
 
 /* ==========================================================================

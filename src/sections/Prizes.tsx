@@ -22,8 +22,8 @@ export default function Prizes() {
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
               Four open-source AI tracks, four winning teams: every member of each winning team gets
-              a DEV Badge on their DEV profile. The Make it Legendary space challenge has its own
-              prize, still to be announced. Winners are judged on what you build, not pull-request
+              a DEV Badge on their DEV profile. Winners of the Make it Legendary space challenge get
+              3 months of Cursor Pro Plus. Winners are judged on what you build, not pull-request
               counts.
             </p>
           </Rise>
