@@ -6,16 +6,16 @@ import { Drift, Rise } from "../motion";
 
 type Row = { time: string; title: string; note?: string };
 
-// Offsets from kickoff (T+0:00). Swap for clock times once the start time is set.
+// The day runs 4–9 PM; slot times are provisional.
 const DAY: Row[] = [
-  { time: "T−0:30", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
-  { time: "T+0:00", title: "Opening ceremony", note: "Code of conduct, tracks, how submissions work" },
-  { time: "T+0:20", title: "Team formation", note: "Come solo, leave with a team" },
-  { time: "T+0:30", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
-  { time: "T+2:30", title: "Break + workshops", note: "Food details and lineup TBA" },
-  { time: "T+5:00", title: "Submissions close", note: "Hard stop. Really." },
-  { time: "T+5:15", title: "Demos", note: "Every team gets the same shot" },
-  { time: "T+6:00", title: "Winners + closing" },
+  { time: "4:00 PM", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
+  { time: "4:15 PM", title: "Opening ceremony", note: "Code of conduct, tracks, how submissions work" },
+  { time: "4:30 PM", title: "Team formation", note: "Come solo, leave with a team" },
+  { time: "4:45 PM", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
+  { time: "6:30 PM", title: "Break + workshops", note: "Food details and lineup TBA" },
+  { time: "8:00 PM", title: "Submissions close", note: "Hard stop. Really." },
+  { time: "8:10 PM", title: "Demos", note: "Every team gets the same shot" },
+  { time: "8:45 PM", title: "Winners + closing", note: "Wrapped by 9:00 PM" },
 ];
 
 const PREP: Row[] = [
@@ -95,10 +95,10 @@ export default function Schedule() {
         <div className="pop-sched-grid">
           <Column
             label="Monday"
-            date={`${EVENT.dateShort} · ${EVENT.time === "TBD" ? "Start time TBD" : EVENT.time}`}
+            date={`${EVENT.dateShort} · ${EVENT.time}`}
             rows={DAY}
             rail
-            foot="Times count from kickoff and are indicative. Clock times land once the start time is confirmed."
+            foot="Slot times are provisional and may shift a little on the day."
           />
           <Column
             label="Before"

@@ -5,7 +5,7 @@ Event site for **Hacktoberfest × SpaceXAI HackDay**, an official **Hacktoberfes
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.
 
-- **When:** Monday, October 19, 2026 · time TBD
+- **When:** Monday, October 19, 2026 · 4:00 – 9:00 PM
 - **Where:** Price Center West Ballroom, UC San Diego
 - **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions)
 
@@ -55,8 +55,7 @@ Every fact the page shows (date, time, venue, links, emails) is in [`src/event.t
 Before launch:
 
 - [ ] `registerUrl`: swap in this Fest's OrganizerHQ page once MLH approves the event (it currently points at hacktoberfest.com/events)
-- [ ] `time`: set the start/end time (it shows "TBD" everywhere until then)
-- [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
+- [ ] Confirm the slot times in `src/sections/Schedule.tsx`
 
 ## Mascot
 

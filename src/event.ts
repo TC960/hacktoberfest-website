@@ -18,8 +18,7 @@ export const EVENT = {
 
   dateLong: "Monday, October 19, 2026",
   dateShort: "Oct 19",
-  /** Placeholder until the real time is set. Replace with e.g. "1:00 PM – 7:00 PM PT". */
-  time: "TBD",
+  time: "4:00 – 9:00 PM",
   /** UC San Diego students only; minors (13–17) not admitted (OrganizerHQ). */
   eligibility: "UC San Diego students, 18+",
 

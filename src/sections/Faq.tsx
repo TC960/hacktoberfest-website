@@ -43,8 +43,7 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "When does it start?",
     <>
-      {EVENT.dateLong}, at the {EVENT.venue}. Start and end times are TBD and will be posted
-      here and sent to everyone who registers.
+      {EVENT.dateLong}, {EVENT.time}, at the {EVENT.venue}. Check-in opens at 4:00 PM.
     </>,
   ],
   [

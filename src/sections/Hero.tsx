@@ -63,7 +63,7 @@ export default function Hero() {
 
           <Rise i={2}>
             <p className="pop-hero-lead">
-              {EVENT.dateLong} · {EVENT.venue}
+              {EVENT.dateLong} · {EVENT.time} · {EVENT.venue}
             </p>
           </Rise>
           <Rise i={4}>

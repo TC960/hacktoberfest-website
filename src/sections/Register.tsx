@@ -56,7 +56,7 @@ export default function Register() {
               <p className="pop-eyebrow">Venue</p>
               <p className="pop-venue-name">{EVENT.venue}</p>
               <p className="pop-venue-sub">
-                Price Center, {EVENT.campus} · {EVENT.dateLong} · {EVENT.time === "TBD" ? "Time TBD" : EVENT.time}
+                Price Center, {EVENT.campus} · {EVENT.dateLong} · {EVENT.time}
               </p>
             </div>
             <div className="pop-venue-cta">
