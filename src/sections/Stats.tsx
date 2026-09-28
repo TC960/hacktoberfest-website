@@ -1,5 +1,4 @@
-import { C, Shade } from "../art/iso";
-import { Person } from "../art/Props";
+import { CandyCorn, Drip, Ghost, Pumpkin } from "../art/Spooky";
 import { Rise } from "../motion";
 
 const STATS: Array<{ n: string; label: string }> = [
@@ -9,17 +8,18 @@ const STATS: Array<{ n: string; label: string }> = [
   { n: "18+", label: "UCSD students only" },
 ];
 
-const CROWD: Array<{ left: string; shirt: Shade; variant: 0 | 1 | 2 }> = [
-  { left: "6%", shirt: C.orange, variant: 0 },
-  { left: "29%", shirt: C.teal, variant: 1 },
-  { left: "54%", shirt: C.pink, variant: 2 },
-  { left: "61%", shirt: C.marigold, variant: 0 },
-  { left: "86%", shirt: C.ink, variant: 1 },
+// Little critters sitting on the bottom rule.
+const CROWD = [
+  { left: "6%", Art: Pumpkin, cls: "" },
+  { left: "29%", Art: Ghost, cls: " pop-crowd-fig--float" },
+  { left: "54%", Art: CandyCorn, cls: " pop-crowd-fig--sm" },
+  { left: "61%", Art: Pumpkin, cls: " pop-crowd-fig--sm" },
+  { left: "86%", Art: Ghost, cls: " pop-crowd-fig--float" },
 ];
 
 export default function Stats() {
   return (
-    <section className="pop-band pop-band--cream pop-stats" id="stats">
+    <section className="pop-band pop-band--night pop-stats" id="stats">
       <div className="pop-wrap">
         <div className="pop-stats-head">
           <Rise>
@@ -45,15 +45,16 @@ export default function Stats() {
               ))}
             </div>
             <div className="pop-crowd" aria-hidden="true">
-              {CROWD.map((p, i) => (
-                <span className="pop-crowd-fig" style={{ left: p.left }} key={i}>
-                  <Person shirt={p.shirt} variant={p.variant} />
+              {CROWD.map(({ left, Art, cls }, i) => (
+                <span className={"pop-crowd-fig" + cls} style={{ left }} key={i}>
+                  <Art />
                 </span>
               ))}
             </div>
           </div>
         </div>
       </Rise>
+      <Drip />
     </section>
   );
 }

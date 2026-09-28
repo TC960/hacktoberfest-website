@@ -1,8 +1,9 @@
-import Machine from "../art/Machine";
+import { Cauldron, Drip } from "../art/Spooky";
 import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
 
 const META: Array<[string, string]> = [
+  ["Event", `${EVENT.name} ${EVENT.nameHost}`],
   ["Format", `${EVENT.format}, in person`],
   ["Date", EVENT.dateLong],
   ["Time", EVENT.time],
@@ -14,10 +15,13 @@ const META: Array<[string, string]> = [
 
 export default function About() {
   return (
-    <section className="pop-band pop-band--marigold pop-about" id="about">
+    <section className="pop-band pop-band--lavender pop-about" id="about">
       <div className="pop-wrap pop-about-grid">
-        <Drift className="pop-about-art" amount={46}>
-          <Machine className="pop-machine" />
+        <Drift className="pop-about-art" amount={36}>
+          <Cauldron
+            className="pop-machine"
+            label="A bubbling cauldron over a fire, brewing code, with a friendly ghost floating out of it"
+          />
         </Drift>
 
         <div className="pop-about-copy">
@@ -25,7 +29,7 @@ export default function About() {
             <p className="pop-eyebrow">What it is</p>
           </Rise>
           <Rise i={1}>
-            <h2 className="pop-h2">one day to build something with open AI</h2>
+            <h2 className="pop-h2">one day to brew something with open AI</h2>
           </Rise>
           <Rise i={2}>
             <p className="pop-body">
@@ -36,9 +40,9 @@ export default function About() {
           </Rise>
           <Rise i={3}>
             <p className="pop-body">
-              This Fest is a Hack Day brought to you by {EVENT.hostLong}, in partnership with
-              MLH: show up, form a team, ship an open-source AI project, and demo it before
-              the day is out. Come solo or bring friends.
+              {EVENT.name} is a Hack Day brought to you by {EVENT.hostLong} at {EVENT.campus}, in
+              partnership with MLH: show up, form a team, ship an open-source AI project, and demo
+              it before the day is out. Come solo or bring friends.
             </p>
           </Rise>
           <Rise i={4}>
@@ -53,6 +57,7 @@ export default function About() {
           </Rise>
         </div>
       </div>
+      <Drip />
     </section>
   );
 }

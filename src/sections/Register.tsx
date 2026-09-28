@@ -1,6 +1,7 @@
 import { IconExternal } from "../art/Icons";
+import { Drip, WitchRocket } from "../art/Spooky";
 import { EVENT } from "../event";
-import { Rise } from "../motion";
+import { Drift, Rise } from "../motion";
 import ExtLink, { NewTab } from "./ExtLink";
 
 const STEPS = [
@@ -23,15 +24,20 @@ const STEPS = [
 
 export default function Register() {
   return (
-    <section className="pop-band pop-band--teal pop-reg" id="register">
+    <section className="pop-band pop-band--orange pop-reg" id="register">
       <div className="pop-wrap">
         <div className="pop-reg-head">
-          <Rise>
-            <p className="pop-eyebrow">How to join</p>
-          </Rise>
-          <Rise i={1}>
-            <h2 className="pop-h2">three steps to the launch pad</h2>
-          </Rise>
+          <div>
+            <Rise>
+              <p className="pop-eyebrow">How to join</p>
+            </Rise>
+            <Rise i={1}>
+              <h2 className="pop-h2">three steps to the launch pad</h2>
+            </Rise>
+          </div>
+          <Drift className="pop-reg-art" amount={24}>
+            <WitchRocket />
+          </Drift>
         </div>
 
         <ol className="pop-reg-steps">
@@ -54,7 +60,7 @@ export default function Register() {
               </p>
             </div>
             <div className="pop-venue-cta">
-              <a className="pop-btn pop-btn--ink" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
+              <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
                 Register now <IconExternal className="pop-btn-ico" />
                 <NewTab />
               </a>
@@ -73,6 +79,7 @@ export default function Register() {
           </p>
         </Rise>
       </div>
+      <Drip />
     </section>
   );
 }

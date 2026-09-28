@@ -1,4 +1,4 @@
-import { Coffee, Laptop, Server } from "../art/Props";
+import { Candle, Drip, Ghost, Pumpkin } from "../art/Spooky";
 import { EVENT } from "../event";
 import { Drift, Rise } from "../motion";
 
@@ -58,7 +58,7 @@ function Column({
 
 export default function Schedule() {
   return (
-    <section className="pop-band pop-band--cream pop-sched" id="schedule">
+    <section className="pop-band pop-band--lavender pop-sched" id="schedule">
       <div className="pop-wrap">
         <div className="pop-sched-head">
           <Rise>
@@ -86,16 +86,17 @@ export default function Schedule() {
 
         <div className="pop-sched-props" aria-hidden="true">
           <Drift amount={26} className="pop-prop pop-prop--laptop">
-            <Laptop />
+            <Ghost />
           </Drift>
           <Drift amount={-20} className="pop-prop pop-prop--coffee">
-            <Coffee />
+            <Candle />
           </Drift>
           <Drift amount={32} className="pop-prop pop-prop--server">
-            <Server />
+            <Pumpkin />
           </Drift>
         </div>
       </div>
+      <Drip />
     </section>
   );
 }

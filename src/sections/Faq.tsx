@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IconToggle } from "../art/Icons";
+import { Drip } from "../art/Spooky";
 import { EVENT, HOST_CAP, INCIDENT_TEL } from "../event";
 import ContactEmails from "./Contact";
 import { Rise } from "../motion";
@@ -12,6 +13,12 @@ const QA: Array<[string, React.ReactNode]> = [
       A month-long celebration of open source every October, run by Major League Hacking and DEV
       in partnership with DigitalOcean. The 2026 theme is "AI belongs to everyone": it's about learning and building with open-source AI, at in-person Fests and
       online.
+    </>,
+  ],
+  [
+    `What's the ${EVENT.name}?`,
+    <>
+      Our Hacktoberfest Fest: a one-day Hack Day run by DS3 at {EVENT.campus}. The challenge tracks are all about open-source AI.
     </>,
   ],
   [
@@ -119,7 +126,7 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="pop-band pop-band--cream pop-faq" id="faq">
+    <section className="pop-band pop-band--lavender pop-faq" id="faq">
       <div className="pop-wrap pop-faq-grid">
         <div className="pop-faq-side">
           <Rise>
@@ -169,6 +176,7 @@ export default function Faq() {
           </ul>
         </Rise>
       </div>
+      <Drip />
     </section>
   );
 }

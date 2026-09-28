@@ -1,9 +1,7 @@
-import React from "react";
-
 const base = {
   viewBox: "0 0 24 24",
   fill: "none",
-  stroke: "#000",
+  stroke: "#1f1030",
   strokeWidth: 2,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
@@ -11,41 +9,57 @@ const base = {
   xmlns: "http://www.w3.org/2000/svg",
 };
 
-/** small neural net */
-export function IconNet({ className }: { className?: string }) {
+/** spellbook: agent skills are spells an agent can learn */
+export function IconSpellbook({ className }: { className?: string }) {
   return (
     <svg {...base} className={className}>
-      <circle cx="5" cy="6" r="2" />
-      <circle cx="5" cy="18" r="2" />
-      <circle cx="12" cy="12" r="2" />
-      <circle cx="19" cy="6" r="2" />
-      <circle cx="19" cy="18" r="2" />
-      <path d="M6.7 7.1 10.4 10.7M6.7 16.9 10.4 13.3M13.6 10.7 17.3 7.1M13.6 13.3 17.3 16.9" />
+      <path d="M4 5.5C4 4 5 3 6.5 3H19v15H6.5C5 18 4 19 4 20.5Z" fill="#fff4e6" />
+      <path d="M4 20.5C4 22 5 22 6.5 22H19v-4" />
+      <path d="m11.5 7 .9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9Z" fill="#ffd166" />
     </svg>
   );
 }
 
-/** robot head */
-export function IconBot({ className }: { className?: string }) {
+/** crystal ball: a big model that sees a lot */
+export function IconCrystalBall({ className }: { className?: string }) {
   return (
     <svg {...base} className={className}>
-      <path d="M12 2v3" />
-      <rect x="3.5" y="6" width="17" height="13" rx="3" />
-      <circle cx="9" cy="12" r="1.5" fill="#000" stroke="none" />
-      <circle cx="15" cy="12" r="1.5" fill="#000" stroke="none" />
-      <path d="M9.5 15.8h5" />
+      <circle cx="12" cy="10.5" r="7.5" fill="#d9c4f5" />
+      <path d="M8.5 8.5a4 4 0 0 1 3-2.5" stroke="#fff4e6" />
+      <path d="M6 20.5h12l-1.5-3.5h-9Z" fill="#5b2a86" />
     </svg>
   );
 }
 
-/** four-point star for the floating badge */
-export function IconStar({ className }: { className?: string }) {
+/** potion bottle: small but strong */
+export function IconPotion({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M12 0c.9 6.6 4.5 10.4 12 12-7.5 1.6-11.1 5.4-12 12-.9-6.6-4.5-10.4-12-12C7.5 10.4 11.1 6.6 12 0Z"
-        fill="currentColor"
-      />
+    <svg {...base} className={className}>
+      <path d="M10 3h4M10.5 3v5L6 15a5 5 0 0 0 4.5 7h3A5 5 0 0 0 18 15l-4.5-7V3" fill="#fff4e6" />
+      <path d="M7.4 15h9.2a4 4 0 0 1-3.6 5h-2a4 4 0 0 1-3.6-5Z" fill="#3cc7d6" />
+    </svg>
+  );
+}
+
+/** cauldron: the harness everything gets brewed in */
+export function IconCauldron({ className }: { className?: string }) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="9" cy="4.5" r="1.5" />
+      <circle cx="14" cy="3" r="1" />
+      <path d="M4 10c-1 6 2.5 10 8 10s9-4 8-10Z" fill="#2e1a47" />
+      <path d="M2.5 9.5h19" />
+      <path d="M7 20.5 6 22M17 20.5l1 1.5" />
+    </svg>
+  );
+}
+
+/** outlined ghost, for open sponsor frames */
+export function IconGhost({ className }: { className?: string }) {
+  return (
+    <svg {...base} stroke="currentColor" className={className}>
+      <path d="M5 21V10a7 7 0 0 1 14 0v11l-2.3-1.8-2.4 1.8-2.3-1.8-2.3 1.8-2.4-1.8Z" />
+      <path d="M9.5 10v1M14.5 10v1" />
     </svg>
   );
 }
@@ -54,39 +68,8 @@ export function IconStar({ className }: { className?: string }) {
 export function IconToggle({ open, className }: { open: boolean; className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="10.5" width="20" height="3" fill="currentColor" />
-      {!open && <rect x="10.5" y="2" width="3" height="20" fill="currentColor" />}
-    </svg>
-  );
-}
-
-/** small diamond used inside empty sponsor frames */
-export function IconDiamond({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2 22 12 12 22 2 12Z" fill="none" stroke="currentColor" strokeWidth={2} />
-    </svg>
-  );
-}
-
-/** layered harness / stack */
-export function IconStack({ className }: { className?: string }) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M12 3 21 8 12 13 3 8Z" />
-      <path d="M3 12.5 12 17.5 21 12.5" />
-      <path d="M3 16.5 12 21.5 21 16.5" />
-    </svg>
-  );
-}
-
-/** little rocket */
-export function IconRocket({ className }: { className?: string }) {
-  return (
-    <svg {...base} className={className}>
-      <path d="M12 2c3.5 2.5 5 6.5 5 11l-2 3H9l-2-3c0-4.5 1.5-8.5 5-11Z" />
-      <circle cx="12" cy="9.5" r="1.8" />
-      <path d="M7 13l-3 3 1 3 3-2M17 13l3 3-1 3-3-2M10.5 19.5 12 22l1.5-2.5" />
+      <rect x="2" y="10.5" width="20" height="3" rx="1.5" fill="currentColor" />
+      {!open && <rect x="10.5" y="2" width="3" height="20" rx="1.5" fill="currentColor" />}
     </svg>
   );
 }
@@ -94,7 +77,7 @@ export function IconRocket({ className }: { className?: string }) {
 /** arrow out of a box, for external links */
 export function IconExternal({ className }: { className?: string }) {
   return (
-    <svg {...base} className={className}>
+    <svg {...base} stroke="currentColor" className={className}>
       <path d="M14 4h6v6M20 4l-9 9" />
       <path d="M18 14v6H4V6h6" />
     </svg>

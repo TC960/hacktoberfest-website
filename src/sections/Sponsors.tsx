@@ -1,5 +1,5 @@
-import { IconDiamond } from "../art/Icons";
-import { CubeStack } from "../art/Props";
+import { IconGhost } from "../art/Icons";
+import { Drip, Ghost, Pumpkin } from "../art/Spooky";
 import { CONTACT_MAILTO, EVENT, HOST_CAP } from "../event";
 import { Drift, Rise } from "../motion";
 
@@ -32,7 +32,7 @@ const TIERS: Array<{ tier: string; note: string; names: string[]; mod: string }>
 
 export default function Sponsors() {
   return (
-    <section className="pop-band pop-band--pink pop-spon" id="sponsors">
+    <section className="pop-band pop-band--plum pop-spon" id="sponsors">
       <div className="pop-wrap">
         <div className="pop-spon-head">
           <div>
@@ -56,7 +56,11 @@ export default function Sponsors() {
             </Rise>
           </div>
           <Drift className="pop-spon-art" amount={30}>
-            <CubeStack />
+            <div className="pop-patch" aria-hidden="true">
+              <Ghost className="pop-patch-ghost" />
+              <Pumpkin className="pop-patch-big" />
+              <Pumpkin className="pop-patch-sm" face={false} />
+            </div>
           </Drift>
         </div>
 
@@ -75,7 +79,7 @@ export default function Sponsors() {
                         <span className="pop-slot-name">{name}</span>
                       ) : (
                         <>
-                          <IconDiamond className="pop-slot-glyph" />
+                          <IconGhost className="pop-slot-glyph" />
                           <span>Available</span>
                         </>
                       )}
@@ -87,6 +91,7 @@ export default function Sponsors() {
           ))}
         </div>
       </div>
+      <Drip />
     </section>
   );
 }

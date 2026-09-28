@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { IconStar } from "../art/Icons";
+import { Bat, CandyCorn, Drip } from "../art/Spooky";
+import { EVENT } from "../event";
 
 const ITEMS = [
-  "HACKTOBERFEST 2026",
+  EVENT.name.toUpperCase(),
+  EVENT.nameHost.toUpperCase(),
   "MON OCT 19",
   "PC WEST BALLROOM",
   "AI BELONGS TO EVERYONE",
@@ -14,10 +16,14 @@ const ITEMS = [
 function Sequence() {
   return (
     <div className="pop-marquee-seq">
-      {ITEMS.map((item) => (
+      {ITEMS.map((item, i) => (
         <React.Fragment key={item}>
           <span className="pop-marquee-item">{item}</span>
-          <IconStar className="pop-marquee-star" />
+          {i % 2 ? (
+            <Bat className="pop-marquee-star pop-marquee-star--bat" />
+          ) : (
+            <CandyCorn className="pop-marquee-star" />
+          )}
         </React.Fragment>
       ))}
     </div>
@@ -32,47 +38,34 @@ export default function Marquee() {
     <section
       className="pop-marquee"
       aria-label="Event highlights"
-      style={{ position: "relative" }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <p className="pop-sr">
-        Hacktoberfest 2026 — Monday October 19 — Price Center West Ballroom — AI belongs to
-        everyone — build with open-source AI — free to attend — register on OrganizerHQ.
+        {EVENT.name} {EVENT.nameHost} — Monday October 19 — Price Center West Ballroom — AI
+        belongs to everyone — build with open-source AI — free to attend — register on
+        OrganizerHQ.
       </p>
-      <div
-        className="pop-marquee-track"
-        aria-hidden="true"
-        style={paused || hover ? { animationPlayState: "paused" } : undefined}
-      >
-        <Sequence />
-        <Sequence />
+      <div className="pop-marquee-clip">
+        <div
+          className="pop-marquee-track"
+          aria-hidden="true"
+          style={paused || hover ? { animationPlayState: "paused" } : undefined}
+        >
+          <Sequence />
+          <Sequence />
+        </div>
       </div>
       <button
         type="button"
         className="pop-marquee-toggle"
         aria-pressed={paused}
         onClick={() => setPaused((p) => !p)}
-        style={{
-          position: "absolute",
-          right: "0.5rem",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "#000",
-          color: "var(--cream)",
-          border: "2px solid var(--cream)",
-          borderRadius: "3px",
-          padding: "0.3rem 0.55rem",
-          fontSize: "0.6875rem",
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          outlineColor: "var(--marigold)",
-        }}
       >
         {paused ? "Play" : "Pause"}
         <span className="pop-sr"> scrolling text</span>
       </button>
+      <Drip />
     </section>
   );
 }

@@ -1,30 +1,50 @@
 /* ==========================================================================
-   POP — "Pop Machine" (ported from the DataHacks pop theme)
-   Bold studio solid. Hard full-bleed colour bands, compressed statement type,
-   isometric toy illustration. Every selector scoped under .pop-root.
-   No shadows. No gradients. Borders are 2px solid #000.
+   SPOOKY POP — Halloween theme for Hacktoberfest × SpaceXAI HackDay
+   Night-purple and pumpkin-orange bands, wax drips between them, rounded
+   hand-drawn "sticker" shapes with thick ink outlines to match DS3's dino.
+   Every selector is scoped under .pop-root.
    ========================================================================== */
 
 .pop-root {
-  --pink: #efa0de;
-  --marigold: #f0be3d;
-  --orange: #f26522;
-  --orange-dark: #d9541a;
-  --ink: #000000;
-  --cream: #fff8ec;
-  --teal: #4fb3a5;
-  --grey: #b9b3a9;
+  /* palette */
+  --night: #1b0f2e;
+  --night-deep: #120a20;
+  --plum: #2c1748;
+  --grape: #5b2a86;
+  --violet: #9b6bd6;
+  --lilac: #d9c4f5;
+  --lavender: #efe4ff;
+  --orange: #ff8a2b;
+  --orange-dark: #d9621a;
+  --candle: #ffd166;
+  --bone: #fff4e6;
+  --teal: #3cc7d6;
+  --ink: #1f1030;
+
+  /* type */
+  --display: "Lilita One", "Fredoka", sans-serif;
+  --round: "Fredoka", "Nunito", ui-rounded, sans-serif;
+
+  /* per-band colours; light defaults, dark bands override */
+  --bg: var(--lavender);
+  --fg: var(--ink);
+  --muted: rgba(31, 16, 48, 0.74);
+  --line: var(--ink);
+  --accent: var(--grape);
+  --shadow: var(--ink);
+  --link-line: var(--orange-dark);
 
   --pad: clamp(5rem, 10vw, 9rem);
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
   --maxw: 1440px;
+  --radius: 22px;
 
-  background: var(--cream);
-  color: var(--ink);
-  font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: var(--night);
+  color: var(--fg);
+  font-family: "Nunito", ui-sans-serif, system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 500;
   overflow-x: hidden;
   isolation: isolate;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +57,6 @@
 .pop-root *::before,
 .pop-root *::after {
   box-sizing: border-box;
-  border-color: #000;
 }
 .pop-root h1,
 .pop-root h2,
@@ -71,7 +90,7 @@
 }
 .pop-root a:focus-visible,
 .pop-root button:focus-visible {
-  outline: 3px solid #000;
+  outline: 3px solid currentColor;
   outline-offset: 3px;
 }
 
@@ -96,11 +115,12 @@
   clip-path: none;
   overflow: visible;
   z-index: 100;
-  background: #000;
-  color: #fff;
+  background: var(--night);
+  color: var(--bone);
   padding: 0.5rem 0.75rem;
-  border: 2px solid #fff;
-  outline: 2px solid var(--marigold);
+  border: 2px solid var(--bone);
+  border-radius: 999px;
+  outline: 2px solid var(--orange);
 }
 
 /* ---------- layout primitives ------------------------------------------- */
@@ -114,37 +134,81 @@
 .pop-root .pop-band {
   position: relative;
   padding-block: var(--pad);
+  background: var(--bg);
+  color: var(--fg);
 }
-.pop-root .pop-band--pink {
-  background: var(--pink);
+.pop-root .pop-band--lavender {
+  --bg: var(--lavender);
 }
-.pop-root .pop-band--marigold {
-  background: var(--marigold);
+.pop-root .pop-band--orange {
+  --bg: var(--orange);
+  --accent: var(--ink);
+  --link-line: var(--ink);
+  --muted: rgba(31, 16, 48, 0.8);
 }
-.pop-root .pop-band--cream {
-  background: var(--cream);
+/* dark bands */
+.pop-root .pop-band--night,
+.pop-root .pop-band--plum,
+.pop-root .pop-band--grape,
+.pop-root .pop-venue,
+.pop-root .pop-foot,
+.pop-root .pop-bar {
+  --fg: var(--bone);
+  --muted: rgba(255, 244, 230, 0.76);
+  --line: rgba(217, 196, 245, 0.45);
+  --accent: var(--orange);
+  --shadow: var(--grape);
+  --link-line: var(--orange);
+}
+.pop-root .pop-band--night {
+  --bg: var(--night);
+}
+.pop-root .pop-band--plum {
+  --bg: var(--plum);
+}
+.pop-root .pop-band--grape {
+  --bg: var(--grape);
+  --shadow: var(--night);
+  --line: rgba(217, 196, 245, 0.6);
+}
+
+/* wax drips hanging from the bottom of a band into the next one */
+.pop-root .pop-drip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 1px);
+  height: clamp(26px, 3.4vw, 48px);
+  background: var(--bg);
+  z-index: 3;
+  pointer-events: none;
+  --drip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 48'%3E%3Cpath d='M0 0H200V12C192 12 190 16 190 22V30A6 6 0 0 1 178 30V20C178 14 172 12 166 12H130C124 12 122 16 122 24V40A7 7 0 0 1 108 40V22C108 15 104 12 96 12H62C56 12 54 16 54 20V26A5 5 0 0 1 44 26V20C44 15 40 12 34 12H0Z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--drip) repeat-x left top / auto 100%;
+  mask: var(--drip) repeat-x left top / auto 100%;
 }
 
 /* ---------- shared type ------------------------------------------------- */
 .pop-root .pop-h2 {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
+  font-family: var(--round);
+  font-weight: 700;
   font-size: clamp(2rem, 4.5vw, 3.5rem);
-  letter-spacing: -0.035em;
-  line-height: 0.95;
+  letter-spacing: -0.02em;
+  line-height: 1;
   max-width: 20ch;
   text-wrap: balance;
+  text-transform: lowercase;
 }
 .pop-root .pop-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8125rem;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--accent);
 }
 .pop-root .pop-body {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.6;
-  max-width: 48ch;
+  max-width: 50ch;
 }
 .pop-root .pop-body + .pop-body {
   margin-top: 0.9rem;
@@ -152,49 +216,65 @@
 .pop-root .pop-note {
   font-size: 0.9375rem;
   line-height: 1.55;
-  max-width: 40ch;
-  color: rgba(0, 0, 0, 0.66);
+  max-width: 42ch;
+  color: var(--muted);
 }
 .pop-root .pop-note a {
-  color: #000;
-  border-bottom: 2px solid var(--orange);
+  color: var(--fg);
+  font-weight: 700;
+  border-bottom: 2px solid var(--link-line);
 }
 
-/* ---------- buttons ----------------------------------------------------- */
+/* ---------- buttons: rounded stickers with a hard offset shadow ---------- */
 .pop-root .pop-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   background: var(--orange);
-  color: #000;
-  font-weight: 700;
-  font-size: 0.9375rem;
+  color: var(--ink);
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: 1rem;
   line-height: 1;
-  padding: 0.78rem 1.15rem;
-  border: 2px solid var(--orange);
-  border-radius: 4px;
-  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  padding: 0.85rem 1.35rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease,
+    color 0.16s ease;
 }
 .pop-root .pop-btn:hover {
-  background: var(--orange-dark);
-  border-color: var(--orange-dark);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--shadow);
+  background: var(--candle);
+}
+.pop-root .pop-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--shadow);
 }
 .pop-root .pop-btn--ghost {
   background: transparent;
-  color: #000;
-  border-color: #000;
+  color: var(--fg);
+  border-color: var(--fg);
+  box-shadow: none;
 }
 .pop-root .pop-btn--ghost:hover {
-  background: #000;
-  color: var(--cream);
+  background: var(--fg);
+  color: var(--bg);
+  box-shadow: none;
+}
+.pop-root .pop-btn-ico {
+  width: 16px;
+  height: 16px;
 }
 
 /* ==========================================================================
-   1 · TOP BAR — solid black strip, low and dense
+   1 · TOP BAR
    ========================================================================== */
 .pop-root .pop-bar {
-  background: #000;
-  color: #fff;
+  background: var(--night-deep);
+  color: var(--fg);
   position: relative;
   z-index: 6;
 }
@@ -202,19 +282,20 @@
   max-width: var(--maxw);
   margin-inline: auto;
   padding-inline: var(--gutter);
-  min-height: 52px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
 .pop-root .pop-bar-mark {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-size: 0.8125rem;
-  letter-spacing: 0.16em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
 }
 .pop-root .pop-bar-mark span {
-  color: var(--marigold);
+  color: var(--orange);
 }
 .pop-root .pop-bar-nav {
   margin-left: auto;
@@ -222,140 +303,233 @@
   gap: 1.35rem;
 }
 .pop-root .pop-bar-nav a {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--muted);
   transition: color 0.16s ease;
 }
 .pop-root .pop-bar-nav a:hover {
-  color: #fff;
+  color: var(--orange);
 }
 .pop-root .pop-bar-cta {
   margin-left: 0.35rem;
-  background: #fff;
-  color: #000;
+  background: var(--orange);
+  color: var(--ink);
+  border: 2px solid var(--ink);
   border-radius: 999px;
-  padding: 0.38rem 1.05rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  padding: 0.4rem 1.1rem;
+  font-family: var(--round);
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 .pop-root .pop-bar-cta:hover {
-  background: var(--marigold);
-}
-.pop-root .pop-bar a:focus-visible {
-  outline-color: var(--marigold);
+  background: var(--candle);
 }
 
 /* ==========================================================================
-   2 · HERO — pink band, giant lowercase display, left aligned
+   2 · HERO — night sky, moon, bats, the dino in its own column
    ========================================================================== */
 .pop-root .pop-hero {
-  padding-block: clamp(3rem, 6vw, 5.5rem) clamp(3.5rem, 7vw, 6.5rem);
+  --bg: var(--plum);
+  background:
+    radial-gradient(ellipse 60% 55% at 78% 38%, rgba(155, 107, 214, 0.4), transparent 70%),
+    linear-gradient(180deg, var(--night-deep) 0%, var(--night) 45%, var(--plum) 100%);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem) 0;
+}
+.pop-root .pop-sky {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
+  pointer-events: none;
+}
+.pop-root .pop-star {
+  position: absolute;
+  color: var(--candle);
+  animation: pop-twinkle 3.4s ease-in-out infinite;
+}
+@keyframes pop-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(20deg); }
+}
+.pop-root .pop-bat {
+  position: absolute;
+  left: 0;
+  width: 56px;
+  height: auto;
+  opacity: 0.9;
+  animation: pop-fly 24s linear infinite;
+}
+.pop-root .pop-bat--1 { top: 16%; }
+.pop-root .pop-bat--2 { top: 38%; width: 40px; animation-duration: 32s; animation-delay: -14s; }
+.pop-root .pop-bat--3 { top: 6%; width: 32px; animation-duration: 28s; animation-delay: -6s; }
+@keyframes pop-fly {
+  0% { transform: translate(-140px, 0); }
+  25% { transform: translate(25vw, -34px); }
+  50% { transform: translate(50vw, 12px); }
+  75% { transform: translate(75vw, -24px); }
+  100% { transform: translate(calc(100vw + 140px), 0); }
+}
+.pop-root .pop-bat-wing {
+  transform-box: fill-box;
+  animation: pop-flap 0.28s ease-in-out infinite alternate;
+}
+.pop-root .pop-bat-wing--l { transform-origin: right center; }
+.pop-root .pop-bat-wing--r { transform-origin: left center; }
+@keyframes pop-flap {
+  to { transform: scaleY(0.35); }
 }
 
-/* DS3 mascot — floats in the hero's empty top-right corner and bobs */
+.pop-root .pop-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.pop-root .pop-hero-type {
+  margin-top: 0.9rem;
+  font-weight: 400;
+}
+.pop-root .pop-hero-lg {
+  display: block;
+  font-family: var(--display);
+  font-weight: 400;
+  /* calibrated so "Hacktoberfest" fits its column and never overflows */
+  font-size: clamp(2.6rem, 8vw, 7.25rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--orange);
+  text-shadow: 0.045em 0.05em 0 var(--grape);
+  white-space: nowrap;
+}
+.pop-root .pop-hero-md {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3.5vw, 3.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+}
+.pop-root .pop-hero-x {
+  color: var(--violet);
+}
+.pop-root .pop-hero-host {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.4em 0.95em;
+  border: 2px solid var(--lilac);
+  border-radius: 999px;
+  background: var(--grape);
+  color: var(--bone);
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.8125rem, 1.25vw, 1rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.pop-root .pop-hero-lead {
+  margin-top: clamp(1.25rem, 2.5vw, 1.9rem);
+  font-family: var(--round);
+  font-size: clamp(1.0625rem, 1.7vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--candle);
+}
+.pop-root .pop-hero-sub {
+  margin-top: 0.7rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 46ch;
+  color: var(--muted);
+}
+.pop-root .pop-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.pop-root .pop-hero-scene {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1.05;
+  justify-self: center;
+}
+.pop-root .pop-moon {
+  position: absolute;
+  top: 0;
+  left: 14%;
+  width: 80%;
+  height: auto;
+  filter: drop-shadow(0 0 48px rgba(255, 209, 102, 0.45));
+}
+.pop-root .pop-planet {
+  position: absolute;
+  top: 2%;
+  left: -8%;
+  width: 36%;
+  height: auto;
+  animation: pop-float 7s ease-in-out infinite;
+}
+.pop-root .pop-hero-ghost {
+  position: absolute;
+  right: -2%;
+  bottom: 22%;
+  width: 17%;
+  height: auto;
+  animation: pop-float 5s ease-in-out infinite reverse;
+}
+@keyframes pop-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+/* DS3 mascot — bobs in front of the moon, inside its own column */
 .pop-root .pop-mascot {
   position: absolute;
   z-index: 2;
-  top: clamp(5.5rem, 8vw, 6.5rem);
-  right: max(var(--gutter), calc((100% - var(--maxw)) / 2 + var(--gutter)));
-  width: clamp(130px, 14vw, 215px);
+  left: 18%;
+  bottom: 0;
+  width: 64%;
   height: auto;
   transform-origin: 50% 90%;
   animation: pop-bob 3.2s ease-in-out infinite;
-  pointer-events: none;
+  filter: drop-shadow(0 10px 18px rgba(18, 10, 32, 0.6));
 }
 @keyframes pop-bob {
   0%, 100% { transform: translateY(0) rotate(-3deg); }
   50% { transform: translateY(-14px) rotate(3deg); }
 }
-.pop-root .pop-hero-type {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.78;
-  color: #000;
-  display: block;
-  margin-block: 0.55rem 0;
-  text-transform: lowercase;
-}
-.pop-root .pop-hero-sm {
-  display: block;
-  font-size: clamp(1.1rem, 4.1vw, 3.9rem);
-  margin-left: 0.06em;
-  margin-bottom: 0.12em;
-}
-.pop-root .pop-hero-lg {
-  /* calibrated so "hacktoberfest" fills the content box and never overflows */
-  display: block;
-  font-size: clamp(2.3rem, 10.6vw, 10.4rem);
-  white-space: nowrap;
-}
-.pop-root .pop-hero-lg em {
-  /* black on a marigold chip: marigold text on the pink band is ~1.1:1 */
-  font-style: normal;
-  font-size: 0.2em;
-  vertical-align: 2.6em;
-  letter-spacing: -0.01em;
-  margin-left: 0.18em;
-  padding: 0.08em 0.22em 0.12em;
-  border-radius: 3px;
-  line-height: 1;
-  color: #000;
-  background: var(--marigold);
-}
-.pop-root .pop-hero-lower {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: start;
-  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
-}
-.pop-root .pop-hero-lead {
-  font-size: clamp(1.0625rem, 1.7vw, 1.375rem);
-  font-weight: 500;
-  line-height: 1.35;
-  max-width: 24ch;
-}
-.pop-root .pop-hero-sub {
-  margin-top: 0.9rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  max-width: 40ch;
-  color: rgba(0, 0, 0, 0.72);
-}
-.pop-root .pop-hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.6rem;
-}
-.pop-root .pop-hero-art {
-  align-self: end;
-  margin-top: clamp(-5rem, -3vw, 0rem);
-}
-.pop-root .pop-rocket {
+.pop-root .pop-graveyard {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  height: auto;
-  max-width: 560px;
-  max-height: min(52vh, 520px);
-  margin-left: auto;
-  margin-right: -2%;
+  height: clamp(56px, 8vw, 120px);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: -1px;
 }
 
 /* ==========================================================================
-   3 · MARQUEE — black band
+   3 · MARQUEE — pumpkin band
    ========================================================================== */
 .pop-root .pop-marquee {
-  background: #000;
-  color: var(--cream);
-  overflow: hidden;
+  --bg: var(--orange);
+  position: relative;
+  z-index: 4;
+  background: var(--bg);
+  color: var(--ink);
   padding-block: clamp(0.85rem, 1.6vw, 1.15rem);
+}
+.pop-root .pop-marquee-clip {
+  overflow: hidden;
 }
 .pop-root .pop-marquee-track {
   display: flex;
   width: max-content;
-  animation: pop-scroll 36s linear infinite;
+  animation: pop-scroll 44s linear infinite;
 }
 .pop-root .pop-marquee-seq {
   display: flex;
@@ -364,71 +538,97 @@
   padding-right: clamp(1rem, 2vw, 1.75rem);
 }
 .pop-root .pop-marquee-item {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-size: clamp(0.95rem, 2vw, 1.5rem);
-  letter-spacing: 0.005em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.45rem);
+  letter-spacing: 0.02em;
   white-space: nowrap;
 }
 .pop-root .pop-marquee-star {
-  width: 0.8em;
-  height: 0.8em;
+  width: 1.1em;
+  height: 1.1em;
   flex: none;
-  color: var(--orange);
+}
+.pop-root .pop-marquee-star--bat {
+  width: 2em;
+  height: 1em;
 }
 @keyframes pop-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.pop-root .pop-marquee-toggle {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: var(--bone);
+  border: 2px solid var(--bone);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
-   4 · ABOUT — marigold band, machine left / narrow text right
+   4 · ABOUT — lavender band, cauldron left / text right
    ========================================================================== */
 .pop-root .pop-about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.72fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: center;
 }
 .pop-root .pop-machine {
   width: 100%;
-  max-width: 700px;
+  max-width: 540px;
   height: auto;
   margin-inline: auto;
 }
 .pop-root .pop-about-copy .pop-h2 {
   margin: 0.55rem 0 1.15rem;
 }
+.pop-root .pop-about-copy .pop-body {
+  margin-bottom: 0.9rem;
+}
 .pop-root .pop-meta {
   margin-top: 2rem;
-  border-top: 2px solid #000;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--grape);
+  padding: 0.35rem 1.25rem;
 }
 .pop-root .pop-meta-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.65rem 0;
-  border-bottom: 2px solid #000;
+  padding: 0.7rem 0;
+  border-bottom: 2px dashed var(--lilac);
+}
+.pop-root .pop-meta-row:last-child {
+  border-bottom: 0;
 }
 .pop-root .pop-meta dt {
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--grape);
+  white-space: nowrap;
 }
 .pop-root .pop-meta dd {
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: right;
 }
 
 /* ==========================================================================
-   5 · STATS — cream band, full-bleed rules, crowd standing on the baseline
+   5 · STATS — night band, critters sitting on the baseline
    ========================================================================== */
 .pop-root .pop-stats-head {
   display: flex;
@@ -439,7 +639,7 @@
   margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
 }
 .pop-root .pop-stats-rail {
-  border-block: 2px solid #000;
+  border-block: 2px solid var(--line);
 }
 .pop-root .pop-stats-inner {
   position: relative;
@@ -450,31 +650,30 @@
 }
 .pop-root .pop-stat {
   padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.6rem, 1.5vw, 1.25rem)
-    clamp(3.25rem, 5.5vw, 4.5rem) clamp(0.9rem, 2vw, 1.75rem);
-  border-left: 2px solid #000;
+    clamp(3.75rem, 6vw, 5rem) clamp(0.9rem, 2vw, 1.75rem);
+  border-left: 2px solid var(--line);
 }
 .pop-root .pop-stat:first-child {
   border-left: 0;
   padding-left: 0;
 }
 .pop-root .pop-stat-num {
-  display: flex;
-  align-items: flex-end;
-  height: calc(clamp(2.4rem, 5.6vw, 4.75rem) * 0.88);
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
+  display: block;
+  font-family: var(--round);
+  font-weight: 700;
   font-size: clamp(2.4rem, 5.6vw, 4.75rem);
-  letter-spacing: -0.05em;
-  line-height: 0.88;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--orange);
 }
 .pop-root .pop-stat-label {
   display: block;
   margin-top: 0.75rem;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--muted);
 }
 .pop-root .pop-crowd {
   position: absolute;
@@ -486,7 +685,14 @@
   position: absolute;
   bottom: 0;
   display: block;
-  height: clamp(30px, 3.6vw, 44px);
+  height: clamp(36px, 4.2vw, 54px);
+}
+.pop-root .pop-crowd-fig--sm {
+  height: clamp(26px, 3vw, 38px);
+}
+.pop-root .pop-crowd-fig--float {
+  bottom: 8px;
+  animation: pop-float 4.5s ease-in-out infinite;
 }
 .pop-root .pop-crowd-fig svg {
   height: 100%;
@@ -494,7 +700,7 @@
 }
 
 /* ==========================================================================
-   6 · TRACKS — pink band, four flat bordered cards, floating black badge
+   6 · TRACKS — pumpkin band, four sticker cards, a dangling spider
    ========================================================================== */
 .pop-root .pop-tracks-head {
   margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
@@ -503,104 +709,145 @@
   margin-top: 0.55rem;
   max-width: 24ch;
 }
+.pop-root .pop-tracks-note {
+  margin-top: 1.1rem;
+  max-width: 62ch;
+}
 .pop-root .pop-card-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.85rem, 1.5vw, 1.35rem);
+  gap: clamp(1rem, 1.8vw, 1.5rem);
 }
 .pop-root .pop-card-grid > * {
   height: 100%;
 }
 .pop-root .pop-card {
+  position: relative;
   height: 100%;
-  background: var(--cream);
-  border: 2px solid #000;
-  border-radius: 6px;
+  background: var(--bone);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--ink);
   padding: clamp(1.1rem, 1.8vw, 1.5rem);
+  overflow: hidden;
+}
+/* a cobweb tucked into the top-right corner */
+.pop-root .pop-card--web::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 84px;
+  height: 84px;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%231f1030' stroke-opacity='.35' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M100 0 8 9M100 0 26 56M100 0 58 83M100 0 95 94'/%3E%3Cpath d='M70.2 3Q78.5 8.4 76 18Q84.3 17.9 86.6 26.8Q94 22.7 98.5 30M40.3 6Q57 16.8 52 36Q70 35.9 73.2 53.6Q88 45.5 97 60M10.5 9Q35.4 25.2 28 54Q55 53.8 59.8 80.5Q82 68.2 95.5 90'/%3E%3C/svg%3E")
+    no-repeat top right / contain;
 }
 .pop-root .pop-card-tile {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border: 2px solid #000;
-  border-radius: 4px;
+  width: 54px;
+  height: 54px;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
   margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 .pop-root .pop-card-icon {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
 }
-.pop-root .pop-tile--marigold {
-  background: var(--marigold);
-}
-.pop-root .pop-tile--teal {
-  background: var(--teal);
-}
-.pop-root .pop-tile--orange {
-  background: var(--orange);
-}
-.pop-root .pop-tile--pink {
-  background: var(--pink);
-}
+.pop-root .pop-tile--candle { background: var(--candle); }
+.pop-root .pop-tile--lilac { background: var(--lilac); }
+.pop-root .pop-tile--teal { background: var(--teal); }
+.pop-root .pop-tile--orange { background: var(--orange); }
 .pop-root .pop-card-title {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-size: 1.0625rem;
-  letter-spacing: -0.01em;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.25;
 }
 .pop-root .pop-card-tbd {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
-  letter-spacing: -0.045em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.9vw, 2.4rem);
+  letter-spacing: -0.02em;
   line-height: 1;
   margin: 0.35rem 0 0.6rem;
-}
-@supports (-webkit-text-stroke: 2px #000) {
-  .pop-root .pop-card-tbd {
-    color: transparent;
-    -webkit-text-stroke: 2px #000;
-  }
+  color: var(--grape);
+  overflow-wrap: anywhere;
 }
 .pop-root .pop-card-note {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.62);
+  color: rgba(31, 16, 48, 0.74);
+}
+.pop-root .pop-spider {
+  position: absolute;
+  top: 0;
+  right: clamp(1.5rem, 9vw, 10rem);
+  width: 52px;
+  height: clamp(150px, 16vw, 200px);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+.pop-root .pop-spider-in {
+  display: block;
+  animation: pop-dangle 5s ease-in-out infinite;
+}
+.pop-root .pop-spider-in::before {
+  content: "";
+  display: block;
+  width: 2px;
+  height: clamp(110px, 12vw, 150px);
+  margin-inline: auto;
+  margin-bottom: -6px;
+  background: var(--ink);
+}
+@keyframes pop-dangle {
+  0%, 100% { transform: translateY(-46px) rotate(-4deg); }
+  50% { transform: translateY(0) rotate(4deg); }
 }
 .pop-root .pop-badge {
   position: absolute;
-  bottom: clamp(-3rem, -4vw, -2.25rem);
+  bottom: clamp(-3.25rem, -4.4vw, -2.5rem);
   right: clamp(1.25rem, 7vw, 7%);
-  width: clamp(92px, 9.5vw, 124px);
+  width: clamp(98px, 10vw, 130px);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #000;
-  color: #fff;
+  background: var(--night);
+  color: var(--bone);
+  border: 3px solid var(--bone);
+  box-shadow: 5px 5px 0 var(--ink);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
   z-index: 4;
+  transform: rotate(-10deg);
 }
 .pop-root .pop-badge-star {
-  width: clamp(20px, 2.2vw, 26px);
-  height: clamp(20px, 2.2vw, 26px);
-  color: var(--marigold);
+  width: clamp(36px, 3.8vw, 46px);
+  height: auto;
+}
+.pop-root .pop-badge-star path,
+.pop-root .pop-badge-star ellipse {
+  fill: var(--orange);
 }
 .pop-root .pop-badge span {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-size: 0.6875rem;
-  line-height: 1.15;
-  letter-spacing: 0.1em;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
 }
 
 /* ==========================================================================
-   7 · PRIZES — marigold band, big pool figure + a hard-edged prize ladder
+   7 · PRIZES — grape band, drippy headline, candy buckets
    ========================================================================== */
 .pop-root .pop-prize-top {
   display: grid;
@@ -610,92 +857,70 @@
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 .pop-root .pop-pool {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(3rem, 10vw, 8.5rem);
-  letter-spacing: -0.055em;
-  line-height: 0.85;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 8.4vw, 7.25rem);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
   margin-top: 0.5rem;
+  color: var(--orange);
+  text-shadow: 0.04em 0.05em 0 var(--night);
 }
 .pop-root .pop-prize-note {
-  max-width: 34ch;
-  color: rgba(0, 0, 0, 0.72);
+  max-width: 36ch;
 }
 .pop-root .pop-ladder {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.6vw, 1.35rem);
   align-items: end;
+  margin-top: clamp(3.5rem, 7vw, 6rem); /* room for the buckets */
 }
 .pop-root .pop-step {
   position: relative;
-  border: 2px solid #000;
+  height: clamp(170px, 18vw, 220px);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--night);
   padding: clamp(0.9rem, 1.6vw, 1.35rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  color: var(--ink);
 }
-.pop-root .pop-step + .pop-step {
-  margin-left: -2px;
-}
-.pop-root .pop-step--3 {
-  height: clamp(132px, 19vw, 205px);
-  background: var(--cream);
-}
-.pop-root .pop-step--2 {
-  height: clamp(168px, 24vw, 265px);
-  background: var(--teal);
-}
-.pop-root .pop-step--1 {
-  height: clamp(204px, 30vw, 325px);
-  background: var(--orange);
-  color: #000;
-}
+.pop-root .pop-step--candle { background: var(--candle); }
+.pop-root .pop-step--lilac { background: var(--lilac); }
+.pop-root .pop-step--teal { background: var(--teal); }
+.pop-root .pop-step--orange { background: var(--orange); }
 .pop-root .pop-step-fig {
   position: absolute;
-  bottom: 100%;
+  bottom: calc(100% - 14px);
   left: clamp(0.9rem, 1.6vw, 1.35rem);
   display: block;
-  height: clamp(46px, 5.4vw, 70px);
+  height: clamp(62px, 7vw, 92px);
 }
 .pop-root .pop-step-fig svg {
   height: 100%;
   width: auto;
 }
-.pop-root .pop-step-trophy {
-  height: clamp(58px, 7vw, 92px) !important;
-}
 .pop-root .pop-step-place {
   display: block;
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  letter-spacing: -0.04em;
-  line-height: 1;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.55rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 .pop-root .pop-step-amt {
   display: block;
-  font-family: "Archivo", sans-serif;
   font-weight: 800;
-  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
-  letter-spacing: -0.02em;
-  margin-top: 0.25rem;
-}
-.pop-root .pop-step-tbd {
-  display: inline-block;
-  margin-top: 0.7rem;
-  border: 2px solid #000;
-  border-radius: 3px;
-  padding: 0.1rem 0.4rem;
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #000;
+  font-size: clamp(0.875rem, 1.3vw, 1rem);
+  margin-top: 0.35rem;
 }
 .pop-root .pop-track-prizes {
   margin-top: clamp(2.25rem, 4vw, 3.25rem);
   padding-top: 1.35rem;
-  border-top: 2px solid #000;
+  border-top: 2px solid var(--line);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -707,21 +932,20 @@
   gap: 0.55rem;
 }
 .pop-root .pop-chip {
-  border: 2px solid #000;
-  border-radius: 4px;
-  padding: 0.38rem 0.7rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  border: 2px solid var(--fg);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
-.pop-root .pop-chip b {
-  font-family: "Archivo", sans-serif;
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  margin-left: 0.3rem;
+.pop-root .pop-extras-note {
+  flex-basis: 100%;
+  max-width: none;
+  font-size: 0.8125rem;
 }
 
 /* ==========================================================================
-   8 · SCHEDULE — cream band, two ruled day columns, iso props in the gutters
+   8 · SCHEDULE — lavender band, two ruled columns, props in the gutters
    ========================================================================== */
 .pop-root .pop-sched .pop-wrap {
   position: relative;
@@ -743,18 +967,19 @@
   justify-content: space-between;
   gap: 1rem;
   padding-bottom: 0.7rem;
-  border-bottom: 2px solid #000;
+  border-bottom: 3px solid var(--line);
 }
 .pop-root .pop-day-label {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
+  font-family: var(--round);
+  font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   text-transform: lowercase;
+  color: var(--grape);
 }
 .pop-root .pop-day-date {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -763,18 +988,19 @@
   grid-template-columns: 4.6rem minmax(0, 1fr);
   gap: 1rem;
   padding: 0.9rem 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px dashed rgba(91, 42, 134, 0.45);
 }
 .pop-root .pop-row-time {
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
+  font-family: var(--round);
+  font-weight: 600;
   font-size: 0.9375rem;
   font-variant-numeric: tabular-nums;
   padding-top: 0.12rem;
+  color: var(--orange-dark);
 }
 .pop-root .pop-row-title {
   display: block;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.0625rem;
   line-height: 1.35;
 }
@@ -782,12 +1008,12 @@
   display: block;
   margin-top: 0.15rem;
   font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--muted);
 }
 .pop-root .pop-day-foot {
   margin-top: 1rem;
   font-size: 0.8125rem;
-  color: rgba(0, 0, 0, 0.55);
+  color: var(--muted);
 }
 .pop-root .pop-sched-props {
   position: absolute;
@@ -802,23 +1028,114 @@
   height: auto;
 }
 .pop-root .pop-prop--laptop {
-  width: 104px;
+  width: 84px;
   right: -5.5rem;
-  top: 14%;
+  top: 12%;
 }
 .pop-root .pop-prop--coffee {
-  width: 76px;
+  width: 56px;
   left: -4.5rem;
-  top: 52%;
+  top: 50%;
 }
 .pop-root .pop-prop--server {
-  width: 104px;
-  right: -5rem;
+  width: 96px;
+  right: -5.5rem;
   bottom: 4%;
 }
 
 /* ==========================================================================
-   9 · SPONSORS — pink band, tiered empty frames
+   9 · REGISTER — pumpkin band, three steps + a night-purple venue ticket
+   ========================================================================== */
+.pop-root .pop-reg-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+.pop-root .pop-reg-head .pop-h2 {
+  margin-top: 0.55rem;
+}
+.pop-root .pop-reg-art {
+  flex: none;
+  width: clamp(72px, 9vw, 120px);
+  margin-right: clamp(0rem, 4vw, 4rem);
+}
+.pop-root .pop-reg-art svg {
+  width: 100%;
+  height: auto;
+  transform: rotate(12deg);
+}
+.pop-root .pop-reg-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  margin: 0;
+  padding: 0;
+}
+.pop-root .pop-reg-step {
+  background: var(--bone);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
+}
+.pop-root .pop-reg-n {
+  display: block;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  line-height: 1;
+  margin-bottom: clamp(0.8rem, 2vw, 1.4rem);
+  color: var(--grape);
+}
+.pop-root .pop-reg-step .pop-card-note {
+  margin-top: 0.5rem;
+}
+.pop-root .pop-venue {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  background: var(--grape);
+  color: var(--fg);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  --bg: var(--grape);
+  --shadow: var(--night);
+}
+.pop-root .pop-venue-name {
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 4.25rem);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: lowercase;
+  margin-top: 0.5rem;
+}
+.pop-root .pop-venue-sub {
+  margin-top: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.pop-root .pop-venue-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.pop-root .pop-reg-online {
+  margin-top: 1.75rem;
+  max-width: 60ch;
+}
+
+/* ==========================================================================
+   10 · SPONSORS — plum band, pumpkin patch, ghostly empty frames
    ========================================================================== */
 .pop-root .pop-spon-head {
   display: grid;
@@ -832,25 +1149,45 @@
   max-width: 17ch;
 }
 .pop-root .pop-spon-lead {
-  color: rgba(0, 0, 0, 0.78);
+  color: var(--muted);
 }
 .pop-root .pop-spon-mail {
   margin-top: 1.15rem;
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 .pop-root .pop-spon-mail a {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--orange);
 }
 .pop-root .pop-spon-mail a:hover {
   color: var(--orange);
-  border-color: var(--orange);
 }
-.pop-root .pop-spon-art svg {
+.pop-root .pop-patch {
+  position: relative;
   width: 100%;
   max-width: 300px;
+  aspect-ratio: 1.3;
   margin-left: auto;
+}
+.pop-root .pop-patch svg {
+  position: absolute;
   height: auto;
+}
+.pop-root .pop-patch-ghost {
+  width: 32%;
+  left: 6%;
+  top: 0;
+  animation: pop-float 5s ease-in-out infinite;
+}
+.pop-root .pop-patch-big {
+  width: 62%;
+  right: 4%;
+  bottom: 0;
+}
+.pop-root .pop-patch-sm {
+  width: 34%;
+  left: 0;
+  bottom: 0;
 }
 .pop-root .pop-tiers {
   display: grid;
@@ -862,33 +1199,33 @@
   gap: clamp(1rem, 2vw, 1.75rem);
   align-items: start;
   padding-top: 1.1rem;
-  border-top: 2px solid #000;
+  border-top: 2px solid var(--line);
 }
 .pop-root .pop-tier-label span:first-child {
   display: block;
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
+  font-family: var(--round);
+  font-weight: 700;
   font-size: 1.3rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 .pop-root .pop-tier-count {
   display: block;
   margin-top: 0.15rem;
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.72);
+  color: var(--orange);
 }
 .pop-root .pop-slots {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 .pop-root .pop-slot {
-  background: var(--cream);
-  border: 2px solid #000;
-  border-radius: 6px;
+  border: 2px dashed var(--line);
+  border-radius: 18px;
   height: 82px;
   display: flex;
   flex-direction: column;
@@ -903,20 +1240,36 @@
   height: 102px;
 }
 .pop-root .pop-slot-glyph {
-  width: 18px;
-  height: 18px;
-  color: rgba(0, 0, 0, 0.4);
+  width: 22px;
+  height: 22px;
+  color: var(--lilac);
 }
 .pop-root .pop-slot span {
-  font-size: 0.625rem;
-  font-weight: 700;
+  font-size: 0.6875rem;
+  font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.65);
+  color: var(--lilac);
+}
+.pop-root .pop-slot--filled {
+  background: var(--bone);
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--grape);
+}
+.pop-root .pop-slot .pop-slot-name {
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+  text-align: center;
+  padding-inline: 0.75rem;
+  line-height: 1.1;
 }
 
 /* ==========================================================================
-   10 · FAQ — cream band, one bordered stack of ruled rows
+   11 · FAQ — lavender band, one stack of ruled rows
    ========================================================================== */
 .pop-root .pop-faq-grid {
   display: grid;
@@ -931,10 +1284,14 @@
   margin-top: 1.5rem;
 }
 .pop-root .pop-faq-list {
-  border-top: 2px solid #000;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--grape);
+  padding-inline: clamp(1rem, 2.4vw, 1.75rem);
 }
-.pop-root .pop-faq-row {
-  border-bottom: 2px solid #000;
+.pop-root .pop-faq-row + .pop-faq-row {
+  border-top: 2px dashed var(--lilac);
 }
 .pop-root .pop-faq-q {
   width: 100%;
@@ -942,19 +1299,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1.15rem 0;
+  padding: 1.1rem 0;
   text-align: left;
-  font-family: "Archivo", sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.0625rem, 1.7vw, 1.3rem);
-  letter-spacing: -0.02em;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.7vw, 1.25rem);
   line-height: 1.25;
 }
+.pop-root .pop-faq-q:hover {
+  color: var(--grape);
+}
 .pop-root .pop-faq-icon {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   flex: none;
-  color: #000;
+  color: var(--orange-dark);
 }
 .pop-root .pop-faq-a {
   display: grid;
@@ -976,18 +1335,17 @@
 .pop-root .pop-faq-a p {
   font-size: 0.9375rem;
   line-height: 1.6;
-  max-width: 58ch;
-  color: rgba(0, 0, 0, 0.75);
+  max-width: 60ch;
   padding-bottom: 1.2rem;
 }
 
 /* ==========================================================================
-   11 · FOOTER — black band
+   12 · FOOTER — deepest night
    ========================================================================== */
 .pop-root .pop-foot {
-  background: #000;
-  color: var(--cream);
-  padding-block: clamp(3.5rem, 7vw, 6rem) 2.25rem;
+  background: var(--night-deep);
+  color: var(--fg);
+  padding-block: clamp(4.5rem, 8vw, 7rem) 2.25rem;
 }
 .pop-root .pop-foot-top {
   display: flex;
@@ -997,35 +1355,37 @@
   flex-wrap: wrap;
 }
 .pop-root .pop-foot-mark {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.4rem, 7.5vw, 6rem);
-  letter-spacing: -0.045em;
-  line-height: 0.85;
-  color: #fff;
-  text-transform: lowercase;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  color: var(--orange);
+  text-shadow: 0.04em 0.05em 0 var(--grape);
 }
-.pop-root .pop-foot-mark em {
-  font-style: normal;
-  font-size: 0.28em;
-  vertical-align: 2.1em;
-  margin-left: 0.22em;
-  color: var(--marigold);
+.pop-root .pop-foot-sub {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--bone);
+  text-shadow: none;
 }
 .pop-root .pop-foot-dates {
   display: flex;
   align-items: center;
   gap: 0.65rem;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding-bottom: 0.4rem;
 }
 .pop-root .pop-foot-star {
-  width: 11px;
-  height: 11px;
-  color: var(--orange);
+  width: 16px;
+  height: 16px;
 }
 .pop-root .pop-foot-cols {
   display: grid;
@@ -1033,14 +1393,14 @@
   gap: 1.5rem 2rem;
   margin-top: clamp(2.5rem, 5vw, 3.75rem);
   padding-top: clamp(1.75rem, 3vw, 2.5rem);
-  border-top: 2px solid var(--cream);
+  border-top: 2px solid var(--line);
 }
 .pop-root .pop-foot-col h3 {
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--marigold);
+  color: var(--orange);
   margin-bottom: 0.9rem;
 }
 .pop-root .pop-foot-col li + li {
@@ -1048,22 +1408,22 @@
 }
 .pop-root .pop-foot-col a {
   font-size: 0.9375rem;
-  color: rgba(255, 248, 236, 0.72);
+  color: var(--muted);
   transition: color 0.16s ease;
 }
 .pop-root .pop-foot-col a:hover {
-  color: #fff;
+  color: var(--orange);
 }
 .pop-root .pop-foot-col--org p {
   font-size: 0.875rem;
   line-height: 1.55;
-  color: rgba(255, 248, 236, 0.6);
+  color: var(--muted);
 }
 .pop-root .pop-foot-mail {
   display: table; /* one address per line, underline hugs the text */
   margin-top: 0.7rem;
-  font-weight: 700;
-  color: #fff !important;
+  font-weight: 800;
+  color: var(--bone) !important;
   border-bottom: 2px solid var(--orange);
 }
 .pop-root .pop-foot-fine {
@@ -1073,160 +1433,10 @@
   margin-top: clamp(2.5rem, 4vw, 3.5rem);
   font-size: 0.75rem;
   line-height: 1.6;
-  color: rgba(255, 248, 236, 0.62);
+  color: rgba(255, 244, 230, 0.66);
   max-width: 70ch;
 }
-.pop-root .pop-foot a:focus-visible {
-  outline-color: var(--marigold);
-}
 
-/* ==========================================================================
-   HACKTOBERFEST ADDITIONS
-   ========================================================================== */
-.pop-root .pop-about-copy .pop-body {
-  margin-bottom: 0.9rem;
-}
-.pop-root .pop-bar-mark {
-  white-space: nowrap;
-}
-.pop-root .pop-band--teal {
-  background: var(--teal);
-}
-
-.pop-root .pop-tracks-note {
-  margin-top: 1.1rem;
-  max-width: 62ch;
-  color: rgba(0, 0, 0, 0.72);
-}
-.pop-root .pop-card-tbd {
-  font-size: clamp(1.8rem, 2.9vw, 2.4rem);
-  overflow-wrap: anywhere;
-}
-
-.pop-root .pop-step-place--sm {
-  font-size: clamp(1.05rem, 2vw, 1.6rem);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-}
-.pop-root .pop-pool {
-  font-size: clamp(2.8rem, 8.4vw, 7.25rem);
-}
-.pop-root .pop-extras-note {
-  flex-basis: 100%;
-  max-width: none;
-  font-size: 0.8125rem;
-}
-
-/* buttons on coloured bands */
-.pop-root .pop-btn--ink {
-  background: #000;
-  border-color: #000;
-  color: #fff;
-  gap: 0.5rem;
-}
-.pop-root .pop-btn--ink:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: #000;
-}
-.pop-root .pop-btn-ico {
-  width: 15px;
-  height: 15px;
-}
-.pop-root .pop-btn-ico path {
-  stroke: currentColor;
-}
-
-/* REGISTER — teal band, three ruled steps + a venue ticket */
-.pop-root .pop-reg-head {
-  margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
-}
-.pop-root .pop-reg-head .pop-h2 {
-  margin-top: 0.55rem;
-}
-.pop-root .pop-reg-steps {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.85rem, 1.5vw, 1.35rem);
-  margin: 0;
-  padding: 0;
-}
-.pop-root .pop-reg-step {
-  background: var(--cream);
-  border: 2px solid #000;
-  border-radius: 6px;
-  padding: clamp(1.1rem, 1.8vw, 1.5rem);
-}
-.pop-root .pop-reg-n {
-  display: block;
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  letter-spacing: -0.05em;
-  line-height: 1;
-  margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
-  color: #b8430f; /* darker than --orange: 5.2:1 on cream */
-}
-.pop-root .pop-reg-step .pop-card-note {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.7);
-}
-.pop-root .pop-venue {
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem 2rem;
-  background: var(--marigold);
-  border: 2px solid #000;
-  border-radius: 6px;
-  padding: clamp(1.25rem, 3vw, 2.25rem);
-}
-.pop-root .pop-venue-name {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900;
-  font-size: clamp(2rem, 5.5vw, 4.25rem);
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-  text-transform: lowercase;
-  margin-top: 0.5rem;
-}
-.pop-root .pop-venue-sub {
-  margin-top: 0.75rem;
-  font-weight: 500;
-}
-.pop-root .pop-venue-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-.pop-root .pop-reg-online {
-  margin-top: 1.5rem;
-  max-width: 60ch;
-  color: rgba(0, 0, 0, 0.78);
-}
-.pop-root .pop-reg-online a {
-  border-bottom-color: #000;
-}
-
-/* SPONSORS — named frames */
-.pop-root .pop-slot--filled {
-  background: #fff;
-}
-.pop-root .pop-slot-name {
-  font-family: "Archivo", "Archivo Black", sans-serif;
-  font-weight: 900 !important;
-  font-size: clamp(1rem, 1.8vw, 1.35rem) !important;
-  letter-spacing: -0.02em !important;
-  text-transform: none !important;
-  color: #000 !important;
-  text-align: center;
-  padding-inline: 0.75rem;
-  line-height: 1.1;
-}
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -1248,42 +1458,48 @@
     order: 2;
   }
   .pop-root .pop-machine {
-    max-width: 560px;
+    max-width: 440px;
   }
   .pop-root .pop-spon-art {
     display: none;
   }
-  .pop-root .pop-card-grid {
+  .pop-root .pop-card-grid,
+  .pop-root .pop-ladder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pop-root .pop-ladder {
+    row-gap: clamp(4.5rem, 9vw, 6rem);
   }
   .pop-root .pop-foot-cols {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .pop-root .pop-bar-nav {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 860px) {
-  /* phones/tablets: the wordmark fills the top, so perch beside the rocket instead */
-  .pop-root .pop-mascot {
-    top: auto;
-    bottom: clamp(15rem, 62vw, 26rem);
-    right: var(--gutter);
-    width: clamp(88px, 24vw, 150px);
+  /* one column: the dino sits below the copy, never on the title */
+  .pop-root .pop-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pop-root .pop-hero-lg {
+    font-size: clamp(2.5rem, 14vw, 6.5rem);
+  }
+  .pop-root .pop-hero-md {
+    font-size: clamp(1.35rem, 6vw, 2.6rem);
+  }
+  .pop-root .pop-hero-scene {
+    max-width: 340px;
+  }
+  .pop-root .pop-planet {
+    left: 0;
   }
   .pop-root .pop-bar-nav {
     display: none;
   }
   .pop-root .pop-bar-cta {
     margin-left: auto;
-  }
-  .pop-root .pop-hero-lower {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .pop-root .pop-hero-art {
-    margin-top: 0.5rem;
-  }
-  .pop-root .pop-rocket {
-    max-width: 460px;
-    margin-inline: 0 auto;
   }
   .pop-root .pop-sched-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1308,6 +1524,10 @@
   .pop-root .pop-tier-count {
     margin-top: 0;
   }
+  .pop-root .pop-spider {
+    right: 1rem;
+    width: 40px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1320,20 +1540,38 @@
   .pop-root .pop-stat:nth-child(3) {
     border-left: 0;
     padding-left: 0;
-    border-top: 2px solid #000;
+    border-top: 2px solid var(--line);
   }
   .pop-root .pop-stat:nth-child(4) {
-    border-top: 2px solid #000;
+    border-top: 2px solid var(--line);
   }
   .pop-root .pop-crowd-fig:nth-child(2),
   .pop-root .pop-crowd-fig:nth-child(4) {
     display: none;
   }
-  .pop-root .pop-card-grid {
+  .pop-root .pop-card-grid,
+  .pop-root .pop-reg-steps {
     grid-template-columns: minmax(0, 1fr);
   }
   .pop-root .pop-card-tile {
     margin-bottom: 1rem;
+  }
+  .pop-root .pop-ladder {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.9rem;
+    margin-top: 0;
+  }
+  .pop-root .pop-step {
+    height: auto;
+    padding-left: clamp(5rem, 22vw, 6rem);
+    min-height: 96px;
+  }
+  .pop-root .pop-step-fig {
+    bottom: auto;
+    top: 50%;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    height: 56px;
   }
   .pop-root .pop-foot-cols,
   .pop-root .pop-foot-fine {
@@ -1342,48 +1580,16 @@
   .pop-root .pop-slots {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
-  .pop-root .pop-reg-steps {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .pop-root .pop-hero-lg em {
-    font-size: max(0.2em, 0.8125rem);
-    vertical-align: top;
-    position: relative;
-    top: 0.1em;
-  }
-  .pop-root .pop-foot-mark em {
-    font-size: max(0.28em, 0.75rem);
-  }
   .pop-root .pop-foot-dates {
     flex-wrap: wrap;
     white-space: nowrap;
     row-gap: 0.2rem;
   }
-}
-
-/* podium text doesn't fit three-across on phones: stack it, winner first */
-@media (max-width: 640px) {
-  .pop-root .pop-ladder {
-    grid-template-columns: minmax(0, 1fr);
+  .pop-root .pop-reg-art {
+    margin-right: 0;
   }
-  .pop-root .pop-step {
-    height: auto !important;
-    min-height: 0;
-    padding-top: 1.1rem;
-  }
-  /* winner is moved first with order:-1, so overlap by visual order, not DOM order */
-  .pop-root .pop-step + .pop-step {
-    margin-left: 0;
-    margin-top: 0;
-  }
-  .pop-root .pop-step:not(.pop-step--1) {
-    margin-top: -2px;
-  }
-  .pop-root .pop-step--1 {
-    order: -1;
-  }
-  .pop-root .pop-step-fig {
-    display: none;
+  .pop-root .pop-meta {
+    padding-inline: 1rem;
   }
 }
 
@@ -1395,11 +1601,12 @@
     grid-template-columns: 3.9rem minmax(0, 1fr);
     gap: 0.75rem;
   }
-  .pop-root .pop-step {
-    padding: 0.75rem;
+  .pop-root .pop-meta-row {
+    flex-direction: column;
+    gap: 0.1rem;
   }
-  .pop-root .pop-step-fig {
-    left: 0.75rem;
+  .pop-root .pop-meta dd {
+    text-align: left;
   }
 }
 
@@ -1407,8 +1614,18 @@
    REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .pop-root .pop-mascot {
+  .pop-root .pop-mascot,
+  .pop-root .pop-star,
+  .pop-root .pop-bat-wing,
+  .pop-root .pop-planet,
+  .pop-root .pop-hero-ghost,
+  .pop-root .pop-crowd-fig--float,
+  .pop-root .pop-spider-in,
+  .pop-root .pop-patch-ghost {
     animation: none;
+  }
+  .pop-root .pop-bat {
+    display: none;
   }
   .pop-root .pop-marquee-track {
     animation: none;
@@ -1421,42 +1638,5 @@
   .pop-root .pop-bar-nav a,
   .pop-root .pop-foot-col a {
     transition: none;
-  }
-}
-
-/* ==========================================================================
-   PRIZES — four equal DEV Badge tracks (replaces the 3-step podium)
-   Kept at the end so it wins over the podium's responsive rules.
-   ========================================================================== */
-.pop-root .pop-ladder--four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: clamp(3.5rem, 7vw, 6rem); /* room for the trophies */
-}
-.pop-root .pop-ladder--four .pop-step {
-  height: clamp(170px, 18vw, 220px);
-  margin: 0;
-  border-radius: 6px;
-}
-.pop-root .pop-step--cream { background: var(--cream); }
-.pop-root .pop-step--teal { background: var(--teal); }
-.pop-root .pop-step--pink { background: var(--pink); }
-.pop-root .pop-step--orange { background: var(--orange); }
-
-@media (max-width: 1024px) {
-  .pop-root .pop-ladder--four {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: clamp(4.5rem, 9vw, 6rem);
-  }
-}
-@media (max-width: 640px) {
-  .pop-root .pop-ladder--four {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 0.6rem;
-    margin-top: 0;
-  }
-  .pop-root .pop-ladder--four .pop-step {
-    height: auto;
-    margin: 0 !important;
   }
 }
