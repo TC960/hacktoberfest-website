@@ -1,5 +1,5 @@
-import { IconStar } from "../art/Icons";
-import { CONTACT_MAILTO, EVENT, HOST_CAP, INCIDENT_TEL } from "../event";
+import { CandyCorn } from "../art/Spooky";
+import { CONTACT_MAILTO, EVENT, INCIDENT_TEL } from "../event";
 import { Rise } from "../motion";
 import { NewTab } from "./ExtLink";
 
@@ -43,13 +43,16 @@ export default function Footer() {
         <div className="pop-foot-top">
           <Rise>
             <p className="pop-foot-mark">
-              hacktoberfest<em>2026</em>
+              Hacktoberfest
+              <span className="pop-foot-sub">
+                × Space × AI Hack Day · {EVENT.nameHost}
+              </span>
             </p>
           </Rise>
           <Rise i={1}>
             <p className="pop-foot-dates">
               {EVENT.dateLong.replace(/^\w+, /, "")}
-              <IconStar className="pop-foot-star" />
+              <CandyCorn className="pop-foot-star" />
               PC West Ballroom
             </p>
           </Rise>
@@ -77,8 +80,9 @@ export default function Footer() {
             <div className="pop-foot-col pop-foot-col--org">
               <h3>Brought to you by</h3>
               <p>
-                {HOST_CAP} ({EVENT.hostOrg}), in partnership with Major League Hacking, as
-                an official Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
+                {EVENT.name} is brought to you by {EVENT.hostLong} ({EVENT.hostOrg}) at{" "}
+                {EVENT.campus}, in partnership with Major League Hacking, as an official
+                Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
                 with DigitalOcean.
               </p>
               {EVENT.contactEmails.map((e) => (

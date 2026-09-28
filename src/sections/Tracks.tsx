@@ -1,4 +1,5 @@
-import { IconBot, IconNet, IconRocket, IconStack, IconStar } from "../art/Icons";
+import { IconCauldron, IconCrystalBall, IconPotion, IconSpellbook } from "../art/Icons";
+import { Bat, Drip, Spider } from "../art/Spooky";
 import { EVENT } from "../event";
 import { Rise } from "../motion";
 import ExtLink from "./ExtLink";
@@ -8,36 +9,41 @@ export const TRACKS = [
   {
     title: "Best Agent Skill",
     big: "skill",
-    tile: "pop-tile--marigold",
-    Icon: IconBot,
+    tile: "pop-tile--candle",
+    Icon: IconSpellbook,
     note: "Package reusable instructions and files an agent can pick up, following the Agent Skills open standard.",
   },
   {
     title: "Best Use of an Open-Weight LLM",
     big: "LLM",
-    tile: "pop-tile--teal",
-    Icon: IconNet,
+    tile: "pop-tile--lilac",
+    Icon: IconCrystalBall,
     note: "Build on a large open-weight language model, over 10B parameters, whose weights you can download and run.",
   },
   {
     title: "Best Use of an Open-Weight SLM",
     big: "SLM",
-    tile: "pop-tile--pink",
-    Icon: IconRocket,
+    tile: "pop-tile--teal",
+    Icon: IconPotion,
     note: "Go small: build on an open-weight model with 10B parameters or fewer.",
   },
   {
     title: "Best Use of an Open-Source Model Harness",
     big: "harness",
     tile: "pop-tile--orange",
-    Icon: IconStack,
+    Icon: IconCauldron,
     note: "Write the software around a model (prompts, tools, memory, actions) from scratch, or meaningfully improve an open-source one.",
   },
 ];
 
 export default function Tracks() {
   return (
-    <section className="pop-band pop-band--pink pop-tracks" id="tracks">
+    <section className="pop-band pop-band--orange pop-tracks" id="tracks">
+      <span className="pop-spider" aria-hidden="true">
+        <span className="pop-spider-in">
+          <Spider />
+        </span>
+      </span>
       <div className="pop-wrap">
         <div className="pop-tracks-head">
           <Rise>
@@ -59,7 +65,7 @@ export default function Tracks() {
         <div className="pop-card-grid">
           {TRACKS.map((t, i) => (
             <Rise i={i} key={t.title}>
-              <article className="pop-card">
+              <article className="pop-card pop-card--web">
                 <span className={"pop-card-tile " + t.tile}>
                   <t.Icon className="pop-card-icon" />
                 </span>
@@ -73,13 +79,14 @@ export default function Tracks() {
       </div>
 
       <div className="pop-badge" aria-hidden="true">
-        <IconStar className="pop-badge-star" />
+        <Bat className="pop-badge-star" />
         <span>
           one
           <br />
           day
         </span>
       </div>
+      <Drip />
     </section>
   );
 }

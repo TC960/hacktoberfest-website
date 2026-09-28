@@ -1,6 +1,7 @@
-# Hacktoberfest 2026 × DS3
+# Hacktoberfest × Space × AI Hack Day · DS3 at UC San Diego
 
-Event site for an official **Hacktoberfest 2026 Fest** (Hack Day format), brought to you by the
+Event site for **Hacktoberfest × Space × AI Hack Day**, an official **Hacktoberfest 2026 Fest**
+(Hack Day format), brought to you by the
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.
 
@@ -8,8 +9,13 @@ Open to UC San Diego students, 18+.
 - **Where:** Price Center West Ballroom, UC San Diego
 - **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions)
 
-The design is a port of the DataHacks **pop** theme (`ucsdds3/datahacks` → `src/themes/pop`):
-flat colour bands, compressed Archivo type, 2px black rules, isometric SVG art.
+The design is a cute-spooky Halloween theme built to match DS3's dino sticker: night-purple and
+pumpkin-orange bands joined by wax drips, rounded "sticker" cards with thick ink outlines,
+Creepster / Fredoka / Nunito type, and hand-drawn SVG art (moon, bats, ghosts, pumpkins, a
+cauldron) in [`src/art/Spooky.tsx`](src/art/Spooky.tsx). Styles live in `src/pop.css`.
+
+The SVGs are placeholders. [`docs/design-prompts.md`](docs/design-prompts.md) has a whole-site
+prompt for other design models, plus a matching image prompt for each SVG.
 
 ## Develop
 
@@ -57,8 +63,11 @@ Before launch:
 ## Mascot
 
 The bobbing dino in the hero is `public/mascot.png` (DS3's mascot, transparent PNG, about
-486×576). To swap in new art, replace that file with another transparent PNG of a similar
+486×576). It sits in its own column of the hero (in front of the moon), so it never covers the
+event name. To swap in new art, replace that file with another transparent PNG of a similar
 shape; size and animation are set in `src/pop.css` under `.pop-mascot`.
+
+The event name is set once in `src/event.ts` (`name` and `nameHost`).
 
 ## Sections
 

@@ -1,14 +1,14 @@
-import { Trophy } from "../art/Props";
+import { CandyBucket, Drip } from "../art/Spooky";
 import { TRACKS } from "./Tracks";
 import { Rise } from "../motion";
 
-const COLOURS = ["pop-step--cream", "pop-step--teal", "pop-step--pink", "pop-step--orange"];
+const COLOURS = ["pop-step--candle", "pop-step--lilac", "pop-step--teal", "pop-step--orange"];
 
 const EXTRAS = ["Stickers", "Postcards"];
 
 export default function Prizes() {
   return (
-    <section className="pop-band pop-band--marigold pop-prizes" id="prizes">
+    <section className="pop-band pop-band--grape pop-prizes" id="prizes">
       <div className="pop-wrap">
         <div className="pop-prize-top">
           <div>
@@ -32,7 +32,7 @@ export default function Prizes() {
             {TRACKS.map((t, i) => (
               <div className={"pop-step pop-step--even " + COLOURS[i]} key={t.title}>
                 <span className="pop-step-fig">
-                  <Trophy className="pop-step-trophy" />
+                  <CandyBucket className="pop-step-trophy" />
                 </span>
                 <div className="pop-step-body">
                   <span className="pop-step-place pop-step-place--sm">{t.title}</span>
@@ -60,6 +60,7 @@ export default function Prizes() {
           </div>
         </Rise>
       </div>
+      <Drip />
     </section>
   );
 }

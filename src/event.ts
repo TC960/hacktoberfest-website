@@ -4,6 +4,10 @@
  */
 
 export const EVENT = {
+  /** The event's full name, as it should read everywhere. */
+  name: "Hacktoberfest × Space × AI Hack Day",
+  /** Who's hosting, where; shown right after the name. */
+  nameHost: "DS3 at UC San Diego",
   /** Who puts the event on. */
   host: "DS3 Hackathons",
   hostLong: "the Hackathons team at DS3",
