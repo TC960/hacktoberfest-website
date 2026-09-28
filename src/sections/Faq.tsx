@@ -71,6 +71,16 @@ const QA: Array<[string, React.ReactNode]> = [
     </>,
   ],
   [
+    "What's the Make it Legendary challenge?",
+    <>
+      A space challenge judged separately from the four DEV Badge tracks: bring real space
+      data and build something legendary with it. To be eligible, build your project with
+      Cursor (the more you use it, the better your chances) and use the Grok Imagine or Grok
+      Voice API. Using Grok Bot for planning and team collaboration earns bonus points. The
+      prize is still to be announced.
+    </>,
+  ],
+  [
     "Can I start my project early?",
     <>
       Bring ideas, not code. Project work starts at the event, per the{" "}

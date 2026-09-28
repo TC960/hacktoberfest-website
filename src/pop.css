@@ -1175,6 +1175,96 @@
   text-align: center;
 }
 
+/* MAKE IT LEGENDARY — the space challenge, a night card under the tracks */
+.pop-root .pop-legend {
+  --fg: var(--bone);
+  --muted: rgba(255, 244, 230, 0.8);
+  --accent: var(--orange);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(1.5rem, 3.2vw, 2.5rem);
+  background:
+    radial-gradient(ellipse 50% 70% at 90% 10%, rgba(155, 107, 214, 0.35), transparent 70%),
+    var(--night);
+  color: var(--fg);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--ink);
+  scroll-margin-top: 2rem;
+}
+.pop-root .pop-legend-art {
+  position: absolute;
+  top: clamp(-3.5rem, -4.5vw, -2.5rem);
+  right: clamp(0.5rem, 3vw, 2.5rem);
+  width: clamp(110px, 13vw, 170px);
+  height: auto;
+  animation: pop-float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.pop-root .pop-legend-title {
+  margin-top: 0.4rem;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  line-height: 0.95;
+  color: var(--orange);
+  text-shadow: 0.04em 0.05em 0 var(--grape);
+}
+.pop-root .pop-legend-pitch {
+  margin-top: 0.9rem;
+  max-width: 50ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.pop-root .pop-legend-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-self: end;
+}
+.pop-root .pop-legend-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lilac);
+}
+.pop-root .pop-legend-rules {
+  display: grid;
+  gap: 0.7rem;
+}
+.pop-root .pop-legend-rules li {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.pop-root .pop-legend-bullet {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+}
+.pop-root .pop-legend-prize {
+  align-self: flex-start;
+  padding: 0.4rem 1rem;
+  background: var(--candle);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--round);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 /* ==========================================================================
    7 · PRIZES — grape band, drippy headline, candy buckets
    ========================================================================== */
@@ -1245,6 +1335,33 @@
   font-weight: 800;
   font-size: clamp(0.875rem, 1.3vw, 1rem);
   margin-top: 0.35rem;
+}
+.pop-root .pop-legend-prizecard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-top: clamp(1rem, 2vw, 1.4rem);
+  padding: clamp(1rem, 2vw, 1.4rem);
+  background: var(--night);
+  color: var(--bone);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--night);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.pop-root .pop-legend-prizecard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--night);
+}
+.pop-root .pop-legend-prizecard-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.pop-root .pop-legend-prizecard .pop-eyebrow {
+  color: var(--orange);
 }
 .pop-root .pop-track-prizes {
   margin-top: clamp(2.25rem, 4vw, 3.25rem);
@@ -1847,6 +1964,9 @@
 }
 
 @media (max-width: 1024px) {
+  .pop-root .pop-legend {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .pop-root .pop-faq-grid,
   .pop-root .pop-spon-head {
     grid-template-columns: minmax(0, 1fr);
@@ -2051,6 +2171,7 @@
   .pop-root .pop-crowd-fig--float,
   .pop-root .pop-spider-in,
   .pop-root .pop-patch-ghost,
+  .pop-root .pop-legend-art,
   .pop-root .pop-dino,
   .pop-root .pop-steam,
   .pop-root .pop-bubble,

@@ -21,7 +21,7 @@ const DAY: Row[] = [
 const PREP: Row[] = [
   { time: "01", title: "Register on OrganizerHQ", note: "You need it to check in and to submit" },
   { time: "02", title: "Set up GitHub and DEV", note: "Projects go in a public repo; badges go to your dev.to account" },
-  { time: "03", title: "Skim the tracks", note: "Agent skill, open-weight LLM or SLM, model harness" },
+  { time: "03", title: "Skim the tracks", note: "Agent skill, open-weight LLM or SLM, model harness, and Make it Legendary" },
   { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
 ];
 

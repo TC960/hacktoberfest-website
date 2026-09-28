@@ -1,5 +1,5 @@
 import { IconCauldron, IconCrystalBall, IconPotion, IconSpellbook } from "../art/Icons";
-import { Bat, Drip, Spider } from "../art/Spooky";
+import { Bat, CandyCorn, Drip, PumpkinPlanet, Spider } from "../art/Spooky";
 import { EVENT } from "../event";
 import { Rise } from "../motion";
 import ExtLink from "./ExtLink";
@@ -36,6 +36,19 @@ export const TRACKS = [
   },
 ];
 
+// The space challenge, judged separately from the four DEV Badge tracks.
+export const LEGENDARY = {
+  title: "Make it Legendary",
+  prize: "Prize TBA",
+  pitch:
+    "Space gives you more to work with than almost any other field: enormous public datasets, decades of missions, and a literature no human can read all of. Real space data goes in and a legendary project comes out.",
+  rules: [
+    "Build it with Cursor. The more you use Cursor, the more likely you are to win.",
+    "Use the Grok Imagine or Grok Voice API in your project.",
+    "Bonus points for using Grok Bot for project planning and team collaboration.",
+  ],
+};
+
 export default function Tracks() {
   return (
     <section className="pop-band pop-band--orange pop-tracks" id="tracks">
@@ -58,6 +71,7 @@ export default function Tracks() {
               Badge. Enter every track your project fits when you submit. Open-source or
               open-weight AI has to do real work in your project, and the code goes in a public
               GitHub repo under an <ExtLink href={EVENT.osiLicensesUrl}>open-source licence</ExtLink>.
+              There's also a space challenge, Make it Legendary, with its own prize.
             </p>
           </Rise>
         </div>
@@ -76,6 +90,29 @@ export default function Tracks() {
             </Rise>
           ))}
         </div>
+
+        <Rise>
+          <article className="pop-legend" id="legendary">
+            <PumpkinPlanet className="pop-legend-art" />
+            <div className="pop-legend-copy">
+              <p className="pop-eyebrow">Plus a space challenge</p>
+              <h3 className="pop-legend-title">{LEGENDARY.title}</h3>
+              <p className="pop-legend-pitch">{LEGENDARY.pitch}</p>
+            </div>
+            <div className="pop-legend-side">
+              <p className="pop-legend-label">To be eligible</p>
+              <ul className="pop-legend-rules">
+                {LEGENDARY.rules.map((rule) => (
+                  <li key={rule}>
+                    <CandyCorn className="pop-legend-bullet" />
+                    <span>{rule}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="pop-legend-prize">{LEGENDARY.prize}</p>
+            </div>
+          </article>
+        </Rise>
       </div>
 
       <div className="pop-badge" aria-hidden="true">

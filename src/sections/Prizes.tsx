@@ -1,5 +1,5 @@
 import { CandyBucket, Drip } from "../art/Spooky";
-import { TRACKS } from "./Tracks";
+import { LEGENDARY, TRACKS } from "./Tracks";
 import { Rise } from "../motion";
 
 const COLOURS = ["pop-step--candle", "pop-step--lilac", "pop-step--teal", "pop-step--orange"];
@@ -21,8 +21,10 @@ export default function Prizes() {
           </div>
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
-              Four tracks, four winning teams. Every member of each winning team gets a DEV Badge
-              on their DEV profile. Winners are judged on what you build, not pull-request counts.
+              Four open-source AI tracks, four winning teams: every member of each winning team gets
+              a DEV Badge on their DEV profile. The Make it Legendary space challenge has its own
+              prize, still to be announced. Winners are judged on what you build, not pull-request
+              counts.
             </p>
           </Rise>
         </div>
@@ -41,6 +43,16 @@ export default function Prizes() {
               </div>
             ))}
           </div>
+        </Rise>
+
+        <Rise i={4}>
+          <a className="pop-legend-prizecard" href="#legendary">
+            <span className="pop-legend-prizecard-name">
+              <span className="pop-eyebrow">Space challenge</span>
+              <span className="pop-step-place">{LEGENDARY.title}</span>
+            </span>
+            <span className="pop-legend-prize">{LEGENDARY.prize}</span>
+          </a>
         </Rise>
 
         <Rise i={4}>
