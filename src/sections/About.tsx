@@ -51,7 +51,7 @@ const STEPS = [
  *   END … 1           the finished brew holds for a moment before the pin lets go
  */
 const LEAD = 0.1;
-const END = 0.9;
+const END = 0.95;
 const STEP = (END - LEAD) / STEPS.length;
 const ENTER = 0.035; // how long a card takes to slide in
 
@@ -121,26 +121,22 @@ export default function About() {
       <div className="pop-wrap pop-brew-intro">
         <div>
           <Rise>
-            <p className="pop-eyebrow">What it is</p>
+            <p className="pop-eyebrow">About</p>
           </Rise>
           <Rise i={1}>
-            <h2 className="pop-h2">one day to brew something with open-source ai</h2>
+            <h2 className="pop-h2">what is hacktoberfest?</h2>
           </Rise>
         </div>
         <div className="pop-about-copy">
           <Rise i={2}>
             <p className="pop-body">
-              Hacktoberfest is the month-long celebration of open source, run by Major League
-              Hacking and DEV in partnership with DigitalOcean. This year's Fests are about hands-on building with open-source and
-              open-weight AI, and prizes are judged on what you build, not pull-request counts.
+              A month-long celebration of open source, run by Major League Hacking and DEV in
+              partnership with DigitalOcean. This year is all about building with open-source and
+              open-weight AI.
             </p>
           </Rise>
           <Rise i={3}>
-            <p className="pop-body">
-              {EVENT.name} is a Hack Day brought to you by {EVENT.hostLong} at {EVENT.campus}, in
-              partnership with MLH: show up, form a team, ship an open-source AI project, and demo
-              it before the day is out. Here's the recipe.
-            </p>
+            <p className="pop-brew-lead">Here's the recipe.</p>
           </Rise>
         </div>
       </div>

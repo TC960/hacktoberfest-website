@@ -56,9 +56,7 @@ Before launch:
 
 - [ ] `registerUrl`: swap in this Fest's OrganizerHQ page once MLH approves the event (it currently points at hacktoberfest.com/events)
 - [ ] `time`: set the start/end time (it shows "TBD" everywhere until then)
-- [ ] `contactEmail`: add the organizers' inbox (the sponsor link stays hidden until it's set)
 - [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
-- [ ] Supporter names in `src/sections/Sponsors.tsx`
 
 ## Mascot
 
@@ -71,8 +69,9 @@ The event name is set once in `src/event.ts` (`name` and `nameHost`).
 
 ## Sections
 
-Top bar · Hero · Marquee · About · Stats · Challenge tracks · Prizes · Schedule ·
-How to join + venue · Partners · FAQ · Footer (code of conduct, rules)
+Top bar · Hero · Marquee · About (the scrollytelling recipe) · Challenge tracks (flip cards
+with each track's brief and prize) + Make it Legendary · Schedule · How to join + venue · FAQ ·
+Footer (code of conduct, rules)
 
 ## Sources
 

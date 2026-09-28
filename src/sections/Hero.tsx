@@ -47,7 +47,7 @@ export default function Hero() {
         <motion.div className="pop-hero-copy" style={reduce ? undefined : { y: copyY }}>
           <Rise>
             <p className="pop-eyebrow">
-              {EVENT.host} × Major League Hacking · an official Hacktoberfest 2026 Fest
+              {EVENT.host} × Major League Hacking
             </p>
           </Rise>
 
@@ -64,13 +64,6 @@ export default function Hero() {
           <Rise i={2}>
             <p className="pop-hero-lead">
               {EVENT.dateLong} · {EVENT.venue}
-            </p>
-          </Rise>
-          <Rise i={3}>
-            <p className="pop-hero-sub">
-              A one-day, in-person hackathon for building with open-source and open-weight AI.
-              Free for UC San Diego students (18+), open to every skill level. Start time{" "}
-              {EVENT.time === "TBD" ? "to be announced" : EVENT.time}.
             </p>
           </Rise>
           <Rise i={4}>

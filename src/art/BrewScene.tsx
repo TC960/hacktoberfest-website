@@ -109,7 +109,7 @@ export default function BrewScene({
   return (
     <svg
       className={(className ?? "") + (stomping ? " is-stomping" : "")}
-      viewBox="-10 -140 530 445"
+      viewBox="-10 -105 530 410"
       role="img"
       aria-label="DS3's dino brews in a cauldron as you scroll: it casts a crystal ball, a spellbook and a potion into the pot, stomps to stir it, and looks confused when a ghost pops out holding a DEV badge"
       xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +256,7 @@ export default function BrewScene({
       <motion.g style={{ opacity: reveal, scale: revealScale, ...fillBox }}>
         <text
           x="200"
-          y="-86"
+          y="-58"
           fontFamily="'Lilita One', Fredoka, sans-serif"
           fontSize="44"
           fill={P.orange}
@@ -267,7 +267,7 @@ export default function BrewScene({
           {"</>"}
         </text>
         <g fill={P.candle}>
-          <path d="M60-100c.9 6.6 4.5 10.4 12 12-7.5 1.6-11.1 5.4-12 12-.9-6.6-4.5-10.4-12-12 7.5-1.6 11.1-5.4 12-12Z" />
+          <path d="M60-80c.9 6.6 4.5 10.4 12 12-7.5 1.6-11.1 5.4-12 12-.9-6.6-4.5-10.4-12-12 7.5-1.6 11.1-5.4 12-12Z" />
           <path d="M40-10c.6 4.4 3 7 8 8-5 1-7.4 3.6-8 8-.6-4.4-3-7-8-8 5-1 7.4-3.6 8-8Z" />
         </g>
       </motion.g>

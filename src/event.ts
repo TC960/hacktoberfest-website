@@ -34,9 +34,8 @@ export const EVENT = {
    */
   registerUrl: "https://hacktoberfest.com/events/",
 
-  /** Organiser inboxes; the backup is DS3's shared inbox. */
-  contactEmails: ["mprakash@ucsd.edu", "tchhabra@ucsd.edu"],
-  backupEmail: "info@ds3.club",
+  /** The one inbox for questions, sponsors and accommodations. */
+  contactEmail: "info@ds3.club",
   hacktoberfestEmail: "hacktoberfest@mlh.io",
 
   /** MLH Code of Conduct incident line for North America (pol/code-of-conduct.md). */
@@ -53,6 +52,5 @@ export const EVENT = {
 /** hostLong at the start of a sentence. */
 export const HOST_CAP = EVENT.hostLong[0].toUpperCase() + EVENT.hostLong.slice(1);
 
-/** One mailto that reaches both organisers and CCs the DS3 inbox. */
-export const CONTACT_MAILTO = `mailto:${EVENT.contactEmails.join(",")}?cc=${EVENT.backupEmail}`;
+export const CONTACT_MAILTO = `mailto:${EVENT.contactEmail}`;
 export const INCIDENT_TEL = `tel:${EVENT.incidentPhone.replace(/[^+\d]/g, "")}`;

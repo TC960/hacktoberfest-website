@@ -13,7 +13,6 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
     links: [
       ["About", "#about"],
       ["Tracks", "#tracks"],
-      ["Prizes", "#prizes"],
       ["Schedule", "#schedule"],
       ["FAQ", "#faq"],
     ],
@@ -80,18 +79,11 @@ export default function Footer() {
             <div className="pop-foot-col pop-foot-col--org">
               <h3>Brought to you by</h3>
               <p>
-                {EVENT.name} is brought to you by {EVENT.hostLong} ({EVENT.hostOrg}) at{" "}
-                {EVENT.campus}, in partnership with Major League Hacking, as an official
-                Hacktoberfest 2026 Fest. Hacktoberfest is run by MLH and DEV in partnership
-                with DigitalOcean.
+                {EVENT.host} ({EVENT.hostOrg}) at {EVENT.campus}, in partnership with Major
+                League Hacking.
               </p>
-              {EVENT.contactEmails.map((e) => (
-                <a className="pop-foot-mail" href={`mailto:${e}`} key={e}>
-                  {e}
-                </a>
-              ))}
-              <a className="pop-foot-mail" href={`mailto:${EVENT.backupEmail}`}>
-                {EVENT.backupEmail}
+              <a className="pop-foot-mail" href={CONTACT_MAILTO}>
+                {EVENT.contactEmail}
               </a>
             </div>
           </Rise>

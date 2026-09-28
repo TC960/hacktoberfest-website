@@ -192,22 +192,6 @@ export function CandyCorn(art: Art) {
   );
 }
 
-/** Jack-o'-lantern candy bucket — one per prize track. */
-export function CandyBucket(art: Art) {
-  return (
-    <svg {...svgProps("0 -20 120 126", art)}>
-      <path d="M14 46C14 6 106 6 106 46" fill="none" {...line} strokeWidth={5} />
-      <g {...line} strokeWidth={3}>
-        <path d="M34 34 46 16 56 36Z" fill={P.candle} />
-        <path d="M34 34 38 28 52 30 50 36Z" fill={P.orange} />
-        <rect x="58" y="16" width="22" height="14" rx="6" fill={P.violet} transform="rotate(18 69 23)" />
-        <circle cx="86" cy="32" r="9" fill={P.teal} />
-      </g>
-      <PumpkinBody />
-    </svg>
-  );
-}
-
 export function Candle(art: Art) {
   return (
     <svg {...svgProps("0 0 60 120", art)}>
