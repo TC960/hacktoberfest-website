@@ -24,7 +24,7 @@ export const P = {
 
 type Art = { className?: string; style?: React.CSSProperties };
 
-const line = {
+export const line = {
   stroke: INK,
   strokeWidth: 4,
   strokeLinejoin: "round" as const,
@@ -187,72 +187,6 @@ export function CandyCorn(art: Art) {
         <path d="M4.6 16h14.8c1.1 2.5 1.6 4 .6 5-2 1-14 1-16 0-1-1-.5-2.5.6-5Z" fill={P.candle} />
         <path d="M7.4 9.5h9.2l2.8 6.5H4.6Z" fill={P.orange} />
         <path d="M12 2c1 0 3.5 5 4.6 7.5H7.4C8.5 7 11 2 12 2Z" fill={P.bone} />
-      </g>
-    </svg>
-  );
-}
-
-/** Bubbling cauldron with a ghost drifting out — the About band. */
-export function Cauldron(art: Art & { label?: string }) {
-  return (
-    <svg {...svgProps("0 0 320 300", art, art.label)}>
-      {/* fire */}
-      <g {...line} strokeWidth={3.5}>
-        <path d="M110 286c-14-10-10-30 4-40 0 12 8 12 10 4 8 10 12 30-14 36Z" fill={P.orange} />
-        <path d="M160 290c-22-12-16-44 4-56 2 16 12 18 14 6 14 16 16 44-18 50Z" fill={P.orange} />
-        <path d="M212 286c-14-10-10-30 4-40 0 12 8 12 10 4 8 10 12 30-14 36Z" fill={P.orange} />
-        <path d="M162 284c-8-6-6-18 2-24 2 8 6 8 8 2 4 8 4 20-10 22Z" fill={P.candle} strokeWidth={2.5} />
-      </g>
-      {/* legs + pot */}
-      <g {...line}>
-        <path d="M92 236 82 262M228 236l10 26" strokeWidth={8} />
-        <path d="M50 140c-10 70 30 116 110 116s120-46 110-116Z" fill="#2e1a47" />
-        <path d="M74 170c0 30 14 52 36 64" fill="none" stroke={P.violet} strokeWidth={5} opacity={0.7} />
-        <ellipse cx="160" cy="140" rx="118" ry="26" fill="#3d2560" />
-        <ellipse cx="160" cy="140" rx="98" ry="16" fill={P.teal} />
-      </g>
-      {/* bubbles */}
-      <g {...line} strokeWidth={3} fill={P.teal}>
-        <circle cx="120" cy="126" r="12" />
-        <circle cx="198" cy="122" r="9" />
-        <circle cx="174" cy="96" r="7" />
-        <circle cx="136" cy="84" r="5" />
-      </g>
-      <circle cx="116" cy="122" r="3.5" fill={P.bone} />
-      {/* code rising out of the brew */}
-      <text
-        x="214"
-        y="70"
-        fontFamily="Fredoka, sans-serif"
-        fontWeight={700}
-        fontSize="40"
-        fill={P.orange}
-        stroke={INK}
-        strokeWidth={2.5}
-        paintOrder="stroke"
-      >
-        {"</>"}
-      </text>
-      <path
-        d="M70 52c.6 4.4 3 7 8 8-5 1-7.4 3.6-8 8-.6-4.4-3-7-8-8 5-1 7.4-3.6 8-8Z"
-        fill={P.candle}
-      />
-      <path
-        d="M250 150c.6 4.4 3 7 8 8-5 1-7.4 3.6-8 8-.6-4.4-3-7-8-8 5-1 7.4-3.6 8-8Z"
-        fill={P.candle}
-      />
-      {/* ghost */}
-      <g transform="translate(96 10) rotate(-8 40 50) scale(0.95)">
-        <path
-          {...line}
-          fill={P.bone}
-          d="M10 88V40C10 18 24 6 40 6s30 12 30 34v48q-5-8-12 0t-12 0q-6-8-12 0t-12 0q-6-8-12 0Z"
-        />
-        <ellipse cx="30" cy="40" rx="4.5" ry="6.5" fill={INK} />
-        <ellipse cx="50" cy="40" rx="4.5" ry="6.5" fill={INK} />
-        <path d="M33 55q7 6 14 0" fill="none" stroke={INK} strokeWidth={3.5} strokeLinecap="round" />
-        <ellipse cx="22" cy="52" rx="5" ry="3" fill={P.blush} />
-        <ellipse cx="58" cy="52" rx="5" ry="3" fill={P.blush} />
       </g>
     </svg>
   );
