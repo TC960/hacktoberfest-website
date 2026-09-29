@@ -54,16 +54,6 @@ export function IconCauldron({ className }: { className?: string }) {
   );
 }
 
-/** outlined ghost, for open sponsor frames */
-export function IconGhost({ className }: { className?: string }) {
-  return (
-    <svg {...base} stroke="currentColor" className={className}>
-      <path d="M5 21V10a7 7 0 0 1 14 0v11l-2.3-1.8-2.4 1.8-2.3-1.8-2.3 1.8-2.4-1.8Z" />
-      <path d="M9.5 10v1M14.5 10v1" />
-    </svg>
-  );
-}
-
 /** plus / minus toggle for the FAQ rows */
 export function IconToggle({ open, className }: { open: boolean; className?: string }) {
   return (

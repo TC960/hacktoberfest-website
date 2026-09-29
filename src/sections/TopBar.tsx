@@ -7,7 +7,6 @@ const LINKS = [
   ["prizes", "#prizes"],
   ["schedule", "#schedule"],
   ["venue", "#register"],
-  ["sponsors", "#sponsors"],
   ["faq", "#faq"],
 ];
 

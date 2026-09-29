@@ -58,7 +58,6 @@ Before launch:
 - [x] `time`: 3:45 – 9:00 PM PT
 - [ ] `contactEmail`: add the organizers' inbox (the sponsor link stays hidden until it's set)
 - [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
-- [ ] Supporter names in `src/sections/Sponsors.tsx`
 
 ## Mascot
 
@@ -71,8 +70,8 @@ The event name is set once in `src/event.ts` (`name` and `nameHost`).
 
 ## Sections
 
-Top bar · Hero · Marquee · About · Stats · Challenge tracks · Prizes · Schedule ·
-How to join + venue · Partners · FAQ · Footer (code of conduct, rules)
+Top bar · Hero · Marquee · About · Challenge tracks · Prizes · Schedule ·
+How to join + venue · FAQ · Footer (code of conduct, rules)
 
 ## Sources
 

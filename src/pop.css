@@ -149,7 +149,6 @@
 }
 /* dark bands */
 .pop-root .pop-band--night,
-.pop-root .pop-band--plum,
 .pop-root .pop-band--grape,
 .pop-root .pop-venue,
 .pop-root .pop-foot,
@@ -163,9 +162,6 @@
 }
 .pop-root .pop-band--night {
   --bg: var(--night);
-}
-.pop-root .pop-band--plum {
-  --bg: var(--plum);
 }
 .pop-root .pop-band--grape {
   --bg: var(--grape);
@@ -975,78 +971,6 @@
 }
 
 /* ==========================================================================
-   5 · STATS — night band, critters sitting on the baseline
-   ========================================================================== */
-.pop-root .pop-stats-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
-}
-.pop-root .pop-stats-rail {
-  border-block: 2px solid var(--line);
-}
-.pop-root .pop-stats-inner {
-  position: relative;
-}
-.pop-root .pop-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.pop-root .pop-stat {
-  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.6rem, 1.5vw, 1.25rem)
-    clamp(3.75rem, 6vw, 5rem) clamp(0.9rem, 2vw, 1.75rem);
-  border-left: 2px solid var(--line);
-}
-.pop-root .pop-stat:first-child {
-  border-left: 0;
-  padding-left: 0;
-}
-.pop-root .pop-stat-num {
-  display: block;
-  font-family: var(--round);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 5.6vw, 4.75rem);
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  color: var(--orange);
-}
-.pop-root .pop-stat-label {
-  display: block;
-  margin-top: 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.pop-root .pop-crowd {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 0;
-  pointer-events: none;
-}
-.pop-root .pop-crowd-fig {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  height: clamp(36px, 4.2vw, 54px);
-}
-.pop-root .pop-crowd-fig--sm {
-  height: clamp(26px, 3vw, 38px);
-}
-.pop-root .pop-crowd-fig--float {
-  bottom: 8px;
-  animation: pop-float 4.5s ease-in-out infinite;
-}
-.pop-root .pop-crowd-fig svg {
-  height: 100%;
-  width: auto;
-}
-
-/* ==========================================================================
    6 · TRACKS — pumpkin band, four sticker cards, a dangling spider
    ========================================================================== */
 .pop-root .pop-tracks-head {
@@ -1482,140 +1406,6 @@
 }
 
 /* ==========================================================================
-   10 · SPONSORS — plum band, pumpkin patch, ghostly empty frames
-   ========================================================================== */
-.pop-root .pop-spon-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-.pop-root .pop-spon-head .pop-h2 {
-  margin: 0.55rem 0 1rem;
-  max-width: 17ch;
-}
-.pop-root .pop-spon-lead {
-  color: var(--muted);
-}
-.pop-root .pop-spon-mail {
-  margin-top: 1.15rem;
-  font-size: 0.9375rem;
-  font-weight: 800;
-}
-.pop-root .pop-spon-mail a {
-  border-bottom: 2px solid var(--orange);
-}
-.pop-root .pop-spon-mail a:hover {
-  color: var(--orange);
-}
-.pop-root .pop-patch {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 1.3;
-  margin-left: auto;
-}
-.pop-root .pop-patch svg {
-  position: absolute;
-  height: auto;
-}
-.pop-root .pop-patch-ghost {
-  width: 32%;
-  left: 6%;
-  top: 0;
-  animation: pop-float 5s ease-in-out infinite;
-}
-.pop-root .pop-patch-big {
-  width: 62%;
-  right: 4%;
-  bottom: 0;
-}
-.pop-root .pop-patch-sm {
-  width: 34%;
-  left: 0;
-  bottom: 0;
-}
-.pop-root .pop-tiers {
-  display: grid;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
-}
-.pop-root .pop-tier {
-  display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
-  gap: clamp(1rem, 2vw, 1.75rem);
-  align-items: start;
-  padding-top: 1.1rem;
-  border-top: 2px solid var(--line);
-}
-.pop-root .pop-tier-label span:first-child {
-  display: block;
-  font-family: var(--round);
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-.pop-root .pop-tier-count {
-  display: block;
-  margin-top: 0.15rem;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--orange);
-}
-.pop-root .pop-slots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.9rem;
-}
-.pop-root .pop-slot {
-  border: 2px dashed var(--line);
-  border-radius: 18px;
-  height: 82px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-}
-.pop-root .pop-slot--xl {
-  height: 128px;
-}
-.pop-root .pop-slot--lg {
-  height: 102px;
-}
-.pop-root .pop-slot-glyph {
-  width: 22px;
-  height: 22px;
-  color: var(--lilac);
-}
-.pop-root .pop-slot span {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--lilac);
-}
-.pop-root .pop-slot--filled {
-  background: var(--bone);
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--grape);
-}
-.pop-root .pop-slot .pop-slot-name {
-  font-family: var(--round);
-  font-weight: 700;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-  letter-spacing: -0.01em;
-  text-transform: none;
-  color: var(--ink);
-  text-align: center;
-  padding-inline: 0.75rem;
-  line-height: 1.1;
-}
-
-/* ==========================================================================
    11 · FAQ — lavender band, one stack of ruled rows
    ========================================================================== */
 .pop-root .pop-faq-grid {
@@ -1865,12 +1655,8 @@
 }
 
 @media (max-width: 1024px) {
-  .pop-root .pop-faq-grid,
-  .pop-root .pop-spon-head {
+  .pop-root .pop-faq-grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .pop-root .pop-spon-art {
-    display: none;
   }
   .pop-root .pop-card-grid,
   .pop-root .pop-ladder {
@@ -1955,22 +1741,6 @@
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
-  .pop-root .pop-tier {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.9rem;
-  }
-  .pop-root .pop-tier-label {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    column-gap: 0.7rem;
-  }
-  .pop-root .pop-tier-label span:first-child {
-    white-space: nowrap;
-  }
-  .pop-root .pop-tier-count {
-    margin-top: 0;
-  }
   .pop-root .pop-spider {
     right: 1rem;
     width: 40px;
@@ -1978,24 +1748,6 @@
 }
 
 @media (max-width: 640px) {
-  .pop-root .pop-stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .pop-root .pop-stat {
-    padding-bottom: clamp(2rem, 8vw, 3rem);
-  }
-  .pop-root .pop-stat:nth-child(3) {
-    border-left: 0;
-    padding-left: 0;
-    border-top: 2px solid var(--line);
-  }
-  .pop-root .pop-stat:nth-child(4) {
-    border-top: 2px solid var(--line);
-  }
-  .pop-root .pop-crowd-fig:nth-child(2),
-  .pop-root .pop-crowd-fig:nth-child(4) {
-    display: none;
-  }
   .pop-root .pop-card-grid,
   .pop-root .pop-reg-steps {
     grid-template-columns: minmax(0, 1fr);
@@ -2023,9 +1775,6 @@
   .pop-root .pop-foot-cols,
   .pop-root .pop-foot-fine {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .pop-root .pop-slots {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
   .pop-root .pop-foot-dates {
     flex-wrap: wrap;
@@ -2067,9 +1816,7 @@
   .pop-root .pop-bat-wing,
   .pop-root .pop-planet,
   .pop-root .pop-hero-ghost,
-  .pop-root .pop-crowd-fig--float,
   .pop-root .pop-spider-in,
-  .pop-root .pop-patch-ghost,
   .pop-root .pop-dino,
   .pop-root .pop-steam,
   .pop-root .pop-bubble,
