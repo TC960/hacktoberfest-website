@@ -54,7 +54,7 @@ The site is served at **https://hacktoberfest.ds3atucsd.com/**. DNS: a `CNAME` r
 Every fact the page shows (date, time, venue, links, emails) is in [`src/event.ts`](src/event.ts).
 Before launch:
 
-- [ ] `registerUrl`: swap in this Fest's OrganizerHQ page once MLH approves the event (it currently points at hacktoberfest.com/events)
+- [x] `registerUrl`: points at this Fest's OrganizerHQ page
 - [ ] `time`: set the start/end time (it shows "TBD" everywhere until then)
 - [ ] `contactEmail`: add the organizers' inbox (the sponsor link stays hidden until it's set)
 - [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
