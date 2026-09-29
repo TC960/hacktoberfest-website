@@ -67,20 +67,16 @@ export default function Hero() {
             </p>
           </Rise>
           <Rise i={3}>
-            <p className="pop-hero-sub">
-              A one-day, in-person hackathon for building with open-source and open-weight AI.
-              Free for UC San Diego students (18+), open to every skill level. Applications close{" "}
-              {EVENT.appsCloseShort}; doors open at {EVENT.doorsOpen}.
-            </p>
-          </Rise>
-          <Rise i={4}>
             <div className="pop-hero-cta">
-              <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-                Apply on OrganizerHQ
+              <a className="pop-btn pop-btn--lg" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
+                Apply
                 <NewTab />
               </a>
-              <a className="pop-btn pop-btn--ghost" href="#register">
-                How it works
+              <a className="pop-btn pop-btn--lg pop-btn--ghost" href="#about">
+                Learn more
+                <svg className="pop-btn-down" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
             </div>
           </Rise>

@@ -265,6 +265,31 @@
   color: var(--bg);
   box-shadow: none;
 }
+.pop-root .pop-btn--lg {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  padding: 1.15rem 2.4rem;
+  border-width: 4px;
+  box-shadow: 6px 6px 0 var(--shadow);
+}
+.pop-root .pop-btn--lg:hover {
+  box-shadow: 8px 8px 0 var(--shadow);
+}
+.pop-root .pop-btn--lg.pop-btn--ghost,
+.pop-root .pop-btn--lg.pop-btn--ghost:hover {
+  box-shadow: none;
+}
+.pop-root .pop-btn-down {
+  width: 1.1em;
+  height: 1.1em;
+  animation: pop-btn-bob 1.6s ease-in-out infinite;
+}
+@keyframes pop-btn-bob {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(3px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 .pop-root .pop-btn-ico {
   width: 16px;
   height: 16px;
@@ -438,13 +463,6 @@
   font-weight: 600;
   line-height: 1.35;
   color: var(--candle);
-}
-.pop-root .pop-hero-sub {
-  margin-top: 0.7rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 46ch;
-  color: var(--muted);
 }
 .pop-root .pop-hero-cta {
   display: flex;
@@ -2043,6 +2061,7 @@
    REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  .pop-root .pop-btn-down,
   .pop-root .pop-mascot,
   .pop-root .pop-star,
   .pop-root .pop-bat-wing,
