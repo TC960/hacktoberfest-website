@@ -11,7 +11,7 @@ Paste this into a website/UI generator (v0, Lovable, Claude, etc.), and attach
 `public/mascot.png` if the tool takes images.
 
 ```text
-Design a one-page event website for "Hacktoberfest × SpaceXAI HackDay @ UC San Diego".
+Design a one-page event website for "Hacktoberfest Hack Day San Diego × SpaceXAI".
 Always write the event name out in full like that.
 
 EVENT FACTS

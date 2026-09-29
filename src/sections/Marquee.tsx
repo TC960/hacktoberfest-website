@@ -42,7 +42,7 @@ export default function Marquee() {
       onMouseLeave={() => setHover(false)}
     >
       <p className="pop-sr">
-        {EVENT.name} {EVENT.nameHost} — Monday October 19 — Price Center West Ballroom — AI
+        {EVENT.name} at UC San Diego — Monday October 19 — Price Center West Ballroom — AI
         belongs to everyone — build with open-source AI — free to attend — apply on
         OrganizerHQ by October 15.
       </p>

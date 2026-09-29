@@ -19,7 +19,7 @@ export default function TopBar() {
       </a>
       <div className="pop-bar-in">
         <a className="pop-bar-mark" href="#top">
-          HACKTOBERFEST <span>× SPACEXAI HACKDAY</span>
+          HACKTOBERFEST <span>HACK DAY SAN DIEGO × SPACEXAI</span>
         </a>
         <nav className="pop-bar-nav" aria-label="Sections">
           {LINKS.map(([label, href]) => (

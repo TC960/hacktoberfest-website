@@ -55,7 +55,7 @@ export default function Hero() {
             <h1 className="pop-hero-type">
               <span className="pop-hero-lg">Hacktoberfest</span>{" "}
               <span className="pop-hero-md">
-                <span className="pop-hero-x">×</span> SpaceXAI HackDay
+                Hack Day San Diego <span className="pop-hero-x">×</span> SpaceXAI
               </span>{" "}
               <span className="pop-hero-host">{EVENT.nameHost}</span>
             </h1>

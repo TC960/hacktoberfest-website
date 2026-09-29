@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SPOOKY POP — Halloween theme for Hacktoberfest × SpaceXAI HackDay
+   SPOOKY POP — Halloween theme for Hacktoberfest Hack Day San Diego × SpaceXAI
    Night-purple and pumpkin-orange bands, wax drips between them, rounded
    hand-drawn "sticker" shapes with thick ink outlines to match DS3's dino.
    Every selector is scoped under .pop-root.
@@ -318,6 +318,12 @@
 }
 .pop-root .pop-bar-mark span {
   color: var(--orange);
+}
+/* the full name crowds the nav until the nav collapses at 860px */
+@media (min-width: 861px) and (max-width: 1024px) {
+  .pop-root .pop-bar-mark span {
+    display: none;
+  }
 }
 .pop-root .pop-bar-nav {
   margin-left: auto;

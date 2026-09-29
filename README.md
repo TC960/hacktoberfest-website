@@ -1,6 +1,6 @@
-# Hacktoberfest × SpaceXAI HackDay @ UC San Diego
+# Hacktoberfest Hack Day San Diego × SpaceXAI
 
-Event site for **Hacktoberfest × SpaceXAI HackDay**, an official **Hacktoberfest 2026 Fest**
+Event site for **Hacktoberfest Hack Day San Diego × SpaceXAI**, an official **Hacktoberfest 2026 Fest**
 (Hack Day format), brought to you by the
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.
@@ -66,7 +66,7 @@ The bobbing dino in the hero is `public/mascot.png` (DS3's mascot, transparent P
 event name. To swap in new art, replace that file with another transparent PNG of a similar
 shape; size and animation are set in `src/pop.css` under `.pop-mascot`.
 
-The event name is set once in `src/event.ts` (`name` and `nameHost`).
+The event name is set once in `src/event.ts` (`name`; `nameHost` is the "@ UC San Diego" campus tag).
 
 ## Sections
 
