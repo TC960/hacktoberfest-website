@@ -6,16 +6,13 @@ import { Drift, Rise } from "../motion";
 
 type Row = { time: string; title: string; note?: string };
 
-// Offsets from kickoff (T+0:00). Swap for clock times once the start time is set.
 const DAY: Row[] = [
-  { time: "T−0:30", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
-  { time: "T+0:00", title: "Opening ceremony", note: "Code of conduct, tracks, how submissions work" },
-  { time: "T+0:20", title: "Team formation", note: "Come solo, leave with a team" },
-  { time: "T+0:30", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
-  { time: "T+2:30", title: "Break + workshops", note: "Food details and lineup TBA" },
-  { time: "T+5:00", title: "Submissions close", note: "Hard stop. Really." },
-  { time: "T+5:15", title: "Demos", note: "Every team gets the same shot" },
-  { time: "T+6:00", title: "Winners + closing" },
+  { time: "3:45 PM", title: "Check-in", note: "Doors open; check in on OrganizerHQ until 4:15" },
+  { time: "4:15 PM", title: "Challenge intro", note: "Code of conduct, tracks, how submissions work" },
+  { time: "4:30 PM", title: "Hacking begins", note: "No project work before this" },
+  { time: "8:00 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
+  { time: "8:00 PM", title: "Judging + dinner", note: "Until 9:00 PM" },
+  { time: "8:45 PM", title: "Winners announced" },
 ];
 
 const PREP: Row[] = [
@@ -98,7 +95,7 @@ export default function Schedule() {
             date={`${EVENT.dateShort} · ${EVENT.time === "TBD" ? "Start time TBD" : EVENT.time}`}
             rows={DAY}
             rail
-            foot="Times count from kickoff and are indicative. Clock times land once the start time is confirmed."
+            foot={`Doors open at ${EVENT.doorsOpen}. No project work before hacking begins at 4:30 PM.`}
           />
           <Column
             label="Before"

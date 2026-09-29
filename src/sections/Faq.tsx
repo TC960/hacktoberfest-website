@@ -43,8 +43,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "When does it start?",
     <>
-      {EVENT.dateLong}, at the {EVENT.venue}. Start and end times are TBD and will be posted
-      here and sent to everyone who registers.
+      {EVENT.dateLong}, at the {EVENT.venue}. Doors open at {EVENT.doorsOpen} for check-in,
+      hacking begins at 4:30 PM, and winners are announced at 8:45 PM. We wrap up by 9:00 PM.
     </>,
   ],
   [
@@ -57,7 +57,7 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Do I need a team?",
     <>
-      No. Come solo and find one at team formation, or show up with friends. You can also hack
+      No. Come solo and find one at check-in, or show up with friends. You can also hack
       alone.
     </>,
   ],
@@ -83,7 +83,7 @@ const QA: Array<[string, React.ReactNode]> = [
     <>
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
       registered with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
-      water bottle too. Food details are TBA; dietary needs? Email{" "}
+      water bottle too. Dinner is served during judging; dietary needs? Email{" "}
       <ContactEmails />.
     </>,
   ],
