@@ -41,13 +41,14 @@ One-time setup: in the repo go to **Settings → Pages → Build and deployment*
 `package-lock.json` committed and in sync with `package.json` (run `npm install` after changing
 dependencies), because `npm ci` refuses to install from a stale lockfile.
 
-### Custom domain
+### Where it's served
 
-The site is served at **https://hacktoberfest.ds3atucsd.com/**. DNS: a `CNAME` record
-`hacktoberfest` → `tc960.github.io` on `ds3atucsd.com` (DNS only, no proxy). The domain is set in
-**Settings → Pages → Custom domain** (exactly `hacktoberfest.ds3atucsd.com`, no `www.`), with
-**Enforce HTTPS** on once GitHub has issued the certificate. If the domain ever changes, update
-`og:url`, `canonical` and the share-image URLs in `index.html` to match.
+No custom domain is set on this repo, so GitHub Pages serves it under the account's user-site
+domain: **https://www.mohakprakash.com/hacktoberfest-website/** (`tc960.github.io/hacktoberfest-website/`
+redirects there). `hacktoberfest.ds3atucsd.com` was tried first, but `ds3atucsd.com` is a parked
+domain, so it never reached the site. To move to a real domain: add a `CNAME` record pointing it at
+`tc960.github.io`, set it in **Settings → Pages → Custom domain**, turn on **Enforce HTTPS** once
+the certificate is issued, and update `og:url`, `canonical` and the share-image URLs in `index.html`.
 
 ## Editing event details
 
