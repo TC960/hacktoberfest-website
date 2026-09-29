@@ -30,7 +30,7 @@ export default function TopBar() {
           ))}
         </nav>
         <a className="pop-bar-cta" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-          Register
+          Apply
           <NewTab />
         </a>
       </div>

@@ -33,11 +33,12 @@ const QA: Array<[string, React.ReactNode]> = [
     <>Nothing. Hack Days are free to attend.</>,
   ],
   [
-    "How do I register?",
+    "How do I apply?",
     <>
-      On OrganizerHQ, MLH's event platform. Every Hacktoberfest Fest uses it for registration,
-      check-in and project submissions.{" "}
-      <ExtLink href={EVENT.registerUrl}>Register here</ExtLink>.
+      On OrganizerHQ, MLH's event platform. Every Hacktoberfest Fest uses it for applications,
+      check-in and project submissions. Applications close {EVENT.appsClose}, and accepted
+      hackers get an invite to our Discord.{" "}
+      <ExtLink href={EVENT.registerUrl}>Apply here</ExtLink>.
     </>,
   ],
   [
@@ -57,8 +58,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Do I need a team?",
     <>
-      No. Come solo and find one at check-in, or show up with friends. You can also hack
-      alone.
+      No. Once you're accepted, find teammates on our Discord before the day, or show up with
+      friends. You can also hack alone.
     </>,
   ],
   [
@@ -82,7 +83,7 @@ const QA: Array<[string, React.ReactNode]> = [
     "What should I bring?",
     <>
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
-      registered with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
+      applied with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
       water bottle too. Dinner is served during judging; dietary needs? Email{" "}
       <ContactEmails />.
     </>,
@@ -133,7 +134,7 @@ export default function Faq() {
             <p className="pop-eyebrow">Questions</p>
           </Rise>
           <Rise i={1}>
-            <h2 className="pop-h2">before you register</h2>
+            <h2 className="pop-h2">before you apply</h2>
           </Rise>
           <Rise i={2}>
             <p className="pop-note">
@@ -143,7 +144,7 @@ export default function Faq() {
           </Rise>
           <Rise i={3}>
             <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-              Register on OrganizerHQ
+              Apply on OrganizerHQ
               <NewTab />
             </a>
           </Rise>

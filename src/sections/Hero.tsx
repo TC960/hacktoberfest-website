@@ -69,14 +69,14 @@ export default function Hero() {
           <Rise i={3}>
             <p className="pop-hero-sub">
               A one-day, in-person hackathon for building with open-source and open-weight AI.
-              Free for UC San Diego students (18+), open to every skill level. Doors open at{" "}
-              {EVENT.doorsOpen}.
+              Free for UC San Diego students (18+), open to every skill level. Applications close{" "}
+              {EVENT.appsCloseShort}; doors open at {EVENT.doorsOpen}.
             </p>
           </Rise>
           <Rise i={4}>
             <div className="pop-hero-cta">
               <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-                Register on OrganizerHQ
+                Apply on OrganizerHQ
                 <NewTab />
               </a>
               <a className="pop-btn pop-btn--ghost" href="#register">

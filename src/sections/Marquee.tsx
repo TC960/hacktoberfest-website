@@ -10,7 +10,7 @@ const ITEMS = [
   "AI BELONGS TO EVERYONE",
   "BUILD WITH OPEN-SOURCE AI",
   "FREE TO ATTEND",
-  "REGISTER ON ORGANIZERHQ",
+  "APPLY BY OCT 15",
 ];
 
 function Sequence() {
@@ -43,8 +43,8 @@ export default function Marquee() {
     >
       <p className="pop-sr">
         {EVENT.name} {EVENT.nameHost} — Monday October 19 — Price Center West Ballroom — AI
-        belongs to everyone — build with open-source AI — free to attend — register on
-        OrganizerHQ.
+        belongs to everyone — build with open-source AI — free to attend — apply on
+        OrganizerHQ by October 15.
       </p>
       <div className="pop-marquee-clip">
         <div

@@ -31,6 +31,10 @@ export const EVENT = {
   /**
    * Registration and check-in happen on MLH's OrganizerHQ, which Hacktoberfest requires.
    */
+  /** Applications close on this date; accepted hackers then get the Discord invite. */
+  appsClose: "Thursday, October 15",
+  appsCloseShort: "Oct 15",
+
   registerUrl: "https://events.mlh.com/events/15194-hacktoberfest-x-spacexai-hack-day-uc-san-diego",
 
   /** Organiser inboxes; the backup is DS3's shared inbox. */

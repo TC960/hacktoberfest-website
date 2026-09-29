@@ -7,13 +7,13 @@ import ExtLink, { NewTab } from "./ExtLink";
 const STEPS = [
   {
     n: "01",
-    title: "Register on OrganizerHQ",
-    body: "Hacktoberfest runs every Fest through OrganizerHQ, Major League Hacking's event platform. Sign up there. It's free, and it's the only way in.",
+    title: `Apply by ${EVENT.appsCloseShort}`,
+    body: `Hacktoberfest runs every Fest through OrganizerHQ, Major League Hacking's event platform. Apply there by ${EVENT.appsClose}. It's free, and it's the only way in.`,
   },
   {
     n: "02",
-    title: "Check in at the door",
-    body: "Bring the account you registered with. You're checked in on OrganizerHQ when you arrive at the ballroom.",
+    title: "Join the Discord",
+    body: "Accepted hackers get a Discord invite after applications close. That's where teams form. On the day, bring your OrganizerHQ account to check in at the door.",
   },
   {
     n: "03",
@@ -61,7 +61,7 @@ export default function Register() {
             </div>
             <div className="pop-venue-cta">
               <a className="pop-btn" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-                Register now <IconExternal className="pop-btn-ico" />
+                Apply now <IconExternal className="pop-btn-ico" />
                 <NewTab />
               </a>
               <a className="pop-btn pop-btn--ghost" href={EVENT.mapUrl} target="_blank" rel="noreferrer">
