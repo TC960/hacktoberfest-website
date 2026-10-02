@@ -5,7 +5,6 @@ import TopBar from "./sections/TopBar";
 import Hero from "./sections/Hero";
 import Marquee from "./sections/Marquee";
 import About from "./sections/About";
-import Prizes from "./sections/Prizes";
 import Schedule from "./sections/Schedule";
 import Register from "./sections/Register";
 import Faq from "./sections/Faq";
@@ -20,7 +19,6 @@ export default function App() {
         <Hero />
         <Marquee />
         <About />
-        <Prizes />
         <Schedule />
         <Register />
         <Faq />

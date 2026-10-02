@@ -12,7 +12,6 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
     head: "Event",
     links: [
       ["About", "#about"],
-      ["Prizes", "#prizes"],
       ["Schedule", "#schedule"],
       ["FAQ", "#faq"],
     ],

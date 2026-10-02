@@ -3,7 +3,6 @@ import { NewTab } from "./ExtLink";
 
 const LINKS = [
   ["about", "#about"],
-  ["prizes", "#prizes"],
   ["schedule", "#schedule"],
   ["venue", "#register"],
   ["faq", "#faq"],
