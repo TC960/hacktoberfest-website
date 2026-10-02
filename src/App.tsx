@@ -5,7 +5,6 @@ import TopBar from "./sections/TopBar";
 import Hero from "./sections/Hero";
 import Marquee from "./sections/Marquee";
 import About from "./sections/About";
-import Tracks from "./sections/Tracks";
 import Prizes from "./sections/Prizes";
 import Schedule from "./sections/Schedule";
 import Register from "./sections/Register";
@@ -21,7 +20,6 @@ export default function App() {
         <Hero />
         <Marquee />
         <About />
-        <Tracks />
         <Prizes />
         <Schedule />
         <Register />

@@ -71,7 +71,7 @@ The event name is set once in `src/event.ts` (`name`; `nameHost` is the "@ UC Sa
 
 ## Sections
 
-Top bar · Hero · Marquee · About · Challenge tracks · Prizes · Schedule ·
+Top bar · Hero · Marquee · About · Prizes · Schedule ·
 How to join + venue · FAQ · Footer (code of conduct, rules)
 
 ## Sources

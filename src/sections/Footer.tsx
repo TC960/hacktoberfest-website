@@ -12,7 +12,6 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
     head: "Event",
     links: [
       ["About", "#about"],
-      ["Tracks", "#tracks"],
       ["Prizes", "#prizes"],
       ["Schedule", "#schedule"],
       ["FAQ", "#faq"],
@@ -105,7 +104,7 @@ export default function Footer() {
             <a style={fineLink} href={INCIDENT_TEL}>{EVENT.incidentPhone}</a>. Anonymous reports are accepted.
           </p>
           <p>
-            Schedule and tracks are provisional and subject to change. This Fest is open to
+            The schedule is provisional and subject to change. This Fest is open to
             UC San Diego students aged 18 and older. We take
             photos on the day and share them with MLH; tell an organiser if you'd rather not be in
             them.

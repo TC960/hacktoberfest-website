@@ -1,8 +1,5 @@
-import { CandyBucket, Drip } from "../art/Spooky";
-import { TRACKS } from "./Tracks";
+import { Drip } from "../art/Spooky";
 import { Rise } from "../motion";
-
-const COLOURS = ["pop-step--candle", "pop-step--lilac", "pop-step--teal", "pop-step--orange"];
 
 const EXTRAS = ["Stickers", "Postcards"];
 
@@ -21,29 +18,13 @@ export default function Prizes() {
           </div>
           <Rise i={2}>
             <p className="pop-note pop-prize-note">
-              Four tracks, four winning teams. Every member of each winning team gets a DEV Badge
+              Every member of each winning team gets a DEV Badge
               on their DEV profile. Winners are judged on what you build, not pull-request counts.
             </p>
           </Rise>
         </div>
 
         <Rise i={3}>
-          <div className="pop-ladder pop-ladder--four">
-            {TRACKS.map((t, i) => (
-              <div className={"pop-step pop-step--even " + COLOURS[i]} key={t.title}>
-                <span className="pop-step-fig">
-                  <CandyBucket className="pop-step-trophy" />
-                </span>
-                <div className="pop-step-body">
-                  <span className="pop-step-place pop-step-place--sm">{t.title}</span>
-                  <span className="pop-step-amt">DEV Badge for every teammate</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Rise>
-
-        <Rise i={4}>
           <div className="pop-track-prizes">
             <h3 className="pop-eyebrow">Hacktoberfest swag, while it lasts</h3>
             <ul>

@@ -18,7 +18,7 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     `What's the ${EVENT.name}?`,
     <>
-      Our Hacktoberfest Fest: a one-day Hack Day run by DS3 at {EVENT.campus}. The challenge tracks are all about open-source AI.
+      Our Hacktoberfest Fest: a one-day Hack Day run by DS3 at {EVENT.campus}. The challenge is all about open-source AI.
     </>,
   ],
   [
@@ -45,7 +45,7 @@ const QA: Array<[string, React.ReactNode]> = [
     "When does it start?",
     <>
       {EVENT.dateLong}, at the {EVENT.venue}. Doors open at {EVENT.doorsOpen} for check-in,
-      hacking begins at 4:30 PM, and winners are announced at 8:45 PM. We wrap up by 9:00 PM.
+      hacking begins at 4:30 PM, submissions are due at 7:30 PM, and winners are announced at 8:45 PM. We wrap up by 9:00 PM.
     </>,
   ],
   [
@@ -84,7 +84,7 @@ const QA: Array<[string, React.ReactNode]> = [
     <>
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
       applied with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
-      water bottle too. Dinner is served during judging; dietary needs? Email{" "}
+      water bottle too. Food is served at 6:00 PM; dietary needs? Email{" "}
       <ContactEmails />.
     </>,
   ],

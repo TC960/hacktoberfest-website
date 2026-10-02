@@ -8,10 +8,11 @@ type Row = { time: string; title: string; note?: string };
 
 const DAY: Row[] = [
   { time: "3:45 PM", title: "Check-in", note: "Doors open; check in on OrganizerHQ until 4:15" },
-  { time: "4:15 PM", title: "Challenge intro", note: "Code of conduct, tracks, how submissions work" },
+  { time: "4:15 PM", title: "Challenge intro", note: "Code of conduct, the challenge, how submissions work" },
   { time: "4:30 PM", title: "Hacking begins", note: "No project work before this" },
-  { time: "8:00 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
-  { time: "8:00 PM", title: "Judging + dinner", note: "Until 9:00 PM" },
+  { time: "6:00 PM", title: "Food is served", note: "Grab a plate and keep hacking" },
+  { time: "7:30 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
+  { time: "7:30 PM", title: "Judging", note: "Until winners are announced" },
   { time: "8:45 PM", title: "Winners announced" },
 ];
 
@@ -19,8 +20,7 @@ const PREP: Row[] = [
   { time: "01", title: "Apply on OrganizerHQ", note: `By ${EVENT.appsCloseShort}. You need it to check in and to submit` },
   { time: "02", title: "Join the Discord", note: "Invites go to accepted hackers. Find a team there" },
   { time: "03", title: "Set up GitHub and DEV", note: "Projects go in a public repo; badges go to your dev.to account" },
-  { time: "04", title: "Skim the tracks", note: "Agent skill, open-weight LLM or SLM, model harness" },
-  { time: "05", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
+  { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
 ];
 
 /** A wick down the side of the day's timeline that burns as you scroll through it. */
