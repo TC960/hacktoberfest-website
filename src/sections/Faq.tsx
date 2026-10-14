@@ -44,8 +44,10 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "When does it start?",
     <>
-      {EVENT.dateLong}, at the {EVENT.venue}. Doors open at {EVENT.doorsOpen} for check-in,
-      hacking begins at 4:30 PM, submissions are due at 7:30 PM, and winners are announced at 8:45 PM. We wrap up by 9:00 PM.
+      {EVENT.dateLong}, at {EVENT.venue} in the {EVENT.building}. Doors open at{" "}
+      {EVENT.doorsOpen} for check-in, hacking begins at {EVENT.hackingStarts}, submissions are due
+      at 6:15 PM, judging runs 6:30–7:30 PM, and winners are announced at 7:30 PM. We wrap up by
+      8:00 PM.
     </>,
   ],
   [
@@ -84,15 +86,15 @@ const QA: Array<[string, React.ReactNode]> = [
     <>
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
       applied with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
-      water bottle too. Food is served at 6:00 PM; dietary needs? Email{" "}
+      water bottle too. Food details are coming; dietary needs? Email{" "}
       <ContactEmails />.
     </>,
   ],
   [
     "Is the venue accessible? Need an accommodation?",
     <>
-      UC San Diego's <ExtLink href={EVENT.venueInfoUrl}>venue instructions</ExtLink> cover
-      getting to and around the {EVENT.venue}. To request an accommodation, email{" "}
+      {EVENT.venue} is in the {EVENT.building} at {EVENT.campus}. To request an accommodation,
+      email{" "}
       <ContactEmails /> before the event, or tell an
       organiser at check-in.
     </>,

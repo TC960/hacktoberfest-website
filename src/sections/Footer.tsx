@@ -51,7 +51,7 @@ export default function Footer() {
             <p className="pop-foot-dates">
               {EVENT.dateLong.replace(/^\w+, /, "")}
               <CandyCorn className="pop-foot-star" />
-              PC West Ballroom
+              {EVENT.venueShort}
             </p>
           </Rise>
         </div>

@@ -7,13 +7,12 @@ import { Drift, Rise } from "../motion";
 type Row = { time: string; title: string; note?: string };
 
 const DAY: Row[] = [
-  { time: "3:45 PM", title: "Check-in", note: "Doors open; check in on OrganizerHQ until 4:15" },
-  { time: "4:15 PM", title: "Challenge intro", note: "Code of conduct, the challenge, how submissions work" },
-  { time: "4:30 PM", title: "Hacking begins", note: "No project work before this" },
-  { time: "6:00 PM", title: "Food is served", note: "Grab a plate and keep hacking" },
-  { time: "7:30 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
-  { time: "7:30 PM", title: "Judging", note: "Until winners are announced" },
-  { time: "8:45 PM", title: "Winners announced" },
+  { time: "11:30 AM", title: "Check-in", note: "Doors open; check in on OrganizerHQ until 12:00" },
+  { time: "12:00 PM", title: "Opening ceremony", note: "Until 12:15. Code of conduct, the challenge, how submissions work" },
+  { time: "12:15 PM", title: "Hacking begins", note: "Six hours to build. No project work before this" },
+  { time: "6:15 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
+  { time: "6:30 PM", title: "Judging", note: "Until 7:30" },
+  { time: "7:30 PM", title: "Winners announced", note: "Wrapped by 8:00 PM" },
 ];
 
 const PREP: Row[] = [
@@ -92,11 +91,11 @@ export default function Schedule() {
 
         <div className="pop-sched-grid">
           <Column
-            label="Monday"
-            date={`${EVENT.dateShort} · ${EVENT.time === "TBD" ? "Start time TBD" : EVENT.time}`}
+            label={EVENT.dayName}
+            date={`${EVENT.dateShort} · ${EVENT.time}`}
             rows={DAY}
             rail
-            foot={`Doors open at ${EVENT.doorsOpen}. No project work before hacking begins at 4:30 PM.`}
+            foot={`Doors open at ${EVENT.doorsOpen}. No project work before hacking begins at ${EVENT.hackingStarts}.`}
           />
           <Column
             label="Before"

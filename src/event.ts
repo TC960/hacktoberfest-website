@@ -16,24 +16,29 @@ export const EVENT = {
   hostUrl: "https://ds3atucsd.com",
   format: "Hack Day",
 
-  dateLong: "Monday, October 19, 2026",
-  dateShort: "Oct 19",
-  time: "3:45 – 9:00 PM PT",
-  doorsOpen: "3:45 PM",
+  dateLong: "Sunday, October 25, 2026",
+  dateShort: "Oct 25",
+  dayName: "Sunday",
+  time: "11:30 AM – 8:00 PM PT",
+  doorsOpen: "11:30 AM",
+  hackingStarts: "12:15 PM",
   /** UC San Diego students only; minors (13–17) not admitted (OrganizerHQ). */
   eligibility: "UC San Diego students, 18+",
 
-  venue: "Price Center West Ballroom",
+  venue: "The Basement",
+  building: "Design & Innovation Building (DIB)",
+  /** Short form for tight spots: hero line, footer, marquee. */
+  venueShort: "The Basement, DIB",
   campus: "UC San Diego",
-  venueInfoUrl: "https://uctech.ucsd.edu/campus/venue.html",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=Price+Center+West+Ballroom+UC+San+Diego",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=The+Basement+Design+and+Innovation+Building+UC+San+Diego",
 
   /**
    * Registration and check-in happen on MLH's OrganizerHQ, which Hacktoberfest requires.
    */
   /** Applications close on this date; accepted hackers then get the Discord invite. */
-  appsClose: "Thursday, October 15",
-  appsCloseShort: "Oct 15",
+  appsClose: "Tuesday, October 20",
+  appsCloseShort: "Oct 20",
 
   registerUrl: "https://events.mlh.com/events/15194-hacktoberfest-x-spacexai-hack-day-uc-san-diego",
 

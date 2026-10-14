@@ -5,12 +5,12 @@ import { EVENT } from "../event";
 const ITEMS = [
   EVENT.name.toUpperCase(),
   EVENT.nameHost.toUpperCase(),
-  "MON OCT 19",
-  "PC WEST BALLROOM",
+  "SUN OCT 25",
+  "THE BASEMENT, DIB",
   "AI BELONGS TO EVERYONE",
   "BUILD WITH OPEN-SOURCE AI",
   "FREE TO ATTEND",
-  "APPLY BY OCT 15",
+  `APPLY BY ${EVENT.appsCloseShort.toUpperCase()}`,
 ];
 
 function Sequence() {
@@ -31,7 +31,6 @@ function Sequence() {
 }
 
 export default function Marquee() {
-  const [paused, setPaused] = useState(false);
   const [hover, setHover] = useState(false);
 
   return (
@@ -42,29 +41,20 @@ export default function Marquee() {
       onMouseLeave={() => setHover(false)}
     >
       <p className="pop-sr">
-        {EVENT.name} at UC San Diego — Monday October 19 — Price Center West Ballroom — AI
-        belongs to everyone — build with open-source AI — free to attend — apply on
-        OrganizerHQ by October 15.
+        {EVENT.name} at UC San Diego — {EVENT.dateLong} — {EVENT.venueShort} — AI belongs to
+        everyone — build with open-source AI — free to attend — apply on OrganizerHQ by{" "}
+        {EVENT.appsClose}.
       </p>
       <div className="pop-marquee-clip">
         <div
           className="pop-marquee-track"
           aria-hidden="true"
-          style={paused || hover ? { animationPlayState: "paused" } : undefined}
+          style={hover ? { animationPlayState: "paused" } : undefined}
         >
           <Sequence />
           <Sequence />
         </div>
       </div>
-      <button
-        type="button"
-        className="pop-marquee-toggle"
-        aria-pressed={paused}
-        onClick={() => setPaused((p) => !p)}
-      >
-        {paused ? "Play" : "Pause"}
-        <span className="pop-sr"> scrolling text</span>
-      </button>
       <Drip />
     </section>
   );

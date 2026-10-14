@@ -18,7 +18,7 @@ const META: Array<[string, string]> = [
   ["Format", `${EVENT.format}, in person`],
   ["Date", EVENT.dateLong],
   ["Time", EVENT.time],
-  ["Venue", `${EVENT.venue}, ${EVENT.campus}`],
+  ["Venue", `${EVENT.venue}, ${EVENT.building}`],
   ["Who", EVENT.eligibility],
   ["Cost", "Free"],
   ["Level", "All of them, including none"],

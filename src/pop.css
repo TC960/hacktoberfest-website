@@ -584,21 +584,6 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.pop-root .pop-marquee-toggle {
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--ink);
-  color: var(--bone);
-  border: 2px solid var(--bone);
-  border-radius: 999px;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 /* ==========================================================================
    4 · ABOUT — lavender band, scrollytelling recipe: the cauldron pins in

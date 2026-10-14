@@ -5,9 +5,9 @@ Event site for **Hacktoberfest Hack Day San Diego × SpaceXAI**, an official **H
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.
 
-- **When:** Monday, October 19, 2026 · 3:45 – 9:00 PM PT
-- **Where:** Price Center West Ballroom, UC San Diego
-- **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions). Applications close Thursday, October 15; accepted hackers get the Discord invite, and teams form there.
+- **When:** Sunday, October 25, 2026 · 11:30 AM – 8:00 PM PT
+- **Where:** The Basement, Design & Innovation Building (DIB), UC San Diego
+- **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions). Applications close Tuesday, October 20; accepted hackers get the Discord invite, and teams form there.
 
 The design is a cute-spooky Halloween theme built to match DS3's dino sticker: night-purple and
 pumpkin-orange bands joined by wax drips, rounded "sticker" cards with thick ink outlines,
@@ -56,7 +56,7 @@ Every fact the page shows (date, time, venue, links, emails) is in [`src/event.t
 Before launch:
 
 - [x] `registerUrl`: points at this Fest's OrganizerHQ page
-- [x] `time`: 3:45 – 9:00 PM PT
+- [x] `time`: 11:30 AM – 8:00 PM PT
 - [ ] `contactEmail`: add the organizers' inbox (the sponsor link stays hidden until it's set)
 - [ ] Schedule offsets in `src/sections/Schedule.tsx`: switch to clock times once the start time is known
 
