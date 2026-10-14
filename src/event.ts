@@ -40,6 +40,10 @@ export const EVENT = {
   appsClose: "Tuesday, October 20",
   appsCloseShort: "Oct 20",
 
+  /** Google Form for judge sign-ups. */
+  judgeUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSdsH9PSq5eIe4Yk6SVXkeINkYyTHl4j3BtF9A1tkXWfdhUx2w/viewform",
+
   registerUrl: "https://events.mlh.com/events/15194-hacktoberfest-x-spacexai-hack-day-uc-san-diego",
 
   /** Organiser inboxes; the backup is DS3's shared inbox. */

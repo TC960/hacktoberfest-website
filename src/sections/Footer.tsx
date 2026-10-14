@@ -20,6 +20,7 @@ const COLS: Array<{ head: string; links: Array<[string, string]> }> = [
     head: "Get involved",
     links: [
       ["Apply", EVENT.registerUrl],
+      ["Become a judge", EVENT.judgeUrl],
       ["Become a sponsor", CONTACT_MAILTO],
       ["Hacktoberfest.com", EVENT.hacktoberfestUrl],
       ["DS3 website", EVENT.hostUrl],

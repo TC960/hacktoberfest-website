@@ -69,14 +69,12 @@ export default function Hero() {
           <Rise i={3}>
             <div className="pop-hero-cta">
               <a className="pop-btn pop-btn--lg" href={EVENT.registerUrl} target="_blank" rel="noreferrer">
-                Apply
+                Apply as a Hacker
                 <NewTab />
               </a>
-              <a className="pop-btn pop-btn--lg pop-btn--ghost" href="#about">
-                Learn more
-                <svg className="pop-btn-down" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <a className="pop-btn pop-btn--lg pop-btn--judge" href={EVENT.judgeUrl} target="_blank" rel="noreferrer">
+                Apply as a Judge
+                <NewTab />
               </a>
             </div>
           </Rise>
@@ -103,6 +101,13 @@ export default function Hero() {
       </div>
 
       <Graveyard className="pop-graveyard" color="#120a20" />
+      {/* floats over the hills, just above the orange banner */}
+      <a className="pop-hero-more" href="#about">
+        Learn more
+        <svg className="pop-btn-down" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
     </section>
   );
 }

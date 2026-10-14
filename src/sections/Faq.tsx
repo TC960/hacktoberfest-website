@@ -51,6 +51,13 @@ const QA: Array<[string, React.ReactNode]> = [
     </>,
   ],
   [
+    "Can I judge instead?",
+    <>
+      Yes, please. If you know your way around open-source AI,{" "}
+      <ExtLink href={EVENT.judgeUrl}>sign up to judge</ExtLink> and help pick the winners.
+    </>,
+  ],
+  [
     "Who runs the day?",
     <>
       {HOST_CAP} (<ExtLink href={EVENT.hostUrl}>{EVENT.hostOrg}</ExtLink>), in partnership

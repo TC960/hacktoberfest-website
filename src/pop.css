@@ -1634,6 +1634,40 @@
   height: auto;
 }
 
+/* hero: the judge button is the purple twin of the orange hacker button */
+.pop-root .pop-btn--judge {
+  background: var(--violet);
+  color: var(--ink);
+}
+.pop-root .pop-btn--judge:hover {
+  background: var(--lilac);
+}
+/* "Learn more" floats over the graveyard hills, just above the marquee */
+.pop-root .pop-hero-more {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(0.6rem, 1.6vw, 1.4rem);
+  z-index: 4;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border: 2px solid var(--bone);
+  border-radius: 999px;
+  background: rgba(18, 10, 32, 0.55);
+  color: var(--bone);
+  font-family: var(--round);
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+.pop-root .pop-hero-more:hover {
+  background: var(--bone);
+  color: var(--ink);
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
