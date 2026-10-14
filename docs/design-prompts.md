@@ -17,7 +17,8 @@ Always write the event name out in full like that.
 EVENT FACTS
 - Official Hacktoberfest 2026 Fest (Hack Day format), brought to you by DS3 Hackathons
   (Data Science Students Society @ UCSD) in partnership with Major League Hacking (MLH).
-- Monday, October 19, 2026 · Price Center West Ballroom, UC San Diego · start time TBD.
+- Sunday, October 25, 2026 · 11:30 AM – 8:00 PM · The Basement, Design & Innovation Building
+  (DIB), UC San Diego. Applications close October 20.
 - Free. UC San Diego students 18+, every skill level. Registration and check-in happen on
   MLH's OrganizerHQ.
 - Theme: "AI belongs to everyone": build with open-source and open-weight AI.

@@ -5,8 +5,9 @@ import { EVENT } from "../event";
 const ITEMS = [
   EVENT.name.toUpperCase(),
   EVENT.nameHost.toUpperCase(),
-  "MON OCT 19",
-  "PC WEST BALLROOM",
+  "SUN OCT 25",
+  "THE BASEMENT, DIB",
+  `APPLY BY ${EVENT.applyBy.toUpperCase()}`,
   "AI BELONGS TO EVERYONE",
   "BUILD WITH OPEN-SOURCE AI",
   "MAKE IT LEGENDARY",
@@ -43,7 +44,7 @@ export default function Marquee() {
       onMouseLeave={() => setHover(false)}
     >
       <p className="pop-sr">
-        {EVENT.name} {EVENT.nameHost} — Monday October 19 — Price Center West Ballroom — AI
+        {EVENT.name} {EVENT.nameHost} — Sunday October 25 — The Basement, DIB — apply by {EVENT.applyBy} — AI
         belongs to everyone — build with open-source AI — free to attend — register on
         OrganizerHQ.
       </p>

@@ -7,13 +7,13 @@ import ExtLink, { NewTab } from "./ExtLink";
 const STEPS = [
   {
     n: "01",
-    title: "Register on OrganizerHQ",
-    body: "Hacktoberfest runs every Fest through OrganizerHQ, Major League Hacking's event platform. Sign up there. It's free, and it's the only way in.",
+    title: "Apply on OrganizerHQ",
+    body: `Hacktoberfest runs every Fest through OrganizerHQ, Major League Hacking's event platform. Apply there by ${EVENT.applyBy}. It's free, and it's the only way in.`,
   },
   {
     n: "02",
     title: "Check in at the door",
-    body: "Bring the account you registered with. You're checked in on OrganizerHQ when you arrive at the ballroom.",
+    body: "Bring the account you registered with. You're checked in on OrganizerHQ when you arrive at The Basement.",
   },
   {
     n: "03",
@@ -56,7 +56,7 @@ export default function Register() {
               <p className="pop-eyebrow">Venue</p>
               <p className="pop-venue-name">{EVENT.venue}</p>
               <p className="pop-venue-sub">
-                Price Center, {EVENT.campus} · {EVENT.dateLong} · {EVENT.time}
+                {EVENT.building}, {EVENT.campus} · {EVENT.dateLong} · {EVENT.time}
               </p>
             </div>
             <div className="pop-venue-cta">
@@ -74,7 +74,7 @@ export default function Register() {
 
         <Rise i={4}>
           <p className="pop-note pop-reg-online">
-            Can't make it on the 19th? Hacktoberfest also runs online challenges all October at{" "}
+            Can't make it on the 25th? Hacktoberfest also runs online challenges all October at{" "}
             <ExtLink href={EVENT.hacktoberfestUrl}>hacktoberfest.com</ExtLink>.
           </p>
         </Rise>

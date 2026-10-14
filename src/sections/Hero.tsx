@@ -63,7 +63,7 @@ export default function Hero() {
 
           <Rise i={2}>
             <p className="pop-hero-lead">
-              {EVENT.dateLong} · {EVENT.time} · {EVENT.venue}
+              {EVENT.dateLong} · {EVENT.time} · {EVENT.venueShort}
             </p>
           </Rise>
           <Rise i={4}>
@@ -76,6 +76,7 @@ export default function Hero() {
                 How it works
               </a>
             </div>
+            <p className="pop-hero-deadline">Applications close {EVENT.applyBy}</p>
           </Rise>
         </motion.div>
 

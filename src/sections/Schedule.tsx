@@ -6,20 +6,17 @@ import { Drift, Rise } from "../motion";
 
 type Row = { time: string; title: string; note?: string };
 
-// The day runs 4–9 PM; slot times are provisional.
 const DAY: Row[] = [
-  { time: "4:00 PM", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
-  { time: "4:15 PM", title: "Opening ceremony", note: "Code of conduct, tracks, how submissions work" },
-  { time: "4:30 PM", title: "Team formation", note: "Come solo, leave with a team" },
-  { time: "4:45 PM", title: "Hacking starts", note: "Submissions open on OrganizerHQ" },
-  { time: "6:30 PM", title: "Break + workshops", note: "Food details and lineup TBA" },
-  { time: "8:00 PM", title: "Submissions close", note: "Hard stop. Really." },
-  { time: "8:10 PM", title: "Demos", note: "Every team gets the same shot" },
-  { time: "8:45 PM", title: "Winners + closing", note: "Wrapped by 9:00 PM" },
+  { time: "11:30 AM", title: "Check-in opens", note: "Check in on OrganizerHQ at the door" },
+  { time: "12:00 PM", title: "Opening ceremony", note: "Until 12:15. Code of conduct, tracks, how submissions work" },
+  { time: "12:15 PM", title: "Hacking starts", note: "Six hours to build. Submissions open on OrganizerHQ" },
+  { time: "6:15 PM", title: "Hacking stops", note: "Submissions close. Hard stop." },
+  { time: "6:30 PM", title: "Judging", note: "Until 7:30. Show the judges what you built" },
+  { time: "7:30 PM", title: "Winners announced", note: "Wrapped by 8:00 PM" },
 ];
 
 const PREP: Row[] = [
-  { time: "01", title: "Register on OrganizerHQ", note: "You need it to check in and to submit" },
+  { time: "01", title: "Apply on OrganizerHQ", note: `By ${EVENT.applyBy}. You need it to check in and to submit` },
   { time: "02", title: "Set up GitHub and DEV", note: "Projects go in a public repo; badges go to your dev.to account" },
   { time: "03", title: "Skim the tracks", note: "Agent skill, open-weight LLM or SLM, model harness, and Make it Legendary" },
   { time: "04", title: "Pack the bag", note: "Laptop, charger, phone, photo ID, refillable water bottle" },
@@ -94,11 +91,11 @@ export default function Schedule() {
 
         <div className="pop-sched-grid">
           <Column
-            label="Monday"
+            label={EVENT.dayName}
             date={`${EVENT.dateShort} · ${EVENT.time}`}
             rows={DAY}
             rail
-            foot="Slot times are provisional and may shift a little on the day."
+            foot="Times may shift a little on the day."
           />
           <Column
             label="Before"

@@ -35,15 +35,16 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "How do I register?",
     <>
-      On OrganizerHQ, MLH's event platform. Every Hacktoberfest Fest uses it for registration,
-      check-in and project submissions.{" "}
-      <ExtLink href={EVENT.registerUrl}>Register here</ExtLink>.
+      Apply on OrganizerHQ, MLH's event platform, by {EVENT.applyBy}. Every Hacktoberfest Fest
+      uses it for registration, check-in and project submissions.{" "}
+      <ExtLink href={EVENT.registerUrl}>Apply here</ExtLink>.
     </>,
   ],
   [
     "When does it start?",
     <>
-      {EVENT.dateLong}, {EVENT.time}, at the {EVENT.venue}. Check-in opens at 4:00 PM.
+      {EVENT.dateLong}, {EVENT.time}, at {EVENT.venue} in the {EVENT.building}. Check-in
+      opens at 11:30 AM and hacking runs from 12:15 to 6:15 PM.
     </>,
   ],
   [
@@ -99,8 +100,8 @@ const QA: Array<[string, React.ReactNode]> = [
   [
     "Is the venue accessible? Need an accommodation?",
     <>
-      UC San Diego's <ExtLink href={EVENT.venueInfoUrl}>venue instructions</ExtLink> cover
-      getting to and around the {EVENT.venue}. To request an accommodation, email{" "}
+      {EVENT.venue} is in the {EVENT.building} at {EVENT.campus}. To request an accommodation,
+      email{" "}
       <ContactEmails /> before the event, or tell an
       organiser at check-in.
     </>,
