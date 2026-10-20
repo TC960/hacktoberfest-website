@@ -7,12 +7,13 @@ import { Drift, Rise } from "../motion";
 type Row = { time: string; title: string; note?: string };
 
 const DAY: Row[] = [
-  { time: "11:30 AM", title: "Check-in", note: "Doors open; check in on OrganizerHQ until 12:00" },
-  { time: "12:00 PM", title: "Opening ceremony", note: "Until 12:15. Code of conduct, the challenge, how submissions work" },
-  { time: "12:15 PM", title: "Hacking begins", note: "Six hours to build. No project work before this" },
-  { time: "6:15 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
+  { time: "12:00 PM", title: "Check-in", note: "Doors open; check in on OrganizerHQ" },
+  { time: "12:30 PM", title: "Opening ceremony", note: "Code of conduct, the challenge, how submissions work" },
+  { time: "1:00 PM", title: "Hacking begins", note: "No project work before this" },
+  { time: "2:30 PM", title: "Lunch is served", note: "Grab a plate and keep hacking" },
+  { time: "6:30 PM", title: "Submissions due", note: "On OrganizerHQ Challenges. Hard stop." },
   { time: "6:30 PM", title: "Judging", note: "Until 7:30" },
-  { time: "7:30 PM", title: "Winners announced", note: "Wrapped by 8:00 PM" },
+  { time: "7:30 PM", title: "Closing ceremony + prizes", note: "Wrapped by 8:00 PM" },
 ];
 
 const PREP: Row[] = [

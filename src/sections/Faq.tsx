@@ -45,9 +45,9 @@ const QA: Array<[string, React.ReactNode]> = [
     "When does it start?",
     <>
       {EVENT.dateLong}, at {EVENT.venue} in the {EVENT.building}. Doors open at{" "}
-      {EVENT.doorsOpen} for check-in, hacking begins at {EVENT.hackingStarts}, submissions are due
-      at 6:15 PM, judging runs 6:30–7:30 PM, and winners are announced at 7:30 PM. We wrap up by
-      8:00 PM.
+      {EVENT.doorsOpen} for check-in, the opening ceremony is at 12:30 PM, hacking begins at{" "}
+      {EVENT.hackingStarts}, and submissions are due at 6:30 PM. Judging runs 6:30–7:30 PM,
+      then the closing ceremony and prizes until 8:00 PM.
     </>,
   ],
   [
@@ -93,7 +93,7 @@ const QA: Array<[string, React.ReactNode]> = [
     <>
       Laptop, charger, phone and photo ID; a GitHub account; the OrganizerHQ account you
       applied with; and a DEV (dev.to) account so badges can be awarded. Bring a refillable
-      water bottle too. Food details are coming; dietary needs? Email{" "}
+      water bottle too. Lunch is served around 2:30 PM; dietary needs? Email{" "}
       <ContactEmails />.
     </>,
   ],

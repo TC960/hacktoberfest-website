@@ -19,9 +19,9 @@ export const EVENT = {
   dateLong: "Sunday, October 25, 2026",
   dateShort: "Oct 25",
   dayName: "Sunday",
-  time: "11:30 AM – 8:00 PM PT",
-  doorsOpen: "11:30 AM",
-  hackingStarts: "12:15 PM",
+  time: "12:00 – 8:00 PM PT",
+  doorsOpen: "12:00 PM",
+  hackingStarts: "1:00 PM",
   /** UC San Diego students only; minors (13–17) not admitted (OrganizerHQ). */
   eligibility: "UC San Diego students, 18+",
 
