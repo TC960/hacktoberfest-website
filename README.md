@@ -1,6 +1,6 @@
-# Hacktoberfest Hack Day San Diego × SpaceXAI
+# Hacktoberfest Hack Day San Diego × SpaceXSI
 
-Event site for **Hacktoberfest Hack Day San Diego × SpaceXAI**, an official **Hacktoberfest 2026 Fest**
+Event site for **Hacktoberfest Hack Day San Diego × SpaceXSI**, an official **Hacktoberfest 2026 Fest**
 (Hack Day format), brought to you by the
 Hackathons team at DS3 (Data Science Students Society @ UCSD) with Major League Hacking.
 Open to UC San Diego students, 18+.

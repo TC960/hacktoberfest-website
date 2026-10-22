@@ -71,7 +71,7 @@ export function Pumpkin({ face = true, ...art }: Art & { face?: boolean }) {
   );
 }
 
-/** A jack-o'-lantern with a ring round it: the "space" in SpaceXAI. */
+/** A jack-o'-lantern with a ring round it: the "space" in SpaceXSI. */
 export function PumpkinPlanet(art: Art) {
   return (
     <svg {...svgProps("-40 -10 200 130", art)}>

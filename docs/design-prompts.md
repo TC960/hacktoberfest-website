@@ -11,7 +11,7 @@ Paste this into a website/UI generator (v0, Lovable, Claude, etc.), and attach
 `public/mascot.png` if the tool takes images.
 
 ```text
-Design a one-page event website for "Hacktoberfest Hack Day San Diego × SpaceXAI".
+Design a one-page event website for "Hacktoberfest Hack Day San Diego × SpaceXSI".
 Always write the event name out in full like that.
 
 EVENT FACTS
@@ -53,7 +53,7 @@ LOOK AND FEEL
   sparkles, a few bats flapping across the hero, a graveyard hill silhouette at the bottom
   of the hero, a spider dangling on a thread, cobwebs in card corners, floating ghosts,
   candy corn as bullet or separator icons, and a jack-o'-lantern planet with a ring (a nod to
-  SpaceXAI).
+  SpaceXSI).
 - Track icons as magic objects: spellbook (agent skill), crystal ball (LLM), potion bottle
   (SLM), cauldron (model harness). Prizes shown as jack-o'-lantern candy buckets.
 - NO isometric or blocky 3D art, no hard rectangles, no realistic horror imagery.

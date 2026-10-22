@@ -5,7 +5,7 @@
 
 export const EVENT = {
   /** The event's full name, as it should read everywhere. */
-  name: "Hacktoberfest Hack Day San Diego × SpaceXAI",
+  name: "Hacktoberfest Hack Day San Diego × SpaceXSI",
   /** Campus tag: the hero pill and a marquee item. The name already says San Diego, so it is not appended to it. */
   nameHost: "@ UC San Diego",
   /** Who puts the event on. */
