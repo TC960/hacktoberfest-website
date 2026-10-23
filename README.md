@@ -7,7 +7,7 @@ Open to UC San Diego students, 18+.
 
 - **When:** Sunday, October 25, 2026 · 12:00 – 8:00 PM PT
 - **Where:** The Basement, Design & Innovation Building (DIB), UC San Diego
-- **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions). Applications close Tuesday, October 20; accepted hackers get the Discord invite, and teams form there.
+- **Registration:** MLH OrganizerHQ (Hacktoberfest requires it for every Fest's registration, check-in and project submissions). Applications close Saturday, October 24; accepted hackers get the Discord invite, and teams form there.
 
 The design is a cute-spooky Halloween theme built to match DS3's dino sticker: night-purple and
 pumpkin-orange bands joined by wax drips, rounded "sticker" cards with thick ink outlines,

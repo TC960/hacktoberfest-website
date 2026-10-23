@@ -37,8 +37,8 @@ export const EVENT = {
    * Registration and check-in happen on MLH's OrganizerHQ, which Hacktoberfest requires.
    */
   /** Applications close on this date; accepted hackers then get the Discord invite. */
-  appsClose: "Tuesday, October 20",
-  appsCloseShort: "Oct 20",
+  appsClose: "Saturday, October 24",
+  appsCloseShort: "Oct 24",
 
   /** Google Form for judge sign-ups. */
   judgeUrl:
